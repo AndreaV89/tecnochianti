@@ -1,0 +1,151 @@
+.footer {
+  border-top: 1px solid var(--color-grigio-chiaro);
+  padding: 6rem 2rem 4.5rem;
+}
+
+.inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Sinistra */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.brandTop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.name {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  font-size: 0.8125rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-antracite);
+}
+
+.discipline {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  color: var(--color-grigio-medio);
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.75;
+  color: var(--color-grigio-medio);
+  max-width: 34ch;
+}
+
+/* Centro */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.navLabel {
+  font-family: var(--font-sans);
+  font-size: 0.5625rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-grigio-medio);
+  margin-bottom: 0.25rem;
+}
+
+.navLink {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  color: var(--color-grigio-medio);
+  transition: color var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--color-terracotta);
+}
+
+/* Destra */
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.social,
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.socialLink,
+.contactLink {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  color: var(--color-grigio-medio);
+  transition: color var(--transition-fast);
+}
+
+.socialLink:hover,
+.contactLink:hover {
+  color: var(--color-terracotta);
+}
+
+.address {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  color: var(--color-grigio-medio);
+  margin-top: 0.25rem;
+}
+
+.legal {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  color: var(--color-grigio-medio);
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-grigio-chiaro);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 4rem 1.25rem 3rem;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .brand {
+    grid-column: auto;
+  }
+}

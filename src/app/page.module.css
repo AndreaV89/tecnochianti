@@ -1,0 +1,122 @@
+/* Manifesto */
+.manifesto {
+  padding: 7rem 2rem 8rem;
+  border-bottom: 1px solid var(--color-grigio-chiaro);
+}
+
+.manifestoInner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.manifestoText {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-thin);
+  font-style: italic;
+  font-size: clamp(2.25rem, 5.5vw, 4.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--color-antracite);
+  max-width: 12em;
+}
+
+/* Works */
+.works {
+  padding: 6.5rem 0 8rem;
+}
+
+.worksInner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.worksHeader {
+  margin-bottom: 3.5rem;
+}
+
+.worksLabel {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-grigio-medio);
+}
+
+.worksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.worksFooter {
+  margin-top: 4.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.allWorksLink {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: var(--weight-regular);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-antracite);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  transition: color var(--transition-fast);
+}
+
+.allWorksLink::after {
+  content: '→';
+  color: var(--color-terracotta);
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.allWorksLink:hover {
+  color: var(--color-terracotta);
+}
+
+.allWorksLink:hover::after {
+  transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .worksGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .manifesto {
+    padding: 5rem 1.25rem 6rem;
+  }
+
+  .works {
+    padding: 5rem 0 6rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .works {
+    padding: 4rem 0 5rem;
+  }
+
+  .worksInner {
+    padding: 0 1.25rem;
+  }
+
+  .worksGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .worksHeader {
+    margin-bottom: 2.5rem;
+  }
+}

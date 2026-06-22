@@ -1,0 +1,77 @@
+.card {
+  display: block;
+  color: inherit;
+  cursor: default;
+}
+
+.card:focus-visible {
+  outline: 1px solid var(--color-antracite);
+  outline-offset: 4px;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: var(--color-grigio-chiaro);
+  filter: grayscale(1);
+  transition: filter var(--transition-card);
+}
+
+.card:hover .imageWrapper {
+  filter: grayscale(0);
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  font-family: var(--font-sans);
+  font-size: 0.5625rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-carta);
+  background: rgba(43, 42, 39, 0.55);
+  padding: 0.35rem 0.65rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.meta {
+  padding-top: 1.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.category {
+  font-family: var(--font-sans);
+  font-size: 0.5625rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-grigio-medio);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-light);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-antracite);
+}
+
+.year {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  color: var(--color-grigio-medio);
+  margin-top: 0.125rem;
+}

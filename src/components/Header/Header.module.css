@@ -1,0 +1,121 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.75rem 2rem;
+  transition:
+    background-color var(--transition-medium),
+    backdrop-filter var(--transition-medium),
+    -webkit-backdrop-filter var(--transition-medium),
+    border-bottom-color var(--transition-medium);
+  border-bottom: 1px solid transparent;
+}
+
+.header.scrolled {
+  background-color: rgba(247, 245, 241, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: var(--color-grigio-chiaro);
+}
+
+.inner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.logoName {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  font-size: 0.8125rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-carta);
+  transition: color var(--transition-fast);
+}
+
+.logoDiscipline {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  color: rgba(247, 245, 241, 0.55);
+  transition: color var(--transition-fast);
+}
+
+.header.scrolled .logoName {
+  color: var(--color-antracite);
+}
+
+.header.scrolled .logoDiscipline {
+  color: var(--color-grigio-medio);
+}
+
+.nav {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.navLink {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(247, 245, 241, 0.85);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width var(--transition-medium);
+}
+
+.navLink:hover::after,
+.navLink:focus-visible::after {
+  width: 100%;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--color-carta);
+}
+
+.header.scrolled .navLink {
+  color: var(--color-grigio-medio);
+}
+
+.header.scrolled .navLink:hover,
+.header.scrolled .navLink:focus-visible {
+  color: var(--color-terracotta);
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .nav {
+    gap: 1.75rem;
+  }
+}

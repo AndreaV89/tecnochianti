@@ -1,0 +1,35 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background-color: var(--color-antracite);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--transition-hero);
+  z-index: 0;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Overlay sottile per leggibilità header e profondità visiva */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(43, 42, 39, 0.32) 0%,
+    rgba(43, 42, 39, 0.06) 30%,
+    rgba(43, 42, 39, 0.04) 60%,
+    rgba(43, 42, 39, 0.2) 100%
+  );
+  pointer-events: none;
+}

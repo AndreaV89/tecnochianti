@@ -1,0 +1,74 @@
+/* ===========================================
+   Design Tokens — TecnoChianti
+   =========================================== */
+
+:root {
+  /* Palette */
+  --color-carta: #F7F5F1;
+  --color-grigio-chiaro: #E8E6E0;
+  --color-grigio-medio: #A6A39A;
+  --color-antracite: #2B2A27;
+  --color-terracotta: #B8623C;
+
+  /* Font families (variabili CSS iniettate da next/font) */
+  --font-serif: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-work-sans), system-ui, -apple-system, sans-serif;
+
+  /* Font weights */
+  --weight-thin: 200;
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+
+  /* Layout */
+  --content-width: 1200px;
+  --gutter: 2rem;
+
+  /* Transitions */
+  --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-hero: 1500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-card: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===========================================
+   Reset & Base
+   =========================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.65;
+  color: var(--color-antracite);
+  background-color: var(--color-carta);
+  min-height: 100svh;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p, h1, h2, h3, h4 {
+  overflow-wrap: break-word;
+}
