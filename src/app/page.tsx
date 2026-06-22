@@ -3,35 +3,8 @@ import HeroSlideshow from '@/components/HeroSlideshow/HeroSlideshow'
 import ProjectCard from '@/components/ProjectCard/ProjectCard'
 import Footer from '@/components/Footer/Footer'
 import Link from 'next/link'
-import type { Project } from '@/types'
+import { featuredProjects } from '@/data/projects'
 import styles from './page.module.css'
-
-const featuredProjects: Project[] = [
-  {
-    id: 'villa-in-chianti',
-    title: 'Villa in Chianti',
-    category: 'Residenziale',
-    year: 2023,
-    imageSrc: 'https://picsum.photos/seed/proj101/800/1067',
-    imageAlt: 'Villa residenziale in Chianti',
-  },
-  {
-    id: 'albergo-diffuso',
-    title: 'Albergo Diffuso',
-    category: 'Ricettiva',
-    year: 2022,
-    imageSrc: 'https://picsum.photos/seed/proj202/800/1067',
-    imageAlt: 'Progetto albergo diffuso in Toscana',
-  },
-  {
-    id: 'ex-frantoio',
-    title: 'Ex Frantoio',
-    category: 'Recupero',
-    year: 2021,
-    imageSrc: 'https://picsum.photos/seed/proj303/800/1067',
-    imageAlt: 'Recupero di un ex frantoio',
-  },
-]
 
 export default function HomePage() {
   return (

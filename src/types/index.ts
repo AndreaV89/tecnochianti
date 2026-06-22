@@ -6,4 +6,5 @@ export interface Project {
   imageSrc: string
   imageAlt: string
   inProgress?: boolean
+  featured?: boolean
 }
