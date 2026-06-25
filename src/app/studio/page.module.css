@@ -1,0 +1,177 @@
+.main {
+  min-height: 100svh;
+}
+
+/* Header pagina */
+.pageHeader {
+  padding: 7rem 2rem 2.5rem;
+  border-bottom: 1px solid var(--color-grigio-chiaro);
+}
+
+.pageHeaderInner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.pageTitle {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-thin);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  letter-spacing: -0.02em;
+  color: var(--color-antracite);
+}
+
+/* Intro */
+.intro {
+  padding: 6rem 2rem 0;
+}
+
+.introInner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.textColumn {
+  max-width: 58ch;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.body {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-antracite);
+}
+
+/* Pull quote */
+.pullQuote {
+  margin: 5rem 0 0;
+  font-family: var(--font-serif);
+  font-weight: var(--weight-thin);
+  font-style: italic;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-antracite);
+  border: none;
+  padding: 0;
+  max-width: 20em;
+}
+
+/* Sezioni: professionisti e servizi */
+.section {
+  padding: 0 2rem;
+}
+
+.sectionInner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+/* Divisore con label */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 5rem 0 4rem;
+}
+
+.divider::before {
+  content: '';
+  flex: 0 0 2.5rem;
+  height: 1px;
+  background: var(--color-grigio-chiaro);
+}
+
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-grigio-chiaro);
+}
+
+.sectionLabel {
+  font-family: var(--font-sans);
+  font-size: 0.5625rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-grigio-medio);
+  white-space: nowrap;
+}
+
+/* Professionisti */
+.professionals {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-bottom: 2rem;
+}
+
+.professional {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.professionalName {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  font-size: 0.8125rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-antracite);
+}
+
+.professionalRole {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: 0.875rem;
+  color: var(--color-grigio-medio);
+}
+
+/* Servizi */
+.services {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-bottom: 6rem;
+  max-width: 44ch;
+}
+
+.service {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--color-antracite);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-grigio-chiaro);
+  transition: color var(--transition-fast);
+}
+
+.service:first-child {
+  border-top: 1px solid var(--color-grigio-chiaro);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pageHeader {
+    padding: 6rem 1.25rem 2rem;
+  }
+
+  .intro {
+    padding: 4rem 1.25rem 0;
+  }
+
+  .section {
+    padding: 0 1.25rem;
+  }
+
+  .pullQuote {
+    margin-top: 4rem;
+  }
+}
