@@ -23,6 +23,15 @@ const FOLDER_TO_SLUG = {
   "Le Prata": "cantina-le-prata",
 };
 
+// Ritagli manuali, per nome del file originale.
+// I valori sono la frazione da togliere da ciascun lato (0.1 = 10%).
+const CROPS = {
+  "complesso-gaiole": {
+    // Operaio sul bordo destro
+    "IMG_20260423_100721.jpg": { right: 0.075 },
+  },
+};
+
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".tif", ".tiff", ".webp", ".heic"]);
 const MAX_SIZE = 2400;
 const QUALITY = 80;
@@ -62,8 +71,23 @@ async function processProject(folder, slug) {
 
     // rotate() senza argomenti applica l'orientamento EXIF.
     // sharp non copia i metadati (EXIF, GPS, ICC...) se non si chiama withMetadata().
-    const info = await sharp(inputPath)
-      .rotate()
+    let image = sharp(inputPath).rotate();
+
+    const crop = CROPS[slug]?.[name];
+    if (crop) {
+      // extract() dopo rotate() lavora sull'immagine già raddrizzata
+      const { width, height } = (await sharp(inputPath).metadata()).autoOrient;
+      const left = Math.round(width * (crop.left ?? 0));
+      const top = Math.round(height * (crop.top ?? 0));
+      image = image.extract({
+        left,
+        top,
+        width: Math.round(width * (1 - (crop.right ?? 0))) - left,
+        height: Math.round(height * (1 - (crop.bottom ?? 0))) - top,
+      });
+    }
+
+    const info = await image
       .resize({ width: MAX_SIZE, height: MAX_SIZE, fit: "inside", withoutEnlargement: true })
       .webp({ quality: QUALITY })
       .toFile(outputPath);

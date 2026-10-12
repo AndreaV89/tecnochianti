@@ -3,6 +3,7 @@ import type { Project } from '@/types'
 // Testi da tecnochianti-contenuti-progetti.md.
 // I dati ancora da confermare col cliente sono lasciati vuoti ('') e non compaiono sul sito.
 // Copertina, foto e hero: si cambiano modificando il nome file (vedi /anteprima-foto).
+// L'ordine di `photos` è l'ordine della galleria; le foto escluse restano in public/ ma non compaiono.
 
 export const projects: Project[] = [
   {
@@ -27,10 +28,10 @@ export const projects: Project[] = [
       { label: 'Impianti', value: 'Pompa di calore, VMC, fotovoltaico con accumulo' },
       { label: 'Anno', value: '' },
     ],
-    cover: '01.webp',
+    cover: '11.webp',
     photos: [
-      '01.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp', '07.webp', '08.webp',
-      '09.webp', '10.webp', '11.webp', '12.webp', '13.webp', '14.webp', '15.webp', '16.webp',
+      '11.webp', '13.webp', '12.webp', '14.webp', '15.webp', '01.webp', '16.webp', '03.webp',
+      '06.webp', '07.webp', '08.webp', '04.webp', '05.webp',
     ],
     featured: true,
   },
@@ -55,8 +56,10 @@ export const projects: Project[] = [
       { label: 'Edifici', value: 'Villa, colonica, foresteria, ex tinaia, limonaia' },
       { label: 'Anno', value: '' },
     ],
-    cover: '01.webp',
-    photos: ['01.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp', '07.webp', '08.webp'],
+    cover: '06.webp',
+    photos: [
+      '05.webp', '04.webp', '06.webp', '07.webp', '01.webp', '02.webp', '03.webp', '08.webp',
+    ],
     featured: true,
   },
   {
@@ -81,10 +84,10 @@ export const projects: Project[] = [
       { label: 'Destinazione', value: 'Turistico ricettiva' },
       { label: 'Anno', value: '' },
     ],
-    cover: '01.webp',
+    cover: '07.webp',
     photos: [
-      '01.webp', '02.webp', '03.webp', '04.webp', '05.webp',
-      '06.webp', '07.webp', '08.webp', '09.webp', '10.webp',
+      '07.webp', '09.webp', '03.webp', '06.webp', '04.webp', '05.webp', '10.webp', '08.webp',
+      '02.webp',
     ],
     featured: true,
   },
@@ -108,17 +111,19 @@ export const projects: Project[] = [
       { label: 'Altezza interna', value: '4,00 m' },
       { label: 'Anno', value: '' },
     ],
-    cover: '01.webp',
-    photos: ['01.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp', '07.webp'],
+    cover: '06.webp',
+    photos: [
+      '06.webp', '03.webp', '05.webp', '07.webp', '02.webp',
+    ],
   },
 ]
 
 // Foto della hero in Home (dissolvenza in sequenza).
 export const heroPhotos: Array<{ slug: string; file: string }> = [
-  { slug: 'beretuzzo', file: '01.webp' },
-  { slug: 'palazzo-al-bosco', file: '01.webp' },
-  { slug: 'complesso-gaiole', file: '01.webp' },
-  { slug: 'cantina-le-prata', file: '01.webp' },
+  { slug: 'palazzo-al-bosco', file: '05.webp' },
+  { slug: 'beretuzzo', file: '11.webp' },
+  { slug: 'palazzo-al-bosco', file: '07.webp' },
+  { slug: 'beretuzzo', file: '12.webp' },
 ]
 
 export function photoSrc(slug: string, file: string): string {
