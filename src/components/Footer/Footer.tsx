@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { contacts } from '@/data/contacts'
 import styles from './Footer.module.css'
 
 const currentYear = new Date().getFullYear()
@@ -40,13 +41,18 @@ export default function Footer() {
 
           <div className={styles.contactInfo}>
             <span className={styles.navLabel}>Contatti</span>
-            <a href="mailto:info@tecnochianti.it" className={styles.contactLink}>
-              info@tecnochianti.it
+            <address className={styles.address}>
+              {contacts.address.street}<br />
+              {contacts.address.postalCode} {contacts.address.city} ({contacts.address.province})
+            </address>
+            <a href={`tel:${contacts.phone.href}`} className={styles.contactLink}>
+              {contacts.phone.display}
             </a>
-            <a href="tel:+390000000000" className={styles.contactLink}>
-              +39 000 000 0000
-            </a>
-            <span className={styles.address}>Radda in Chianti, Siena</span>
+            {contacts.emails.map(email => (
+              <a key={email} href={`mailto:${email}`} className={styles.contactLink}>
+                {email}
+              </a>
+            ))}
           </div>
 
           <p className={styles.legal}>© {currentYear} TecnoChianti</p>
