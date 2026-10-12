@@ -42,6 +42,10 @@
   color: var(--color-grigio-medio);
 }
 
+.status {
+  color: var(--color-antracite);
+}
+
 .title {
   font-family: var(--font-serif);
   font-weight: var(--weight-light);

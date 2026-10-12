@@ -10,9 +10,17 @@ export const metadata: Metadata = {
   description: 'Progetti di architettura, recupero e urbanistica realizzati da TecnoChianti a Radda in Chianti e in Toscana.',
 }
 
+// Le copertine sono orizzontali (16:9) ma la card è verticale (3:4): con object-fit cover
+// la foto mostrata è larga circa 2,4 volte la card. Card: 100vw sotto 560px, poi metà
+// del contenuto (max ~576px).
+const CARD_SIZES = '(max-width: 560px) 240vw, (max-width: 1264px) 120vw, 1380px'
+
 export default function LavoriPage() {
-  const concluded = projects.filter(p => p.status !== 'in-corso')
-  const ongoing = projects.filter(p => p.status === 'in-corso')
+  // Un'unica griglia: i lavori in corso vanno in fondo, segnalati nella card
+  const sortedProjects = [
+    ...projects.filter(p => p.status !== 'in-corso'),
+    ...projects.filter(p => p.status === 'in-corso'),
+  ]
 
   return (
     <>
@@ -27,32 +35,16 @@ export default function LavoriPage() {
         </div>
 
         <div className={styles.content}>
-
-          <section aria-label="Progetti conclusi">
-            <div className={styles.grid}>
-              {concluded.map((project, i) => (
-                <ProjectCard
-                  key={project.slug}
-                  project={project}
-                  priority={i < 2}
-                />
-              ))}
-            </div>
-          </section>
-
-          {ongoing.length > 0 && (
-            <section className={styles.ongoingSection} aria-label="Progetti in corso">
-              <div className={styles.sectionDivider}>
-                <span className={styles.sectionLabel}>In corso</span>
-              </div>
-              <div className={styles.grid}>
-                {ongoing.map(project => (
-                  <ProjectCard key={project.slug} project={project} />
-                ))}
-              </div>
-            </section>
-          )}
-
+          <div className={styles.grid}>
+            {sortedProjects.map((project, i) => (
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                sizes={CARD_SIZES}
+                priority={i < 2}
+              />
+            ))}
+          </div>
         </div>
       </main>
       <Footer />
