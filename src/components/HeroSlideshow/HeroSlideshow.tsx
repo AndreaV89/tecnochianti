@@ -4,24 +4,18 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import styles from './HeroSlideshow.module.css'
 
-const slides = [
-  {
-    src: 'https://picsum.photos/seed/arch11/1920/1080',
-    alt: '',
-  },
-  {
-    src: 'https://picsum.photos/seed/arch22/1920/1080',
-    alt: '',
-  },
-  {
-    src: 'https://picsum.photos/seed/arch33/1920/1080',
-    alt: '',
-  },
-]
+export interface HeroSlide {
+  src: string
+  alt: string
+}
+
+interface Props {
+  slides: HeroSlide[]
+}
 
 const INTERVAL_MS = 6000
 
-export default function HeroSlideshow() {
+export default function HeroSlideshow({ slides }: Props) {
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
@@ -29,7 +23,7 @@ export default function HeroSlideshow() {
       setCurrent(prev => (prev + 1) % slides.length)
     }, INTERVAL_MS)
     return () => clearInterval(timer)
-  }, [])
+  }, [slides.length])
 
   return (
     <div className={styles.hero} aria-hidden="true" role="presentation">

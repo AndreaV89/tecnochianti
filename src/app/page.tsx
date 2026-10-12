@@ -3,7 +3,7 @@ import HeroSlideshow from '@/components/HeroSlideshow/HeroSlideshow'
 import ProjectCard from '@/components/ProjectCard/ProjectCard'
 import Footer from '@/components/Footer/Footer'
 import Link from 'next/link'
-import { featuredProjects } from '@/data/projects'
+import { featuredProjects, heroSlides } from '@/data/projects'
 import styles from './page.module.css'
 
 export default function HomePage() {
@@ -12,7 +12,7 @@ export default function HomePage() {
       <Header />
 
       <section aria-label="Hero">
-        <HeroSlideshow />
+        <HeroSlideshow slides={heroSlides} />
       </section>
 
       <section className={styles.manifesto} aria-label="Manifesto">

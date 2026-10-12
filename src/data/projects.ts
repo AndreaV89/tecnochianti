@@ -110,3 +110,17 @@ export const projects: Project[] = [
 ]
 
 export const featuredProjects = projects.filter(p => p.featured)
+
+// Foto della hero in Home (dissolvenza in sequenza).
+// Per cambiarle modificare il nome file: vedi /anteprima-foto
+export const heroPhotos: Array<{ slug: string; file: string }> = [
+  { slug: 'beretuzzo', file: '01.webp' },
+  { slug: 'palazzo-al-bosco', file: '01.webp' },
+  { slug: 'complesso-gaiole', file: '01.webp' },
+  { slug: 'cantina-le-prata', file: '01.webp' },
+]
+
+export const heroSlides = heroPhotos.map(photo => ({
+  src: `/progetti/${photo.slug}/${photo.file}`,
+  alt: '',
+}))
