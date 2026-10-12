@@ -105,6 +105,15 @@ Dopo l'elenco professionisti, sezione servizi ("cosa facciamo"): lista tipografi
 ### Pagine completate
 - ✅ **Home** — hero slideshow, manifesto, 3 lavori in evidenza, footer
   - Footer: 3 colonne (brand+descrizione / nav / social+contatti+legal), padding generoso, elemento visivo di chiusura
-- 🔲 **Lavori** — stub (da costruire: griglia B&W con hover colore)
-- 🔲 **Studio** — stub (da costruire: testo intro, elenco professionisti, servizi)
-- 🔲 **Lavori/[slug]** — da costruire: scheda progetto dettaglio
+- ✅ **Lavori** — griglia 2 colonne, progetti conclusi + sezione "in corso" con divisore, titolo Fraunces 200, contatore progetti. Dati centralizzati in `src/data/projects.ts`.
+- ✅ **Studio** — testo intro (colonna 58ch, margini asimmetrici), pull quote Fraunces italic, elenco 3 professionisti, lista 10 servizi tipografica. Tutto con testo placeholder da sostituire con contenuti del cliente.
+- ✅ **Lavori/[slug]** — hero a colori (75svh), info grid 2 colonne (cliente/anno/superficie/ruolo), descrizione, galleria opzionale, back link. SSG con generateStaticParams.
+
+## Sessione 2026-07-16 — Sito online, pagina "in costruzione"
+
+Sito pubblicato su **www.tecnochianti.it**, ma contenuti non ancora pronti per il pubblico. Per bloccare l'accesso alle pagine reali fino al lancio definitivo:
+
+- **`src/app/in-costruzione/page.tsx`** — pagina segnaposto coerente col design (logo, divisore terracotta, titolo, sottotitolo, copyright). `robots: noindex`.
+- **`src/proxy.ts`** — Next.js 16 ha rinominato `middleware.ts` in `proxy.ts` (stessa funzione, deprecazione da leggere in `node_modules/next/dist/docs/` per progetti su questa versione). Fa `rewrite` di ogni richiesta verso `/in-costruzione` (URL nella barra indirizzi non cambia), escludendo asset statici/favicon.
+- **Per riattivare il sito completo:** eliminare `src/proxy.ts`.
+- Merge `develop` → `main` fatto ed eseguito push origin/main su esplicita richiesta del cliente per questa occasione (deroga puntuale alla regola "mai push diretto su main").

@@ -5,13 +5,15 @@
 //
 // Legge le sottocartelle di <cartella Materiali> (sola lettura, non modifica nulla)
 // e scrive in public/progetti/<slug>/01.webp, 02.webp, ...
+// Aggiorna anche src/data/photo-sizes.json (larghezza e altezza di ogni foto),
+// usato dalla galleria della scheda progetto per l'impaginazione.
 //
 // Nota: a ogni esecuzione la cartella di destinazione del progetto viene svuotata
 // e rigenerata. Le foto sono numerate in ordine di nome file, quindi se arrivano
 // nuove foto la numerazione può cambiare: ricontrollare copertine e hero in
 // src/data/projects.ts dopo averlo rilanciato.
 
-import { readdir, stat, mkdir, rm } from "node:fs/promises";
+import { readdir, stat, mkdir, rm, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 
@@ -36,6 +38,7 @@ const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".tif", ".tiff", ".we
 const MAX_SIZE = 2400;
 const QUALITY = 80;
 const OUTPUT_ROOT = path.resolve("public", "progetti");
+const SIZES_FILE = path.resolve("src", "data", "photo-sizes.json");
 
 const sourceRoot = process.argv[2];
 if (!sourceRoot) {
@@ -63,6 +66,7 @@ async function processProject(folder, slug) {
 
   let sizeBefore = 0;
   let sizeAfter = 0;
+  const dimensions = {};
 
   for (const [index, name] of files.entries()) {
     const inputPath = path.join(sourceDir, name);
@@ -94,10 +98,11 @@ async function processProject(folder, slug) {
 
     sizeBefore += (await stat(inputPath)).size;
     sizeAfter += info.size;
+    dimensions[outputName] = [info.width, info.height];
     console.log(`  ${outputName}  ←  ${name}  (${info.width}×${info.height})`);
   }
 
-  return { slug, count: files.length, sizeBefore, sizeAfter };
+  return { slug, count: files.length, sizeBefore, sizeAfter, dimensions };
 }
 
 const folders = (await readdir(sourceRoot, { withFileTypes: true }))
@@ -114,6 +119,16 @@ for (const folder of folders) {
   console.log(`\n${folder} → ${slug}`);
   results.push(await processProject(folder, slug));
 }
+
+// Unisce alle dimensioni già salvate, così i progetti non rielaborati restano
+let photoSizes = {};
+try {
+  photoSizes = JSON.parse(await readFile(SIZES_FILE, "utf8"));
+} catch {
+  // File non ancora creato
+}
+for (const r of results) photoSizes[r.slug] = r.dimensions;
+await writeFile(SIZES_FILE, JSON.stringify(photoSizes, null, 2) + "\n");
 
 console.log("\nRiepilogo");
 console.table(

@@ -14,6 +14,7 @@ interface Props {
 
 // Come da brief: nella griglia solo foto (B/N, colore in hover), categoria e nome.
 // Lo stato "in corso" è indicato come testo nella riga della categoria, non sulla foto.
+// In hover il nome compare anche sopra la foto (solo decorativo: aria-hidden).
 export default function ProjectCard({ project, sizes, priority = false }: Props) {
   return (
     <Link href={`/lavori/${project.slug}`} className={styles.card}>
@@ -26,6 +27,9 @@ export default function ProjectCard({ project, sizes, priority = false }: Props)
           sizes={sizes}
           style={{ objectFit: 'cover' }}
         />
+        <div className={styles.overlay} aria-hidden="true">
+          <span className={styles.overlayTitle}>{project.title}</span>
+        </div>
       </div>
       <div className={styles.meta}>
         <span className={styles.category}>
