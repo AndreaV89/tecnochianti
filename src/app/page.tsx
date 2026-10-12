@@ -32,7 +32,7 @@ export default function HomePage() {
           </header>
           <div className={styles.worksGrid}>
             {featuredProjects.map((project, i) => (
-              <ProjectCard key={project.id} project={project} priority={i === 0} />
+              <ProjectCard key={project.slug} project={project} priority={i === 0} />
             ))}
           </div>
           <div className={styles.worksFooter}>

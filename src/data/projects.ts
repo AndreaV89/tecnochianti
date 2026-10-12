@@ -1,118 +1,119 @@
 import type { Project } from '@/types'
 
+// Testi da tecnochianti-contenuti-progetti.md.
+// I dati ancora da confermare col cliente sono lasciati vuoti ('') e non compaiono sul sito.
+// Copertina, foto e hero: si cambiano modificando il nome file (vedi /anteprima-foto).
+
 export const projects: Project[] = [
   {
-    id: 'villa-in-chianti',
-    title: 'Villa in Chianti',
+    slug: 'beretuzzo',
+    title: 'Beretuzzo',
     category: 'Residenziale',
-    year: 2023,
-    imageSrc: 'https://picsum.photos/seed/proj101/1920/1080',
-    imageAlt: 'Villa residenziale in Chianti',
-    featured: true,
-    client: 'Privato',
-    surface: '320 m²',
-    role: 'Progettazione e direzione lavori',
-    description: 'Nuova costruzione residenziale immersa nel paesaggio viticolo del Chianti. Il progetto interpreta il rapporto tra edificio e territorio attraverso volumi semplici, materiali locali e ampie aperture verso il paesaggio.',
-    gallery: [
-      { src: 'https://picsum.photos/seed/proj101g1/1200/800', alt: 'Vista esterna villa' },
-      { src: 'https://picsum.photos/seed/proj101g2/1200/800', alt: 'Interno soggiorno' },
-      { src: 'https://picsum.photos/seed/proj101g3/1200/800', alt: 'Dettaglio facciata' },
+    status: 'concluso',
+    location: 'Radda in Chianti (SI)',
+    intervention: "Ristrutturazione edilizia con cambio di destinazione d'uso in residenza",
+    year: '',
+    abstract:
+      "Un antico annesso agricolo in pietra trasformato in abitazione ad alta efficienza energetica, senza alterarne l'aspetto.",
+    paragraphs: [
+      'Il fabbricato, a circa un chilometro e mezzo dal centro storico di Radda in Chianti, fa parte di un nucleo edilizio di antica origine. Nato come magazzino a doppia altezza, ha pianta pressoché rettangolare, muratura portante in pietra a faccia vista e copertura tradizionale in legno, coppi e tegole.',
+      "Le analisi strutturali e geologiche hanno reso necessaria una ristrutturazione complessiva. L'obiettivo è stato recuperare l'annesso come abitazione mantenendone forma e aspetto: all'interno della muratura in pietra è stata realizzata una nuova struttura portante in legno lamellare XLAM, con isolamenti ad alte prestazioni e impianti alloggiati in micro cavedi.",
+      'La casa è progettata per un fabbisogno energetico minimo: pompa di calore con fan coil, ventilazione meccanica controllata e impianto fotovoltaico con accumulo, senza fonti fossili. Pavimenti in cotto fatto a mano, infissi in legno e alluminio a triplo vetro e un manto di copertura in parte recuperato dalla demolizione legano le soluzioni tecniche alla tradizione costruttiva del luogo.',
     ],
+    details: [
+      { label: 'Luogo', value: 'Radda in Chianti (SI)' },
+      { label: 'Intervento', value: "Ristrutturazione con cambio di destinazione d'uso" },
+      { label: 'Struttura', value: 'Legno lamellare XLAM entro muratura in pietra' },
+      { label: 'Impianti', value: 'Pompa di calore, VMC, fotovoltaico con accumulo' },
+      { label: 'Anno', value: '' },
+    ],
+    cover: '01.webp',
+    photos: [
+      '01.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp', '07.webp', '08.webp',
+      '09.webp', '10.webp', '11.webp', '12.webp', '13.webp', '14.webp', '15.webp', '16.webp',
+    ],
+    featured: true,
   },
   {
-    id: 'albergo-diffuso',
-    title: 'Albergo Diffuso',
-    category: 'Ricettiva',
-    year: 2022,
-    imageSrc: 'https://picsum.photos/seed/proj202/1920/1080',
-    imageAlt: 'Progetto albergo diffuso in Toscana',
-    featured: true,
-    client: 'Società immobiliare',
-    surface: '1.200 m²',
-    role: 'Progettazione architettonica e strutturale',
-    description: 'Recupero e riqualificazione di un nucleo rurale per destinazione ricettiva diffusa. Cinque unità abitative indipendenti connesse da percorsi paesaggistici, con spazi comuni integrati nel costruito esistente.',
-    gallery: [
-      { src: 'https://picsum.photos/seed/proj202g1/1200/800', alt: 'Veduta del complesso' },
-      { src: 'https://picsum.photos/seed/proj202g2/1200/800', alt: 'Corte interna' },
-    ],
-  },
-  {
-    id: 'ex-frantoio',
-    title: 'Ex Frantoio',
-    category: 'Recupero',
-    year: 2021,
-    imageSrc: 'https://picsum.photos/seed/proj303/1920/1080',
-    imageAlt: 'Recupero di un ex frantoio',
-    featured: true,
-    client: 'Privato',
-    surface: '480 m²',
-    role: 'Progettazione, DL e pratiche edilizie',
-    description: 'Recupero funzionale di un ex frantoio ottocentesco per destinazione residenziale. L\'intervento conserva la struttura muraria originale e gli elementi caratteristici dell\'edificio industriale, integrando impianti contemporanei nel rispetto della preesistenza.',
-    gallery: [
-      { src: 'https://picsum.photos/seed/proj303g1/1200/800', alt: 'Esterno ex frantoio' },
-      { src: 'https://picsum.photos/seed/proj303g2/1200/800', alt: 'Spazio interno recuperato' },
-      { src: 'https://picsum.photos/seed/proj303g3/1200/800', alt: 'Dettaglio struttura' },
-    ],
-  },
-  {
-    id: 'casa-colombaia',
-    title: 'Casa Colombaia',
+    slug: 'palazzo-al-bosco',
+    title: 'Palazzo al Bosco',
     category: 'Residenziale',
-    year: 2020,
-    imageSrc: 'https://picsum.photos/seed/proj404/1920/1080',
-    imageAlt: 'Ristrutturazione casa colombaia',
-    client: 'Privato',
-    surface: '210 m²',
-    role: 'Ristrutturazione e direzione lavori',
-    description: 'Ristrutturazione integrale di una colombaia storica convertita in abitazione unifamiliare. Recupero dei caratteri tipologici originali con inserimento di nuovi sistemi impiantistici ad alta efficienza.',
-    gallery: [
-      { src: 'https://picsum.photos/seed/proj404g1/1200/800', alt: 'Vista colombaia restaurata' },
+    status: 'concluso',
+    location: 'San Casciano in Val di Pesa (FI)',
+    intervention: 'Restauro del complesso edilizio e sistemazioni esterne',
+    year: '',
+    abstract:
+      'Il restauro di una villa storica rimasta invariata dal 1830, tra recupero dei decori e adeguamento degli impianti.',
+    paragraphs: [
+      "La villa domina l'abitato di Chiesanuova dalla sommità di una collina tra le valli della Pesa e della Greve, circondata da oliveti e boschi di lecci e pini marittimi. Il corpo principale, lungo circa 37 metri e profondo meno di 11, riprende l'impianto dei palazzi urbani; due ali laterali gli danno la forma a ferro di cavallo, rimasta invariata dal Catasto del 1830.",
+      "Il restauro ha interessato la villa, la casa colonica, la foresteria, i giardini e la piscina. Nella villa gli interventi edilizi sono stati minimi: il lavoro si è concentrato sull'adeguamento degli impianti, con fan coil e riscaldamento a pavimento, e sul recupero dei decori nei saloni e nelle camere affrescate.",
+      "L'ex tinaia è diventata una galleria d'arte, collegata alla villa attraverso la cantina, oggi sala degustazione, e dotata di un piccolo ascensore in ferro e vetro. La limonaia ospita ora un ambiente relax, con un appartamento per gli ospiti al piano superiore. Colonica e foresteria sono state consolidate e aggiornate negli impianti senza alterarne facciate e distribuzione; il giardino è stato interamente riqualificato.",
     ],
+    details: [
+      { label: 'Luogo', value: 'San Casciano in Val di Pesa (FI)' },
+      { label: 'Intervento', value: 'Restauro e sistemazioni esterne' },
+      { label: 'Edifici', value: 'Villa, colonica, foresteria, ex tinaia, limonaia' },
+      { label: 'Anno', value: '' },
+    ],
+    cover: '01.webp',
+    photos: ['01.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp', '07.webp', '08.webp'],
+    featured: true,
   },
   {
-    id: 'piano-attuativo-radda',
-    title: 'Piano Attuativo Radda',
-    category: 'Urbanistica',
-    year: 2019,
-    imageSrc: 'https://picsum.photos/seed/proj505/1920/1080',
-    imageAlt: 'Piano attuativo Radda in Chianti',
-    client: 'Comune di Radda in Chianti',
-    surface: '—',
-    role: 'Progettazione urbanistica',
-    description: 'Redazione del piano attuativo per l\'espansione residenziale di un comparto nel comune di Radda in Chianti. Il piano definisce lotti, viabilità, standard urbanistici e norme morfologiche per i nuovi interventi.',
-  },
-  {
-    id: 'hotel-borgo',
-    title: 'Hotel Borgo',
+    slug: 'complesso-gaiole',
+    title: 'Complesso a Gaiole in Chianti',
     category: 'Ricettiva',
-    year: 2024,
-    imageSrc: 'https://picsum.photos/seed/proj606/1920/1080',
-    imageAlt: 'Progetto hotel borgo in Toscana',
-    inProgress: true,
-    client: 'Gruppo alberghiero',
-    surface: '2.800 m²',
-    role: 'Progettazione e coordinamento',
-    description: 'Progetto in corso per la realizzazione di un hotel di charme all\'interno di un borgo storico. L\'intervento prevede il recupero dell\'intero complesso con destinazione ricettiva di alto livello.',
+    status: 'in-corso',
+    location: 'Gaiole in Chianti (SI)',
+    intervention: 'Restauro di complesso vincolato e sistemazioni esterne',
+    year: '',
+    abstract:
+      'Il restauro di una villa sottoposta a vincolo monumentale, tra consolidamento strutturale e rinnovo dell\'accoglienza turistica.',
+    paragraphs: [
+      'Il complesso, nel comune di Gaiole in Chianti, comprende la villa con giardino, le ex cantine, un fabbricato secondario, un piccolo annesso agricolo e una cappella raggiunta da un viale di cipressi, tra vigneti, oliveti e bosco. Villa e giardino sono sottoposti a vincolo monumentale dal 2009: ogni intervento è condotto in accordo con la Soprintendenza.',
+      "Dopo il consolidamento della copertura e delle fondazioni perimetrali con micropali, il lavoro si è concentrato sui solai interni. I pavimenti vengono smontati, le travi in legno rinforzate dall'alto con profili metallici e una soletta collaborante, quindi il pavimento originale viene ricollocato; dove non è di pregio, è sostituito con cotto fatto a mano dello stesso tipo.",
+      "Il restauro degli interni unisce conservazione e il giusto grado di innovazione, migliorando l'uso turistico ricettivo con camere, bagni e spazi comuni rinnovati. Completano l'intervento la ristrutturazione del fabbricato secondario e dell'ex annesso, una nuova piscina a sfioro e la revisione dei giardini.",
+    ],
+    details: [
+      { label: 'Luogo', value: 'Gaiole in Chianti (SI)' },
+      { label: 'Intervento', value: 'Restauro e consolidamento strutturale' },
+      { label: 'Vincolo', value: 'Monumentale (2009)' },
+      { label: 'Destinazione', value: 'Turistico ricettiva' },
+      { label: 'Anno', value: '' },
+    ],
+    cover: '01.webp',
+    photos: [
+      '01.webp', '02.webp', '03.webp', '04.webp', '05.webp',
+      '06.webp', '07.webp', '08.webp', '09.webp', '10.webp',
+    ],
+    featured: true,
   },
   {
-    id: 'lottizzazione-gaiole',
-    title: 'Lottizzazione Gaiole',
-    category: 'Urbanistica',
-    year: 2024,
-    imageSrc: 'https://picsum.photos/seed/proj707/1920/1080',
-    imageAlt: 'Lottizzazione a Gaiole in Chianti',
-    inProgress: true,
-    client: 'Privato',
-    surface: '—',
-    role: 'Progettazione urbanistica e pratiche',
-    description: 'Piano di lottizzazione residenziale a Gaiole in Chianti. Iter in corso per approvazione comunale.',
+    slug: 'cantina-le-prata',
+    title: 'Cantina Le Prata',
+    category: 'Produttiva',
+    location: '',
+    intervention: 'Nuova cantina — rinnovo e ampliamento del centro aziendale',
+    year: '',
+    abstract: 'Una cantina interrata che segue il declivio della collina e scompare sotto un tetto giardino.',
+    paragraphs: [
+      'Il progetto rinnova e amplia il centro aziendale per adeguarlo alla produzione, trasformazione e commercializzazione del vino. Il principio guida è la tutela del paesaggio: limitare i movimenti di terra, preservare la vegetazione esistente e mantenere gli assetti colturali tra vigneto, viale alberato e bosco.',
+      "La cantina si inserisce nel declivio naturale e ne segue la pendenza, collocata interamente entro terra sotto un tetto giardino che la sottrae alla vista dall'alto. Una fascia vegetale perimetrale accompagna la transizione verso il bosco e fa da filtro tra costruito e paesaggio naturale.",
+      "L'unica parte fuori terra è la facciata a nord-ovest, un muro in pietra a faccia vista con una rientranza in corten che segna l'ingresso. All'interno, su un unico livello alto quattro metri, gli ambienti seguono il processo produttivo: vinificazione in tini di cemento e acciaio, imbottigliamento, stoccaggio, servizi e locali tecnici.",
+    ],
+    details: [
+      { label: 'Luogo', value: '' },
+      { label: 'Intervento', value: 'Nuova costruzione — rinnovo centro aziendale' },
+      { label: 'Materiali', value: 'Pietra a faccia vista, corten, tetto giardino' },
+      { label: 'Altezza interna', value: '4,00 m' },
+      { label: 'Anno', value: '' },
+    ],
+    cover: '01.webp',
+    photos: ['01.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp', '07.webp'],
   },
 ]
 
-export const featuredProjects = projects.filter(p => p.featured)
-
 // Foto della hero in Home (dissolvenza in sequenza).
-// Per cambiarle modificare il nome file: vedi /anteprima-foto
 export const heroPhotos: Array<{ slug: string; file: string }> = [
   { slug: 'beretuzzo', file: '01.webp' },
   { slug: 'palazzo-al-bosco', file: '01.webp' },
@@ -120,7 +121,13 @@ export const heroPhotos: Array<{ slug: string; file: string }> = [
   { slug: 'cantina-le-prata', file: '01.webp' },
 ]
 
+export function photoSrc(slug: string, file: string): string {
+  return `/progetti/${slug}/${file}`
+}
+
 export const heroSlides = heroPhotos.map(photo => ({
-  src: `/progetti/${photo.slug}/${photo.file}`,
+  src: photoSrc(photo.slug, photo.file),
   alt: '',
 }))
+
+export const featuredProjects = projects.filter(p => p.featured)

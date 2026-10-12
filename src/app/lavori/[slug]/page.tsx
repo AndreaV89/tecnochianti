@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
-import { projects } from '@/data/projects'
+import { projects, photoSrc } from '@/data/projects'
 import styles from './page.module.css'
 
 interface PageProps {
@@ -12,30 +12,26 @@ interface PageProps {
 }
 
 export function generateStaticParams() {
-  return projects.map(p => ({ slug: p.id }))
+  return projects.map(p => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
-  const project = projects.find(p => p.id === slug)
+  const project = projects.find(p => p.slug === slug)
   if (!project) return {}
   return {
     title: `${project.title} — TecnoChianti`,
-    description: project.description,
+    description: project.abstract,
   }
 }
 
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params
-  const project = projects.find(p => p.id === slug)
+  const project = projects.find(p => p.slug === slug)
   if (!project) notFound()
 
-  const infoItems = [
-    { label: 'Cliente', value: project.client },
-    { label: 'Anno', value: project.year.toString() },
-    { label: 'Superficie', value: project.surface },
-    { label: 'Ruolo', value: project.role },
-  ].filter(item => item.value)
+  // Le righe senza valore (dati da confermare) non vengono mostrate
+  const infoItems = project.details.filter(item => item.value)
 
   return (
     <>
@@ -44,8 +40,8 @@ export default async function ProjectPage({ params }: PageProps) {
       {/* Hero a colori, piena larghezza */}
       <div className={styles.hero}>
         <Image
-          src={project.imageSrc}
-          alt={project.imageAlt}
+          src={photoSrc(project.slug, project.cover)}
+          alt={project.title}
           fill
           priority
           sizes="100vw"
@@ -62,6 +58,7 @@ export default async function ProjectPage({ params }: PageProps) {
             <div className={styles.titleBlock}>
               <span className={styles.category}>{project.category}</span>
               <h1 className={styles.title}>{project.title}</h1>
+              <p className={styles.abstract}>{project.abstract}</p>
             </div>
             <dl className={styles.info}>
               {infoItems.map(item => (
@@ -75,23 +72,23 @@ export default async function ProjectPage({ params }: PageProps) {
         </section>
 
         {/* Descrizione */}
-        {project.description && (
-          <section className={styles.description}>
-            <div className={styles.descriptionInner}>
-              <p className={styles.descriptionText}>{project.description}</p>
-            </div>
-          </section>
-        )}
+        <section className={styles.description}>
+          <div className={styles.descriptionInner}>
+            {project.paragraphs.map((paragraph, i) => (
+              <p key={i} className={styles.descriptionText}>{paragraph}</p>
+            ))}
+          </div>
+        </section>
 
         {/* Galleria */}
-        {project.gallery && project.gallery.length > 0 && (
+        {project.photos.length > 0 && (
           <section className={styles.gallery} aria-label="Galleria immagini">
             <div className={styles.galleryInner}>
-              {project.gallery.map((img, i) => (
-                <div key={i} className={styles.galleryItem}>
+              {project.photos.map((file, i) => (
+                <div key={file} className={styles.galleryItem}>
                   <Image
-                    src={img.src}
-                    alt={img.alt}
+                    src={photoSrc(project.slug, file)}
+                    alt={`${project.title}, foto ${i + 1}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     style={{ objectFit: 'cover' }}

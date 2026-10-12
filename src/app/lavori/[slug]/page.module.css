@@ -63,6 +63,17 @@
   color: var(--color-antracite);
 }
 
+/* Sottotitolo (abstract) */
+.abstract {
+  margin-top: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-antracite);
+  opacity: 0.75;
+  max-width: 44ch;
+}
+
 /* Info list a due colonne */
 .info {
   display: grid;
@@ -110,6 +121,10 @@
   line-height: 1.75;
   color: var(--color-antracite);
   max-width: 62ch;
+}
+
+.descriptionText + .descriptionText {
+  margin-top: 1.5em;
 }
 
 /* Galleria */

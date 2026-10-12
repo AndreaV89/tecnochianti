@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 }
 
 export default function LavoriPage() {
-  const concluded = projects.filter(p => !p.inProgress)
-  const ongoing = projects.filter(p => p.inProgress)
+  const concluded = projects.filter(p => p.status !== 'in-corso')
+  const ongoing = projects.filter(p => p.status === 'in-corso')
 
   return (
     <>
@@ -32,7 +32,7 @@ export default function LavoriPage() {
             <div className={styles.grid}>
               {concluded.map((project, i) => (
                 <ProjectCard
-                  key={project.id}
+                  key={project.slug}
                   project={project}
                   priority={i < 2}
                 />
@@ -47,7 +47,7 @@ export default function LavoriPage() {
               </div>
               <div className={styles.grid}>
                 {ongoing.map(project => (
-                  <ProjectCard key={project.id} project={project} />
+                  <ProjectCard key={project.slug} project={project} />
                 ))}
               </div>
             </section>
