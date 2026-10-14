@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { contacts } from '@/data/contacts'
+import { professionalsLegal } from '@/data/legal'
 import styles from './Footer.module.css'
 
 const currentYear = new Date().getFullYear()
@@ -75,6 +76,17 @@ export default function Footer() {
           <p className={styles.legal}>© {currentYear} TecnoChianti</p>
         </div>
 
+      </div>
+
+      {/* Dati legali dei professionisti */}
+      <div className={styles.legalBar}>
+        <ul className={styles.professionals} role="list">
+          {professionalsLegal.map(p => (
+            <li key={p.vatNumber} className={styles.professional}>
+              {p.title} {p.name} · P.IVA {p.vatNumber} · {p.register}
+            </li>
+          ))}
+        </ul>
       </div>
     </footer>
   )
