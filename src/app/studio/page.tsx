@@ -5,7 +5,7 @@ import styles from './page.module.css'
 
 export const metadata: Metadata = {
   title: 'Studio — TecnoChianti',
-  description: 'TecnoChianti è uno studio tecnico di architettura e ingegneria a Radda in Chianti. Progettazione, direzione lavori e pratiche edilizie in Toscana dal 1990.',
+  description: 'TecnoChianti è uno studio di architettura a Radda in Chianti. Progettazione, direzione lavori e pratiche edilizie in Toscana dal 1990.',
 }
 
 const professionals = [

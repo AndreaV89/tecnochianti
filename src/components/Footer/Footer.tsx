@@ -13,10 +13,10 @@ export default function Footer() {
         <div className={styles.brand}>
           <div className={styles.brandTop}>
             <span className={styles.name}>TecnoChianti</span>
-            <span className={styles.discipline}>architettura · ingegneria</span>
+            <span className={styles.discipline}>Studio di Architettura</span>
           </div>
           <p className={styles.description}>
-            Studio tecnico fondato nel 1990, con sede a Radda in Chianti.
+            Studio di architettura fondato nel 1990, con sede a Radda in Chianti.
             Progettiamo, dirigiamo e realizziamo interventi residenziali,
             ricettivi e di recupero in Toscana e non solo.
           </p>

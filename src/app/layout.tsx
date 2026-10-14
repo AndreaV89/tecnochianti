@@ -16,9 +16,9 @@ const workSans = Work_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'TecnoChianti — Architettura e Ingegneria',
+  title: 'TecnoChianti — Studio di Architettura',
   description:
-    'Studio tecnico di architettura e ingegneria a Radda in Chianti, Toscana. Progettazione, direzione lavori, computi metrici, pratiche edilizie.',
+    'Studio di architettura a Radda in Chianti, Toscana. Progettazione, direzione lavori, computi metrici, pratiche edilizie.',
 }
 
 export default function RootLayout({

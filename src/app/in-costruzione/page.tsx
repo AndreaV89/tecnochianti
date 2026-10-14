@@ -14,7 +14,7 @@ export default function InCostruzionePage() {
     <main className={styles.page}>
       <div className={styles.logo}>
         <span className={styles.logoName}>TecnoChianti</span>
-        <span className={styles.logoDiscipline}>architettura · ingegneria</span>
+        <span className={styles.logoDiscipline}>Studio di Architettura</span>
       </div>
 
       <hr className={styles.divider} />

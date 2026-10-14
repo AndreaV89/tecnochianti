@@ -27,7 +27,7 @@ export default function Header({ alwaysDark = false }: HeaderProps) {
       <div className={styles.inner}>
         <Link href="/" className={styles.logo}>
           <span className={styles.logoName}>TecnoChianti</span>
-          <span className={styles.logoDiscipline}>architettura · ingegneria</span>
+          <span className={styles.logoDiscipline}>Studio di Architettura</span>
         </Link>
         <nav className={styles.nav} aria-label="Navigazione principale">
           <Link href="/studio" className={styles.navLink}>Studio</Link>
