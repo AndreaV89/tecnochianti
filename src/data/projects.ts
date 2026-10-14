@@ -1,6 +1,6 @@
 import type { Project } from '@/types'
 
-// Testi da tecnochianti-contenuti-progetti.md.
+// Testi forniti dal cliente.
 // Dati della scheda: luogo, anno, stato, tipologia di intervento, categoria (confermati dal cliente).
 // L'ordine nella pagina Lavori è per anno, dal più recente: l'ordine qui sotto non conta.
 // Copertina, foto e hero: si cambiano modificando il nome file (vedi /anteprima-foto).
