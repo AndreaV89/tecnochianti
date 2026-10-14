@@ -1,0 +1,71 @@
+/* Banner minimal in basso: stessa palette e tipografia del footer.
+   "Accetta" e "Rifiuta" hanno lo stesso stile, nessuno dei due è in evidenza. */
+.banner {
+  position: fixed;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 100;
+  max-width: 40rem;
+  margin-left: auto;
+  padding: 1.5rem 1.75rem;
+  background: var(--color-carta);
+  border: 1px solid var(--color-grigio-chiaro);
+  box-shadow: 0 12px 40px rgba(43, 42, 39, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.text {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--color-antracite);
+}
+
+.link {
+  color: var(--color-grigio-medio);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-terracotta);
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.button {
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-antracite);
+  background: transparent;
+  border: 1px solid var(--color-antracite);
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.button:hover,
+.button:focus-visible {
+  background: var(--color-antracite);
+  color: var(--color-carta);
+}
+
+@media (max-width: 640px) {
+  .banner {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    padding: 1.25rem;
+  }
+}

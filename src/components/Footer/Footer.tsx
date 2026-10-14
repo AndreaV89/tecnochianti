@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { contacts } from '@/data/contacts'
 import { professionalsLegal } from '@/data/legal'
+import CookiePreferencesButton from '@/components/CookieConsent/CookiePreferencesButton'
 import styles from './Footer.module.css'
 
 const currentYear = new Date().getFullYear()
@@ -87,6 +88,11 @@ export default function Footer() {
             </li>
           ))}
         </ul>
+        <nav className={styles.legalLinks} aria-label="Note legali">
+          <Link href="/privacy" className={styles.legalLink}>Privacy</Link>
+          <Link href="/cookie-policy" className={styles.legalLink}>Cookie policy</Link>
+          <CookiePreferencesButton className={styles.legalLink} />
+        </nav>
       </div>
     </footer>
   )

@@ -153,6 +153,29 @@
   color: var(--color-grigio-medio);
 }
 
+.legalLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin-top: 1.25rem;
+}
+
+/* Vale anche per il pulsante "Preferenze cookie": deve sembrare un link */
+.legalLink {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--color-grigio-medio);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.legalLink:hover {
+  color: var(--color-terracotta);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .inner {

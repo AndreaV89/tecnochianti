@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Fraunces, Work_Sans } from 'next/font/google'
+import CookieConsent from '@/components/CookieConsent/CookieConsent'
 import './globals.css'
 
 const fraunces = Fraunces({
@@ -28,7 +29,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it" className={`${fraunces.variable} ${workSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   )
 }
