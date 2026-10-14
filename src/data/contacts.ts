@@ -1,4 +1,5 @@
 // Contatti dello studio: unico punto da modificare.
+// I campi lasciati vuoti ('') non compaiono sul sito.
 
 export interface Phone {
   // Formato leggibile, mostrato sul sito
@@ -15,9 +16,12 @@ export interface Contacts {
     province: string
   }
   phone: Phone
-  // Non mostrati sul sito finché il cliente non conferma (e a chi corrispondono)
-  mobiles: Phone[]
-  emails: string[]
+  // Email generale dello studio (non ancora disponibile)
+  email: string
+  social: {
+    instagram: string
+    linkedin: string
+  }
 }
 
 export const contacts: Contacts = {
@@ -28,14 +32,10 @@ export const contacts: Contacts = {
     province: 'SI',
   },
   phone: { display: '+39 0577 738486', href: '+390577738486' },
-  mobiles: [
-    { display: '+39 335 7637389', href: '+393357637389' },
-    { display: '+39 349 3929314', href: '+393493929314' },
-    { display: '+39 333 1107207', href: '+393331107207' },
-  ],
-  emails: [
-    'c.matassini@tecnochianti.it',
-    'e.bove@tecnochianti.it',
-    'arch.riccardopanichi@gmail.com',
-  ],
+  email: '',
+  // URL completi dei profili, es. 'https://www.instagram.com/...'
+  social: {
+    instagram: '',
+    linkedin: '',
+  },
 }

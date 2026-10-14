@@ -4,6 +4,12 @@ import styles from './Footer.module.css'
 
 const currentYear = new Date().getFullYear()
 
+// Mostrati solo se compilati in src/data/contacts.ts
+const socialLinks = [
+  { label: 'Instagram', href: contacts.social.instagram },
+  { label: 'LinkedIn', href: contacts.social.linkedin },
+].filter(link => link.href)
+
 export default function Footer() {
   return (
     <footer className={styles.footer}>
@@ -33,11 +39,22 @@ export default function Footer() {
 
         {/* Destra — social, contatti, legal */}
         <div className={styles.contact}>
-          <div className={styles.social}>
-            <span className={styles.navLabel}>Social</span>
-            <a href="#" className={styles.socialLink}>Instagram</a>
-            <a href="#" className={styles.socialLink}>LinkedIn</a>
-          </div>
+          {socialLinks.length > 0 && (
+            <div className={styles.social}>
+              <span className={styles.navLabel}>Social</span>
+              {socialLinks.map(link => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={styles.socialLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
 
           <div className={styles.contactInfo}>
             <span className={styles.navLabel}>Contatti</span>
@@ -48,11 +65,11 @@ export default function Footer() {
             <a href={`tel:${contacts.phone.href}`} className={styles.contactLink}>
               {contacts.phone.display}
             </a>
-            {contacts.emails.map(email => (
-              <a key={email} href={`mailto:${email}`} className={styles.contactLink}>
-                {email}
+            {contacts.email && (
+              <a href={`mailto:${contacts.email}`} className={styles.contactLink}>
+                {contacts.email}
               </a>
-            ))}
+            )}
           </div>
 
           <p className={styles.legal}>© {currentYear} TecnoChianti</p>
