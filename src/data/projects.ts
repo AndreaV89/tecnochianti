@@ -24,8 +24,8 @@ export const projects: Project[] = [
     ],
     cover: '11.webp',
     photos: [
-      '11.webp', '13.webp', '12.webp', '14.webp', '15.webp', '01.webp', '16.webp', '03.webp',
-      '06.webp', '07.webp', '08.webp', '04.webp', '05.webp',
+      '11.webp', '13.webp', '12.webp', '14.webp', '01.webp', '15.webp', '03.webp', '06.webp',
+      '07.webp', '08.webp', '04.webp', '05.webp',
     ],
     featured: true,
   },
@@ -86,15 +86,33 @@ export const projects: Project[] = [
       "La cantina si inserisce nel declivio naturale e ne segue la pendenza, collocata interamente entro terra sotto un tetto giardino che la sottrae alla vista dall'alto. Una fascia vegetale perimetrale accompagna la transizione verso il bosco e fa da filtro tra costruito e paesaggio naturale.",
       "L'unica parte fuori terra è la facciata a nord-ovest, un muro in pietra a faccia vista con una rientranza in corten che segna l'ingresso. All'interno, su un unico livello alto quattro metri, gli ambienti seguono il processo produttivo: vinificazione in tini di cemento e acciaio, imbottigliamento, stoccaggio, servizi e locali tecnici.",
     ],
-    cover: '06.webp',
+    cover: '02.webp',
     photos: [
-      '06.webp', '03.webp', '05.webp', '07.webp', '02.webp',
+      '01.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp', '07.webp',
+    ],
+  },
+  {
+    slug: 'appartamento-radda',
+    title: 'Appartamento - Radda in Chianti',
+    location: 'Radda in Chianti',
+    year: '2026',
+    status: 'in-corso',
+    intervention: 'Ristrutturazione',
+    category: 'Residenziale',
+    // Nessun testo descrittivo fornito dal cliente: abstract e paragrafi vuoti non compaiono
+    abstract: '',
+    paragraphs: [],
+    cover: '04.webp',
+    photos: [
+      '01.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp',
     ],
   },
 ]
 
 // Foto della hero in Home (dissolvenza in sequenza).
 export const heroPhotos: Array<{ slug: string; file: string }> = [
+  // Render della Cantina Le Prata (Materiali/Home), sempre per primo
+  { slug: 'home', file: '01.webp' },
   { slug: 'palazzo-al-bosco', file: '05.webp' },
   { slug: 'beretuzzo', file: '11.webp' },
   { slug: 'palazzo-al-bosco', file: '07.webp' },

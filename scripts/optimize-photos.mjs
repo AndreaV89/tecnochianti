@@ -1,7 +1,10 @@
 // Converte le foto originali dei progetti in WebP ottimizzati per il sito.
 //
 // Uso:
-//   node scripts/optimize-photos.mjs "<cartella Materiali>"
+//   node scripts/optimize-photos.mjs "<cartella Materiali>" [cartella ...]
+//
+// Se si indicano una o più cartelle (es. "Beretuzzo"), elabora solo quelle;
+// altrimenti tutte quelle presenti in FOLDER_TO_SLUG.
 //
 // Legge le sottocartelle di <cartella Materiali> (sola lettura, non modifica nulla)
 // e scrive in public/progetti/<slug>/01.webp, 02.webp, ...
@@ -22,7 +25,16 @@ const FOLDER_TO_SLUG = {
   Beretuzzo: "beretuzzo",
   "Palazzo al Bosco": "palazzo-al-bosco",
   "Complesso immobiliare Gaiole": "complesso-gaiole",
-  "Le Prata": "cantina-le-prata",
+  "Cantina Le Prata": "cantina-le-prata",
+  "Appartamento Radda in Chianti": "appartamento-radda",
+  // Immagini usate solo nella hero della Home
+  Home: "home",
+};
+
+// Foto da non pubblicare, per nome del file originale
+const EXCLUDE = {
+  // Interno del bagno, tolto su richiesta del cliente
+  beretuzzo: new Set(["IMG_20240712_120055.jpg"]),
 };
 
 // Ritagli manuali, per nome del file originale.
@@ -41,8 +53,9 @@ const OUTPUT_ROOT = path.resolve("public", "progetti");
 const SIZES_FILE = path.resolve("src", "data", "photo-sizes.json");
 
 const sourceRoot = process.argv[2];
+const onlyFolders = process.argv.slice(3);
 if (!sourceRoot) {
-  console.error('Uso: node scripts/optimize-photos.mjs "<cartella Materiali>"');
+  console.error('Uso: node scripts/optimize-photos.mjs "<cartella Materiali>" [cartella ...]');
   process.exit(1);
 }
 
@@ -59,6 +72,7 @@ async function processProject(folder, slug) {
 
   const files = (await readdir(sourceDir))
     .filter((name) => IMAGE_EXTENSIONS.has(path.extname(name).toLowerCase()))
+    .filter((name) => !EXCLUDE[slug]?.has(name))
     .sort(naturalSort);
 
   await rm(outputDir, { recursive: true, force: true });
@@ -107,7 +121,8 @@ async function processProject(folder, slug) {
 
 const folders = (await readdir(sourceRoot, { withFileTypes: true }))
   .filter((entry) => entry.isDirectory())
-  .map((entry) => entry.name);
+  .map((entry) => entry.name)
+  .filter((name) => onlyFolders.length === 0 || onlyFolders.includes(name));
 
 const results = [];
 for (const folder of folders) {

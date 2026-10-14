@@ -73,7 +73,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!project) return {}
   return {
     title: `${project.title} — TecnoChianti`,
-    description: project.abstract,
+    // Senza abstract resta la description generale del sito
+    description: project.abstract || undefined,
   }
 }
 
@@ -137,7 +138,7 @@ export default async function ProjectPage({ params }: PageProps) {
             <div className={styles.titleBlock}>
               <span className={styles.category}>{project.category}</span>
               <h1 className={styles.title}>{project.title}</h1>
-              <p className={styles.abstract}>{project.abstract}</p>
+              {project.abstract && <p className={styles.abstract}>{project.abstract}</p>}
             </div>
             <dl className={styles.info}>
               {infoItems.map(item => (
@@ -151,13 +152,15 @@ export default async function ProjectPage({ params }: PageProps) {
         </section>
 
         {/* Descrizione */}
-        <section className={styles.description}>
-          <div className={styles.descriptionInner}>
-            {project.paragraphs.map((paragraph, i) => (
-              <p key={i} className={styles.descriptionText}>{paragraph}</p>
-            ))}
-          </div>
-        </section>
+        {project.paragraphs.length > 0 && (
+          <section className={styles.description}>
+            <div className={styles.descriptionInner}>
+              {project.paragraphs.map((paragraph, i) => (
+                <p key={i} className={styles.descriptionText}>{paragraph}</p>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Galleria */}
         {project.photos.length > 0 && (
