@@ -16,11 +16,8 @@ export const metadata: Metadata = {
 const CARD_SIZES = '(max-width: 560px) 240vw, (max-width: 1264px) 120vw, 1380px'
 
 export default function LavoriPage() {
-  // Un'unica griglia: i lavori in corso vanno in fondo, segnalati nella card
-  const sortedProjects = [
-    ...projects.filter(p => p.status !== 'in-corso'),
-    ...projects.filter(p => p.status === 'in-corso'),
-  ]
+  // Dal più recente al più vecchio (a parità di anno resta l'ordine di projects.ts)
+  const sortedProjects = [...projects].sort((a, b) => Number(b.year) - Number(a.year))
 
   return (
     <>

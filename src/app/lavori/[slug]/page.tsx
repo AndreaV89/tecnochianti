@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import { projects, photoSrc } from '@/data/projects'
+import type { ProjectStatus } from '@/types'
 import photoSizesJson from '@/data/photo-sizes.json'
 import styles from './page.module.css'
 
@@ -53,6 +54,11 @@ function buildGalleryRows(photos: GalleryPhoto[]): GalleryRow[] {
   return rows
 }
 
+const STATUS_LABELS: Record<ProjectStatus, string> = {
+  'concluso': 'Concluso',
+  'in-corso': 'In corso',
+}
+
 interface PageProps {
   params: Promise<{ slug: string }>
 }
@@ -76,8 +82,13 @@ export default async function ProjectPage({ params }: PageProps) {
   const project = projects.find(p => p.slug === slug)
   if (!project) notFound()
 
-  // Le righe senza valore (dati da confermare) non vengono mostrate
-  const infoItems = project.details.filter(item => item.value)
+  const infoItems = [
+    { label: 'Luogo', value: project.location },
+    { label: 'Anno', value: project.year },
+    { label: 'Stato', value: STATUS_LABELS[project.status] },
+    { label: 'Tipologia di intervento', value: project.intervention },
+    { label: 'Categoria', value: project.category },
+  ]
 
   const galleryRows = buildGalleryRows(
     project.photos.map(file => {
