@@ -49,7 +49,7 @@ Direzione "architettura tipografica": minimal, tipografia protagonista, sfondo c
 - **Footer** (tutte le pagine), a due fasce: sopra marchio a sinistra con la frase descrittiva del cliente, indirizzo, telefono e menu a destra; sotto dati legali dei professionisti, © e link Privacy, Cookie policy, Preferenze cookie.
 - **Lavori**: un'unica griglia a due colonne, ordinata per anno dal più recente, con contatore dei progetti. I lavori in corso sono segnalati con "In corso" accanto alla categoria nella card.
 - **Lavori/[slug]**: hero a colori (75svh), blocco dati, descrizione, galleria, link per tornare indietro. Generata con `generateStaticParams`.
-- **Studio**: testo di presentazione in colonna stretta (58ch), margini asimmetrici, nessuna pull quote, elenco dei tre professionisti (NOME COGNOME in maiuscolo, professione in minuscolo, nessuna foto), lista tipografica dei 5 servizi indicati dal cliente (senza descrizioni).
+- **Studio**: testo di presentazione in colonna stretta (58ch), margini asimmetrici, nessuna pull quote, video del territorio a tutta larghezza (muto, in loop, fermo con prefers-reduced-motion), elenco dei tre professionisti (NOME COGNOME in maiuscolo, professione in minuscolo, nessuna foto), lista tipografica dei 5 servizi indicati dal cliente (senza descrizioni).
 - **Privacy** e **Cookie policy**.
 
 Il blocco dati della scheda progetto contiene **solo** questi cinque campi, in questo ordine:
@@ -63,6 +63,7 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 - Dati legali dei professionisti (P.IVA, albo): si modificano solo in `src/data/legal.ts`.
 - Foto originali, da non modificare mai: `"/Users/andreavannetti/Library/Mobile Documents/com~apple~CloudDocs/Lavoro/02_Clienti/TecnoChianti/tecnochianti.it/Materiali"`, una sottocartella per progetto più `Home/` per le immagini della hero.
 - Le foto per il sito si generano con lo script in `scripts/` (rotazione EXIF, massimo 2400 px, WebP qualità 80, metadati rimossi) e finiscono in `public/progetti/<slug>/` con nomi `01.webp`, `02.webp`…
+- I video si generano con `scripts/optimize-video.mjs` (ffmpeg-static, H.264 max 1920 px, senza audio, più poster WebP) e finiscono in `public/video/`.
 
 ## Regole sui contenuti
 
@@ -91,7 +92,7 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 ## In attesa dal cliente
 
 - ID di Google Analytics
-- Eventuale foto dello studio o del territorio
+- Anno del Complesso immobiliare a Radda (ora vuoto: la card è ultima nella griglia)
 
 ## Modo di lavorare
 
