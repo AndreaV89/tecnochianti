@@ -45,21 +45,6 @@
   color: var(--color-antracite);
 }
 
-/* Pull quote */
-.pullQuote {
-  margin: 5rem 0 0;
-  font-family: var(--font-serif);
-  font-weight: var(--weight-thin);
-  font-style: italic;
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--color-antracite);
-  border: none;
-  padding: 0;
-  max-width: 20em;
-}
-
 /* Sezioni: professionisti e servizi */
 .section {
   padding: 0 2rem;
@@ -169,9 +154,5 @@
 
   .section {
     padding: 0 1.25rem;
-  }
-
-  .pullQuote {
-    margin-top: 4rem;
   }
 }

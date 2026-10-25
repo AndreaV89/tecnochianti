@@ -5,7 +5,7 @@ import styles from './page.module.css'
 
 export const metadata: Metadata = {
   title: 'Studio — TecnoChianti',
-  description: 'TecnoChianti è uno studio di architettura a Radda in Chianti. Progettazione, direzione lavori e pratiche edilizie in Toscana dal 1990.',
+  description: 'TecnoChianti è uno studio di architettura con sede a Radda in Chianti. Progettazione architettonica, strutturale e impiantistica tra le province di Siena, Firenze e Arezzo.',
 }
 
 const professionals = [
@@ -14,17 +14,13 @@ const professionals = [
   { name: 'Riccardo Panichi', role: 'Architetto' },
 ]
 
+// Elenco fornito dal cliente
 const services = [
-  'Progettazione architettonica',
-  'Progettazione strutturale',
-  'Progettazione urbanistica',
-  'Direzione lavori',
-  'Computo metrico estimativo',
-  'Stima e perizia immobiliare',
-  'Pratiche catastali',
-  'Pratiche edilizie, SCIA e DIA',
-  'Certificazione energetica',
-  'Sicurezza in cantiere',
+  'Progettazione e direzione lavori architettonica',
+  'Pratiche edilizie e amministrative',
+  'Perizie e stime immobiliari',
+  'Consulenze tecniche',
+  'Assistenza tecnica alla compravendita immobiliare',
 ]
 
 export default function StudioPage() {
@@ -45,25 +41,21 @@ export default function StudioPage() {
           <div className={styles.introInner}>
             <div className={styles.textColumn}>
               <p className={styles.body}>
-                TecnoChianti nasce nel 1990 come risposta alla crescente necessità
-                di competenze tecniche integrate nel territorio del Chianti. Nel corso
-                degli anni abbiamo affiancato privati, enti e imprese in ogni fase
-                del processo edilizio: dalla progettazione alla direzione lavori,
-                dalla gestione delle pratiche burocratiche alla stima del patrimonio
-                immobiliare.
+                TecnoChianti nasce nel 2013 come raggruppamento di professionisti
+                in grado di assicurare una copertura qualificata alla propria
+                committenza, anche grazie alla collaborazione consolidata con partner
+                esterni. Lo studio può così offrire servizi di progettazione
+                architettonica e strutturale per interventi di ogni livello di
+                complessità, oltre che di progettazione impiantistica, con una
+                particolare attenzione al tema della sostenibilità ambientale e della
+                progettazione di edifici a basso consumo energetico.
               </p>
               <p className={styles.body}>
-                Il nostro lavoro è radicato nel territorio toscano, ma aperto alla
-                complessità di ogni progetto. Crediamo nella qualità come scelta
-                quotidiana: nei materiali, nelle soluzioni tecniche, nella cura del
-                dettaglio che distingue un intervento ordinario da uno destinato
-                a durare.
+                Con sede operativa a Radda in Chianti e attivo principalmente tra le
+                province di Siena, Firenze e Arezzo, lo studio estende la propria
+                operatività all&apos;intero territorio regionale e a più ampio raggio.
               </p>
             </div>
-
-            <blockquote className={styles.pullQuote}>
-              Trent'anni di lavoro,<br />lo stesso impegno.
-            </blockquote>
           </div>
         </section>
 

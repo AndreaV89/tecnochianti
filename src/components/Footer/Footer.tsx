@@ -24,6 +24,10 @@ export default function Footer() {
           <div className={styles.brand}>
             <span className={styles.name}>TecnoChianti</span>
             <span className={styles.discipline}>Studio di Architettura</span>
+            <p className={styles.description}>
+              TecnoChianti si occupa di progettazione di edifici privati, recupero
+              e valorizzazione del patrimonio edilizio esistente.
+            </p>
           </div>
 
           <div className={styles.info}>
