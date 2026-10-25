@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
@@ -52,6 +53,14 @@ function buildGalleryRows(photos: GalleryPhoto[]): GalleryRow[] {
   }
 
   return rows
+}
+
+// Nei testi di projects.ts i grassetti sono scritti tra **...**:
+// dividendo sugli asterischi, le parti in posizione dispari sono quelle in grassetto
+function renderBold(text: string): ReactNode[] {
+  return text.split('**').map((part, i) =>
+    i % 2 === 1 ? <strong key={i}>{part}</strong> : part,
+  )
 }
 
 const STATUS_LABELS: Record<ProjectStatus, string> = {
@@ -156,7 +165,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <section className={styles.description}>
             <div className={styles.descriptionInner}>
               {project.paragraphs.map((paragraph, i) => (
-                <p key={i} className={styles.descriptionText}>{paragraph}</p>
+                <p key={i} className={styles.descriptionText}>{renderBold(paragraph)}</p>
               ))}
             </div>
           </section>

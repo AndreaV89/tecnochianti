@@ -54,7 +54,7 @@ Direzione "architettura tipografica": minimal, tipografia protagonista, sfondo c
 
 Il blocco dati della scheda progetto contiene **solo** questi cinque campi, in questo ordine:
 LUOGO · ANNO · STATO · TIPOLOGIA DI INTERVENTO · CATEGORIA.
-Niente superfici, impianti, vincoli o altri dati tecnici. Il testo descrittivo è di tre paragrafi brevi.
+Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottotitolo (`abstract`) e testo descrittivo sono quelli forniti dal cliente, senza riscriverli (solo refusi evidenti corretti); i grassetti del cliente si scrivono tra `**...**`.
 
 ## Contenuti
 
@@ -90,8 +90,6 @@ Niente superfici, impianti, vincoli o altri dati tecnici. Il testo descrittivo �
 
 ## In attesa dal cliente
 
-- Permesso di pubblicare nomi, località e foto dei progetti
-- Testo descrittivo dell'appartamento di Radda
 - Testo "chi siamo" e modo di raccontare la storia dello studio (2013 o 1990), da usare anche nel footer
 - Elenco dei servizi con descrizioni
 - Email pubblica dello studio

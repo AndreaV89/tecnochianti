@@ -123,6 +123,10 @@
   max-width: 62ch;
 }
 
+.descriptionText strong {
+  font-weight: 500;
+}
+
 .descriptionText + .descriptionText {
   margin-top: 1.5em;
 }

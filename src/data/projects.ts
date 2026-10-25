@@ -1,6 +1,6 @@
 import type { Project } from '@/types'
 
-// Testi forniti dal cliente.
+// Testi forniti dal cliente (PDF "Didascalie sito ok"). I grassetti si scrivono tra **...**
 // Dati della scheda: luogo, anno, stato, tipologia di intervento, categoria (confermati dal cliente).
 // L'ordine nella pagina Lavori è per anno, dal più recente: l'ordine qui sotto non conta.
 // Copertina, foto e hero: si cambiano modificando il nome file (vedi /anteprima-foto).
@@ -16,11 +16,12 @@ export const projects: Project[] = [
     intervention: 'Demolizione e ricostruzione',
     category: 'Residenziale',
     abstract:
-      "Un antico annesso agricolo in pietra trasformato in abitazione ad alta efficienza energetica, senza alterarne l'aspetto.",
+      "Un annesso agricolo trasformato in abitazione ad alta efficienza energetica",
     paragraphs: [
-      'Il fabbricato, a circa un chilometro e mezzo dal centro storico di Radda in Chianti, fa parte di un nucleo edilizio di antica origine. Nato come magazzino a doppia altezza, ha pianta pressoché rettangolare, muratura portante in pietra a faccia vista e copertura tradizionale in legno, coppi e tegole.',
-      "Le analisi strutturali e geologiche hanno reso necessaria una ristrutturazione complessiva. L'obiettivo è stato recuperare l'annesso come abitazione mantenendone forma e aspetto: all'interno della muratura in pietra è stata realizzata una nuova struttura portante in legno lamellare XLAM, con isolamenti ad alte prestazioni e impianti alloggiati in micro cavedi.",
-      'La casa è progettata per un fabbisogno energetico minimo: pompa di calore con fan coil, ventilazione meccanica controllata e impianto fotovoltaico con accumulo, senza fonti fossili. Pavimenti in cotto fatto a mano, infissi in legno e alluminio a triplo vetro e un manto di copertura in parte recuperato dalla demolizione legano le soluzioni tecniche alla tradizione costruttiva del luogo.',
+      "L'intervento ha avuto come obiettivo il recupero della volumetria esistente e la sua trasformazione in abitazione, nel **rispetto delle caratteristiche architettoniche** del fabbricato e del contesto edilizio e paesaggistico circostante.",
+      "Il progetto coniuga il rispetto della **tradizione costruttiva** del luogo con l'impiego di **tecnologie contemporanee**, perseguendo elevati standard di sicurezza sismica ed efficienza energetica. Per questo, si è reso necessario un intervento strutturale significativo, mediante la realizzazione di una nuova struttura portante in **pannelli di legno X-LAM**, adeguatamente coibentata e rivestita esternamente in pietra faccia a vista, per preservare l'identità architettonica dell'edificio.",
+      "Concepita come casa ad **alta efficienza energetica**, l'abitazione richiede un fabbisogno energetico minimo, soddisfatto da un sistema a pompa di calore abbinato a terminali ventilconvettori (fan coil). Tutti gli usi energetici sono alimentati esclusivamente da energia elettrica, **senza ricorso a combustibili fossili**.",
+      "Un sistema di **ventilazione meccanica controllata** (VMC) garantisce infine il ricambio continuo dell'aria e contribuisce al mantenimento di un'elevata qualità dell'aria interna, assicurando elevate condizioni di comfort e benessere abitativo.",
     ],
     cover: '11.webp',
     photos: [
@@ -38,11 +39,15 @@ export const projects: Project[] = [
     intervention: 'Restauro',
     category: 'Residenziale',
     abstract:
-      'Il restauro di una villa storica rimasta invariata dal 1830, tra recupero dei decori e adeguamento degli impianti.',
+      "Il restauro del complesso immobiliare e la sistemazione degli spazi esterni",
     paragraphs: [
-      "La villa domina l'abitato di Chiesanuova dalla sommità di una collina tra le valli della Pesa e della Greve, circondata da oliveti e boschi di lecci e pini marittimi. Il corpo principale, lungo circa 37 metri e profondo meno di 11, riprende l'impianto dei palazzi urbani; due ali laterali gli danno la forma a ferro di cavallo, rimasta invariata dal Catasto del 1830.",
-      "Il restauro ha interessato la villa, la casa colonica, la foresteria, i giardini e la piscina. Nella villa gli interventi edilizi sono stati minimi: il lavoro si è concentrato sull'adeguamento degli impianti, con fan coil e riscaldamento a pavimento, e sul recupero dei decori nei saloni e nelle camere affrescate.",
-      "L'ex tinaia è diventata una galleria d'arte, collegata alla villa attraverso la cantina, oggi sala degustazione, e dotata di un piccolo ascensore in ferro e vetro. La limonaia ospita ora un ambiente relax, con un appartamento per gli ospiti al piano superiore. Colonica e foresteria sono state consolidate e aggiornate negli impianti senza alterarne facciate e distribuzione; il giardino è stato interamente riqualificato.",
+      "Il complesso di Palazzo al Bosco si trova nel Comune di San Casciano in Val di Pesa, sulla sommità di una collina che separa le valli dei torrenti Pesa e Greve, in posizione dominante sull'abitato di Chiesanuova.",
+      "Il progetto ha riguardato il restauro della Villa, della casa colonica e della foresteria, così come dei giardini circostanti e della piscina esistente.",
+      "Per la **Villa** l'intervento è consistito in un **attento restauro** degli ambienti interni con minimi interventi edilizi consistiti in parziali cambi delle pavimentazioni, rifacimento dei servizi igienici e alcune modifiche ai collegamenti interni tra i vari locali. Fondamentale è stato l'approccio all'adeguamento degli impianti tecnologici con la sostituzione dei vecchi radiatori con un sistema a fan coil e l'integrazione del riscaldamento a pavimento per gli ambienti principali. I grandi saloni e camere affrescate hanno visto uno studio meticoloso dell'esistente per restaurare gli antichi decori ed eliminare le porzioni recenti di valore storico nullo.",
+      "L'ex tinaia, ubicata nell'ala ovest della Villa e connessa ad essa da un passaggio interno che passa attraverso la cantina ora adibita a sala degustazione, è stata riqualificata e trasformata in una **galleria d'arte** che si sviluppa su due livelli collegati da una rampa alla quale è stato aggiunto un ascensore in ferro e vetro. Anche in questo caso l'approccio progettuale è stato quello di rispettare il più possibile l'architettura esistente con l'inserimento di impianti di condizionamento a fan coil a cui si è aggiunto un intervento di coibentazione sulla copertura e la sostituzione degli infissi con vetrate ad alta efficienza energetica.",
+      "L'ala opposta della villa che ospitava la **limonaia** è stata trasformata in un locale ad uso relax, mentre al piano superiore è stato recuperato e ristrutturato un piccolo appartamento per gli ospiti.",
+      "Anche per la **Colonica** e la **Foresteria**, pur trattandosi di fabbricati di minore rilevanza storica, l'approccio progettuale ha mirato a consolidare alcune parti strutturali e ad adeguare gli impianti tecnologici, mantenendo invece inalterati i prospetti e la tipologia distributiva interna.",
+      "Infine tutto il giardino esterno è stato oggetto di un complessivo lavoro di riqualificazione degli spazi pavimentati e delle parti a verde.",
     ],
     cover: '06.webp',
     photos: [
@@ -59,11 +64,12 @@ export const projects: Project[] = [
     intervention: 'Restauro',
     category: 'Residenziale',
     abstract:
-      'Il restauro di una villa sottoposta a vincolo monumentale, tra consolidamento strutturale e rinnovo dell\'accoglienza turistica.',
+      "Il restauro del complesso immobiliare e la sistemazione degli spazi esterni",
     paragraphs: [
-      'Il complesso, nel comune di Gaiole in Chianti, comprende la villa con giardino, le ex cantine, un fabbricato secondario, un piccolo annesso agricolo e una cappella raggiunta da un viale di cipressi, tra vigneti, oliveti e bosco. Villa e giardino sono sottoposti a vincolo monumentale dal 2009: ogni intervento è condotto in accordo con la Soprintendenza.',
-      "Dopo il consolidamento della copertura e delle fondazioni perimetrali con micropali, il lavoro si è concentrato sui solai interni. I pavimenti vengono smontati, le travi in legno rinforzate dall'alto con profili metallici e una soletta collaborante, quindi il pavimento originale viene ricollocato; dove non è di pregio, è sostituito con cotto fatto a mano dello stesso tipo.",
-      "Il restauro degli interni unisce conservazione e il giusto grado di innovazione, migliorando l'uso turistico ricettivo con camere, bagni e spazi comuni rinnovati. Completano l'intervento la ristrutturazione del fabbricato secondario e dell'ex annesso, una nuova piscina a sfioro e la revisione dei giardini.",
+      "Il complesso immobiliare si compone della Villa, di un fabbricato che ospitava le cantine e gli ambienti di servizio, di un fabbricato secondario, di un annesso agricolo e di una cappellina privata. Completano la proprietà una piscina e i terreni circostanti costituiti da vigneti, oliveti e zone boscate.",
+      "Sulla **Villa** e sul suo giardino insiste un vincolo monumentale da parte del Ministero dei beni e delle attività culturali e del turismo, per cui il progetto ha richiesto l'**approvazione da parte della Soprintendenza**. Dopo una prima fase di **consolidamento** delle strutture del tetto e delle fondazioni perimetrali attraverso l'uso della tecnologia a micropali, l'attenzione si è spostata agli ambienti interni dove anche buona parte dei solai intermedi hanno richiesto un intervento per ripristinarne la sicurezza statica attraverso l'inserimento di travi metalliche a rinforzo di quelle in legno. Gli antichi pavimenti sono stati smontati e rimontati e sostituiti con altrettanti fatti a mano e della stessa tipologia solo laddove sono più recenti o di minore pregio. Il restauro interno dei vari locali della villa viene portato avanti in un'ottica di conservazione e introducendo il giusto grado di innovazione necessario a migliorare la fruibilità di tutti gli ambienti. L'attuale uso turistico ricettivo viene così migliorato con il rinnovamento delle camere, dei bagni e soprattutto degli spazi comuni ai vari piani che garantiranno comfort abitativo per gli ospiti nel rispetto delle caratteristiche storiche della villa.",
+      "Il **fabbricato secondario** viene ristrutturato mantenendo inalterato l'uso turistico con il rinnovamento delle camere e degli spazi comuni.",
+      "La **piscina** esistente è stata demolita ed è in corso di sostituzione con una di dimensioni maggiori e con bordo a sfioro sul lungo lato a valle, con una generale **riqualificazione dei giardini** e delle aree a verde.",
     ],
     cover: '07.webp',
     photos: [
@@ -80,11 +86,14 @@ export const projects: Project[] = [
     status: 'in-corso',
     intervention: 'Nuova costruzione',
     category: 'Cantina aziendale',
-    abstract: 'Una cantina interrata che segue il declivio della collina e scompare sotto un tetto giardino.',
+    abstract:
+      "Una cantina interrata che scompare sotto un tetto giardino",
     paragraphs: [
-      'Il progetto rinnova e amplia il centro aziendale per adeguarlo alla produzione, trasformazione e commercializzazione del vino. Il principio guida è la tutela del paesaggio: limitare i movimenti di terra, preservare la vegetazione esistente e mantenere gli assetti colturali tra vigneto, viale alberato e bosco.',
-      "La cantina si inserisce nel declivio naturale e ne segue la pendenza, collocata interamente entro terra sotto un tetto giardino che la sottrae alla vista dall'alto. Una fascia vegetale perimetrale accompagna la transizione verso il bosco e fa da filtro tra costruito e paesaggio naturale.",
-      "L'unica parte fuori terra è la facciata a nord-ovest, un muro in pietra a faccia vista con una rientranza in corten che segna l'ingresso. All'interno, su un unico livello alto quattro metri, gli ambienti seguono il processo produttivo: vinificazione in tini di cemento e acciaio, imbottigliamento, stoccaggio, servizi e locali tecnici.",
+      "L'area di intervento si inserisce nello straordinario contesto viticolo-collinare di Montalcino, nel cuore della Val d'Orcia.",
+      "Il progetto rinnova e amplia il centro aziendale per adeguarlo alla produzione, trasformazione e commercializzazione vinicola.",
+      "L'elemento cardine che ha guidato la progettazione è stata la **tutela del paesaggio** attuata attraverso la riduzione dei movimenti di terra, la salvaguardia della vegetazione esistente e la valorizzazione del dialogo tra lo spazio antropico e l'ambiente naturale.",
+      "La cantina si inserisce nel declivio naturale e segue l'andamento del terreno, facendo sì che la struttura sia **nascosta sotto al tetto giardino** che ne costituisce il sistema di rivestimento ad eccezione che per il fronte di ingresso rivestito interamente in pietra e – limitatamente alla zona centrale – in lastre di acciaio corten e scandito dalle aperture che danno accesso ai locali interni.",
+      "Internamente la scansione degli ambienti segue il processo produttivo delle uve dall'arrivo, dai tini in cemento e acciaio della vinificazione, alla barrique di maturazione e affinamento del vino, alla zona di imbottigliamento al magazzino di stoccaggio, ai locali di servizio per il personale fino alla zona di degustazione e vendita diretta.",
     ],
     cover: '02.webp',
     photos: [
@@ -93,15 +102,18 @@ export const projects: Project[] = [
   },
   {
     slug: 'appartamento-radda',
-    title: 'Appartamento - Radda in Chianti',
+    title: 'Appartamento a Radda',
     location: 'Radda in Chianti',
     year: '2026',
     status: 'in-corso',
     intervention: 'Ristrutturazione',
     category: 'Residenziale',
-    // Nessun testo descrittivo fornito dal cliente: abstract e paragrafi vuoti non compaiono
-    abstract: '',
-    paragraphs: [],
+    abstract:
+      "Il progetto di ristrutturazione di un appartamento per renderlo più funzionale e contemporaneo",
+    paragraphs: [
+      "Situato in zona periferica rispetto al centro di Radda in Chianti, questo progetto di ristrutturazione interna **ridefinisce l'identità dell'appartamento** in chiave contemporanea, superando la tradizionale compartimentazione degli spazi.",
+      "Al piano terra, la zona giorno si apre in un unico e luminoso ambiente living con zona pranzo e un pratico angolo lavanderia nascosto. Al piano superiore, la zona notte accoglie la camera matrimoniale – dotata di un letto singolo a scomparsa nascosto da un elegante divisorio a listelli in legno per garantire la giusta privacy –, il bagno e un funzionale ripostiglio. Un intervento che **coniuga estetica moderna** e **ottimizzazione degli spazi**.",
+    ],
     cover: '04.webp',
     photos: [
       '01.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp',
