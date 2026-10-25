@@ -6,12 +6,6 @@ import styles from './Footer.module.css'
 
 const currentYear = new Date().getFullYear()
 
-// Mostrati solo se compilati in src/data/contacts.ts
-const socialLinks = [
-  { label: 'Instagram', href: contacts.social.instagram },
-  { label: 'LinkedIn', href: contacts.social.linkedin },
-].filter(link => link.href)
-
 // Due fasce: sopra marchio + contatti e menu, sotto dati legali e link.
 export default function Footer() {
   const { street, postalCode, city, province } = contacts.address
@@ -46,17 +40,6 @@ export default function Footer() {
               <Link href="/" className={styles.link}>Home</Link>
               <Link href="/lavori" className={styles.link}>Lavori</Link>
               <Link href="/studio" className={styles.link}>Studio</Link>
-              {socialLinks.map(link => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className={styles.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.label}
-                </a>
-              ))}
             </nav>
           </div>
         </div>

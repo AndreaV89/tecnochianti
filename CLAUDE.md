@@ -59,7 +59,7 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 ## Contenuti
 
 - Progetti: `src/data/projects.ts` è l'unica fonte. Testi, dati, copertina e foto si modificano solo lì.
-- Contatti, email e link social: si modificano solo in `src/data/contacts.ts`.
+- Contatti ed email: si modificano solo in `src/data/contacts.ts`.
 - Dati legali dei professionisti (P.IVA, albo): si modificano solo in `src/data/legal.ts`.
 - Foto originali, da non modificare mai: `"/Users/andreavannetti/Library/Mobile Documents/com~apple~CloudDocs/Lavoro/02_Clienti/TecnoChianti/tecnochianti.it/Materiali"`, una sottocartella per progetto più `Home/` per le immagini della hero.
 - Le foto per il sito si generano con lo script in `scripts/` (rotazione EXIF, massimo 2400 px, WebP qualità 80, metadati rimossi) e finiscono in `public/progetti/<slug>/` con nomi `01.webp`, `02.webp`…
@@ -71,7 +71,7 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 - Footer: per ogni professionista nome, titolo, P.IVA e iscrizione all'albo. Il codice fiscale non va mai pubblicato.
 - Titolare del trattamento: Carlo Matassini.
 - Google Analytics 4 si carica solo dopo il consenso nel banner cookie (Consent Mode v2). L'ID viene da `NEXT_PUBLIC_GA_ID`; se manca, GA non si carica.
-- I link social e l'email dello studio si mostrano solo se compilati.
+- Email pubblica: solo info@tecnochianti.it. Niente profili social (il cliente non li vuole).
 
 ## Stato attuale
 
@@ -90,9 +90,6 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 
 ## In attesa dal cliente
 
-- Email pubblica dello studio
-- Profili social
-- Conferma della frase della Home ("Progettiamo luoghi che durano")
 - ID di Google Analytics
 - Eventuale foto dello studio o del territorio
 

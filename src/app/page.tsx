@@ -22,7 +22,7 @@ export default function HomePage() {
       <section className={styles.manifesto} aria-label="Manifesto">
         <div className={styles.manifestoInner}>
           <p className={styles.manifestoText}>
-            Progettiamo luoghi<br />che durano.
+            Diamo forma al futuro<br />creando architetture custodi dell&apos;anima dei luoghi
           </p>
         </div>
       </section>

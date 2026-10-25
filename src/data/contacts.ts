@@ -16,12 +16,8 @@ export interface Contacts {
     province: string
   }
   phone: Phone
-  // Email generale dello studio (non ancora disponibile)
+  // Email generale dello studio
   email: string
-  social: {
-    instagram: string
-    linkedin: string
-  }
 }
 
 export const contacts: Contacts = {
@@ -32,10 +28,5 @@ export const contacts: Contacts = {
     province: 'SI',
   },
   phone: { display: '+39 0577 738486', href: '+390577738486' },
-  email: '',
-  // URL completi dei profili, es. 'https://www.instagram.com/...'
-  social: {
-    instagram: '',
-    linkedin: '',
-  },
+  email: 'info@tecnochianti.it',
 }

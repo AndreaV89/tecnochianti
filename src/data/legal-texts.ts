@@ -11,7 +11,7 @@ export const privacySections: LegalSection[] = [
   {
     title: 'Titolare del trattamento',
     paragraphs: [
-      `Il titolare del trattamento dei dati personali è ${controller}. Per qualsiasi richiesta relativa ai dati personali è possibile contattare il titolare al numero ${contacts.phone.display} o all'indirizzo email [da completare].`,
+      `Il titolare del trattamento dei dati personali è ${controller}. Per qualsiasi richiesta relativa ai dati personali è possibile contattare il titolare al numero ${contacts.phone.display} o all'indirizzo email ${contacts.email}.`,
     ],
   },
   {
