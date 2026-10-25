@@ -55,6 +55,11 @@
   margin: 0 auto;
 }
 
+/* Video a tutta larghezza */
+.video {
+  padding-top: 6rem;
+}
+
 /* Divisore con label */
 .divider {
   display: flex;
@@ -154,5 +159,9 @@
 
   .section {
     padding: 0 1.25rem;
+  }
+
+  .video {
+    padding-top: 4rem;
   }
 }

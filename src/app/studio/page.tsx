@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
+import StudioVideo from '@/components/StudioVideo/StudioVideo'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -57,6 +58,11 @@ export default function StudioPage() {
               </p>
             </div>
           </div>
+        </section>
+
+        {/* Video del territorio (generato con scripts/optimize-video.mjs) */}
+        <section className={styles.video} aria-label="Il territorio">
+          <StudioVideo src="/video/studio.mp4" poster="/video/studio-poster.webp" />
         </section>
 
         {/* Professionisti */}
