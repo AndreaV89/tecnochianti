@@ -50,6 +50,7 @@ Direzione "architettura tipografica": minimal, tipografia protagonista, sfondo c
 - **Lavori**: un'unica griglia a due colonne, ordinata per anno dal più recente, con contatore dei progetti. I lavori in corso sono segnalati con "In corso" accanto alla categoria nella card.
 - **Lavori/[slug]**: hero a colori (75svh), blocco dati, descrizione, galleria, link per tornare indietro. Generata con `generateStaticParams`.
 - **Studio**: testo di presentazione in colonna stretta (58ch), margini asimmetrici, nessuna pull quote, video del territorio a tutta larghezza (muto, in loop, fermo con prefers-reduced-motion), elenco dei tre professionisti (NOME COGNOME in maiuscolo, professione in minuscolo, nessuna foto), lista tipografica dei 5 servizi indicati dal cliente (senza descrizioni).
+- **Contatti**: recapiti a sinistra, form a destra (nome, cognome, email, messaggio, consenso privacy). Invio con Server Action + Resend verso info@ e le email dei tre professionisti, `replyTo` sull'email di chi scrive, campo trappola antispam. Se al cliente non piace la pagina, il form va in fondo alla pagina Studio.
 - **Privacy** e **Cookie policy**.
 
 Il blocco dati della scheda progetto contiene **solo** questi cinque campi, in questo ordine:
@@ -85,6 +86,8 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 - [ ] Eliminare `src/proxy.ts` per riattivare il sito completo
 - [ ] Eliminare la pagina temporanea `/anteprima-foto`
 - [ ] Togliere `picsum.photos` da `remotePatterns` e qualsiasi immagine segnaposto rimasta
+- [ ] Verificare il dominio tecnochianti.it su Resend (record DNS su Register.it, senza toccare gli MX principali; serve il codice di accesso che arriva a Carlo)
+- [ ] Impostare su Vercel `RESEND_API_KEY`, `CONTACT_FROM` e `CONTACT_RECIPIENTS` (vedi `.env.example`) e provare il form
 - [ ] Impostare `NEXT_PUBLIC_GA_ID` su Vercel e verificare il banner cookie
 - [ ] Sostituire i testi segnaposto di privacy e cookie policy
 - [ ] Merge di `develop` in `main`

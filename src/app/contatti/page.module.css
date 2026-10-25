@@ -1,0 +1,101 @@
+.main {
+  min-height: 100svh;
+}
+
+/* Header pagina (come Studio) */
+.pageHeader {
+  padding: 7rem 2rem 2.5rem;
+  border-bottom: 1px solid var(--color-grigio-chiaro);
+}
+
+.pageHeaderInner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.pageTitle {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-thin);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  letter-spacing: -0.02em;
+  color: var(--color-antracite);
+}
+
+/* Due colonne: recapiti a sinistra, form a destra */
+.content {
+  padding: 6rem 2rem 8rem;
+}
+
+.contentInner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 4fr 7fr;
+  gap: clamp(3rem, 8vw, 8rem);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detailLabel {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-grigio-medio);
+}
+
+.detailValue {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--color-antracite);
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.link:hover {
+  border-bottom-color: currentColor;
+}
+
+.formColumn {
+  max-width: 40rem;
+}
+
+.formTitle {
+  margin-bottom: 2.5rem;
+  font-family: var(--font-serif);
+  font-weight: var(--weight-light);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  letter-spacing: -0.01em;
+  color: var(--color-antracite);
+}
+
+@media (max-width: 768px) {
+  .pageHeader {
+    padding: 6rem 1.25rem 2rem;
+  }
+
+  .content {
+    padding: 4rem 1.25rem 6rem;
+  }
+
+  .contentInner {
+    grid-template-columns: 1fr;
+  }
+}

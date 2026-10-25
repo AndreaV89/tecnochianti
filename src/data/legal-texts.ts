@@ -19,7 +19,7 @@ export const privacySections: LegalSection[] = [
     paragraphs: [
       "Dati di navigazione: i sistemi che fanno funzionare il sito raccolgono, durante il normale utilizzo, alcuni dati tecnici (ad esempio indirizzo IP, tipo di browser, pagine visitate e orario della richiesta). Sono usati solo per garantire il funzionamento e la sicurezza del sito.",
       "Dati statistici: solo con il consenso dell'utente, il sito utilizza Google Analytics per raccogliere informazioni aggregate sull'uso delle pagine. I dettagli sono descritti nella Cookie policy.",
-      "Dati forniti volontariamente: chi contatta lo studio per telefono o email comunica i propri dati di contatto e le informazioni contenute nella richiesta.",
+      "Dati forniti volontariamente: chi contatta lo studio per telefono, email o tramite il modulo della pagina Contatti comunica i propri dati (nome, cognome, indirizzo email) e le informazioni contenute nella richiesta. I messaggi inviati con il modulo sono recapitati agli indirizzi email dello studio e dei suoi professionisti e non vengono conservati sul sito.",
     ],
   },
   {
@@ -37,7 +37,7 @@ export const privacySections: LegalSection[] = [
   {
     title: 'Destinatari dei dati',
     paragraphs: [
-      "I dati possono essere trattati da fornitori che svolgono servizi per conto del titolare, nominati responsabili del trattamento: il fornitore di hosting del sito [da completare] e, solo in caso di consenso, Google Ireland Limited per il servizio Google Analytics. I dati non sono diffusi.",
+      "I dati possono essere trattati da fornitori che svolgono servizi per conto del titolare, nominati responsabili del trattamento: il fornitore di hosting del sito [da completare], Resend [ragione sociale da verificare] per l'invio dei messaggi del modulo contatti e, solo in caso di consenso, Google Ireland Limited per il servizio Google Analytics. I dati non sono diffusi.",
     ],
   },
   {

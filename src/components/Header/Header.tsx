@@ -32,6 +32,7 @@ export default function Header({ alwaysDark = false }: HeaderProps) {
         <nav className={styles.nav} aria-label="Navigazione principale">
           <Link href="/studio" className={styles.navLink}>Studio</Link>
           <Link href="/lavori" className={styles.navLink}>Lavori</Link>
+          <Link href="/contatti" className={styles.navLink}>Contatti</Link>
         </nav>
       </div>
     </header>
