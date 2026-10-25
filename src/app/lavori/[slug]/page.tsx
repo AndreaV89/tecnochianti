@@ -26,7 +26,7 @@ type GalleryRow =
   | { kind: 'single'; photo: GalleryPhoto }
 
 // Impaginazione "sfalsata": si alternano una foto orizzontale a tutta larghezza
-// e una coppia (una stretta abbassata + una larga, che cambiano lato a ogni coppia).
+// e una coppia (una stretta + una larga allineate in alto, che cambiano lato a ogni coppia).
 // Le foto verticali non vanno mai a tutta larghezza. Nessuna foto viene tagliata.
 function buildGalleryRows(photos: GalleryPhoto[]): GalleryRow[] {
   const rows: GalleryRow[] = []
@@ -73,12 +73,13 @@ interface PageProps {
 }
 
 export function generateStaticParams() {
-  return projects.map(p => ({ slug: p.slug }))
+  // I lavori "dettagli a breve" non hanno una scheda
+  return projects.filter(p => !p.comingSoon).map(p => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
-  const project = projects.find(p => p.slug === slug)
+  const project = projects.find(p => p.slug === slug && !p.comingSoon)
   if (!project) return {}
   return {
     title: `${project.title} — TecnoChianti`,
@@ -89,7 +90,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params
-  const project = projects.find(p => p.slug === slug)
+  const project = projects.find(p => p.slug === slug && !p.comingSoon)
   if (!project) notFound()
 
   const infoItems = [

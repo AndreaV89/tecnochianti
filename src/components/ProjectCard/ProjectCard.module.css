@@ -13,6 +13,11 @@
   cursor: pointer;
 }
 
+/* Card senza scheda di dettaglio: non cliccabile */
+.cardStatic:hover {
+  cursor: default;
+}
+
 .imageWrapper {
   position: relative;
   aspect-ratio: 3 / 4;
@@ -58,19 +63,33 @@
   transition: transform var(--transition-card);
 }
 
+/* Didascalia dei lavori senza scheda */
+.overlayNote {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-carta);
+  transform: translateY(0.5rem);
+  transition: transform var(--transition-card);
+}
+
 @media (hover: hover) {
   .card:hover .overlay {
     opacity: 1;
   }
 
-  .card:hover .overlayTitle {
+  .card:hover .overlayTitle,
+  .card:hover .overlayNote {
     transform: translateY(0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .overlay,
-  .overlayTitle {
+  .overlayTitle,
+  .overlayNote {
     transition: none;
   }
 }

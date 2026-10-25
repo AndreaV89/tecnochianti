@@ -17,4 +17,6 @@ export interface Project {
   cover: string
   photos: string[]
   featured?: boolean
+  // Lavoro senza scheda di dettaglio: card non cliccabile, in hover "Dettagli a breve"
+  comingSoon?: boolean
 }

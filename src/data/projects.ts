@@ -119,6 +119,21 @@ export const projects: Project[] = [
       '01.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp',
     ],
   },
+  {
+    slug: 'complesso-radda',
+    title: 'Complesso immobiliare a Radda in Chianti',
+    location: 'Radda in Chianti',
+    year: '',
+    status: 'in-corso',
+    intervention: '',
+    category: 'Residenziale',
+    // Scheda non ancora pronta: compare solo la card, senza link
+    abstract: '',
+    paragraphs: [],
+    cover: '01.webp',
+    photos: [],
+    comingSoon: true,
+  },
 ]
 
 // Foto della hero in Home (dissolvenza in sequenza).

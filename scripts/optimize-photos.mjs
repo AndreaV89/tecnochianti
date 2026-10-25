@@ -27,6 +27,7 @@ const FOLDER_TO_SLUG = {
   "Complesso immobiliare Gaiole": "complesso-gaiole",
   "Cantina Le Prata": "cantina-le-prata",
   "Appartamento Radda in Chianti": "appartamento-radda",
+  "Complesso immobiliare Radda": "complesso-radda",
   // Immagini usate solo nella hero della Home
   Home: "home",
 };
