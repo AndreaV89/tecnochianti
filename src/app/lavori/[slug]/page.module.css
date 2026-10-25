@@ -162,7 +162,7 @@
   margin: 0 auto;
 }
 
-/* Coppia: colonna stretta (abbassata) + colonna larga */
+/* Coppia: colonna stretta + colonna larga, allineate in alto (richiesta del cliente) */
 .galleryPair {
   display: grid;
   grid-template-columns: 5fr 7fr;
@@ -170,21 +170,9 @@
   align-items: start;
 }
 
-.galleryPair .galleryPairItem:first-child {
-  margin-top: clamp(3rem, 9vw, 8rem);
-}
-
-/* Coppia invertita: larga a sinistra, stretta (abbassata) a destra */
+/* Coppia invertita: larga a sinistra, stretta a destra */
 .galleryPairReversed {
   grid-template-columns: 7fr 5fr;
-}
-
-.galleryPairReversed .galleryPairItem:first-child {
-  margin-top: 0;
-}
-
-.galleryPairReversed .galleryPairItem:last-child {
-  margin-top: clamp(3rem, 9vw, 8rem);
 }
 
 /* Navigazione */
@@ -246,11 +234,6 @@
   .galleryPairReversed {
     grid-template-columns: 1fr;
     gap: 1.25rem;
-  }
-
-  .galleryPair .galleryPairItem:first-child,
-  .galleryPairReversed .galleryPairItem:last-child {
-    margin-top: 0;
   }
 
   .nav {
