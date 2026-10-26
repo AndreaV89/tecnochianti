@@ -88,13 +88,12 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 - [ ] Togliere `picsum.photos` da `remotePatterns` e qualsiasi immagine segnaposto rimasta
 - [ ] Verificare il dominio tecnochianti.it su Resend (record DNS su Register.it, senza toccare gli MX principali; serve il codice di accesso che arriva a Carlo)
 - [ ] Impostare su Vercel `RESEND_API_KEY`, `CONTACT_FROM` e `CONTACT_RECIPIENTS` (vedi `.env.example`) e provare il form
-- [ ] Impostare `NEXT_PUBLIC_GA_ID` su Vercel e verificare il banner cookie
+- [x] Impostare `NEXT_PUBLIC_GA_ID` su Vercel (Production e Preview) e verificare il banner cookie
 - [ ] Sostituire i testi segnaposto di privacy e cookie policy
 - [ ] Merge di `develop` in `main`
 
 ## In attesa dal cliente
 
-- ID di Google Analytics
 - Anno del Complesso immobiliare a Radda (ora vuoto: la card è ultima nella griglia)
 
 ## Modo di lavorare
