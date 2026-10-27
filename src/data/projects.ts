@@ -28,6 +28,20 @@ export const projects: Project[] = [
       '11.webp', '13.webp', '12.webp', '14.webp', '01.webp', '15.webp', '03.webp', '06.webp',
       '07.webp', '08.webp', '04.webp', '05.webp',
     ],
+    photoAlts: {
+      '01.webp': "Il fabbricato agricolo in pietra prima dell'intervento, visto dall'alto",
+      '03.webp': "Copertura in legno con telo traspirante durante il cantiere",
+      '04.webp': "Interno con pareti e solaio in pannelli di legno X-LAM durante il cantiere",
+      '05.webp': "Ambiente interno in legno X-LAM con finestre sul paesaggio",
+      '06.webp': "Struttura in X-LAM con membrana protettiva e primo rivestimento in pietra",
+      '07.webp': "Posa del rivestimento in pietra faccia a vista accanto a una porta finestra",
+      '08.webp': "Il fabbricato tra i ponteggi durante la posa del rivestimento in pietra",
+      '11.webp': "L'abitazione in pietra con il giardino e il terrazzo pavimentato",
+      '12.webp': "Terrazzo pavimentato con pergola in ferro e vista sulle colline",
+      '13.webp': "L'abitazione con la pergola e il terrazzo esterno",
+      '14.webp': "Soggiorno con cucina a vista e solaio in legno chiaro",
+      '15.webp': "Il cantiere visto dall'alto, con la nuova copertura in posa",
+    },
     featured: true,
   },
   {
@@ -53,6 +67,16 @@ export const projects: Project[] = [
     photos: [
       '05.webp', '04.webp', '06.webp', '07.webp', '01.webp', '02.webp', '03.webp', '08.webp',
     ],
+    photoAlts: {
+      '01.webp': "Sala affrescata della Villa con pavimento in cotto",
+      '02.webp': "Sala degustazione nella cantina con volta in mattoni",
+      '03.webp': "Ambiente restaurato con arco e grandi vetrate sul giardino",
+      '04.webp': "Il complesso di Palazzo al Bosco visto dall'alto, tra giardini e colline",
+      '05.webp': "La Villa e gli edifici del complesso visti dall'alto, con il viale di cipressi",
+      '06.webp': "La piscina nel giardino della Villa",
+      '07.webp': "Salone affrescato della Villa con porta finestra ad arco",
+      '08.webp': "Scalone con balaustra visto dall'alto",
+    },
     featured: true,
   },
   {
@@ -76,6 +100,17 @@ export const projects: Project[] = [
       '07.webp', '09.webp', '03.webp', '06.webp', '04.webp', '05.webp', '10.webp', '08.webp',
       '02.webp',
     ],
+    photoAlts: {
+      '02.webp': "Soffitto con travi in legno a padiglione e piccola finestra",
+      '03.webp': "Rifacimento della copertura con nuovi pannelli isolanti",
+      '04.webp': "Stanza con pavimento in cotto durante il restauro",
+      '05.webp': "Muratura in pietra e nuove aperture durante il cantiere",
+      '06.webp': "Ambiente in pietra con travi metalliche di rinforzo del solaio",
+      '07.webp': "Nuova orditura in legno della copertura tra i cipressi",
+      '08.webp': "Fabbricato in pietra durante il restauro",
+      '09.webp': "Copertura della Villa in rifacimento, con le statue del tetto sullo sfondo",
+      '10.webp': "Scala in pietra in corso di restauro tra i ponteggi",
+    },
     featured: true,
   },
   {
@@ -99,6 +134,15 @@ export const projects: Project[] = [
     photos: [
       '01.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp', '07.webp',
     ],
+    photoAlts: {
+      '01.webp': "Render della cantina vista dall'alto, con il tetto giardino tra vigneti e cipressi",
+      '02.webp': "Render del fronte d'ingresso in pietra della cantina",
+      '03.webp': "Render della cantina inserita nel declivio e coperta dal tetto giardino",
+      '04.webp': "Render della barricaia e della zona degustazione",
+      '05.webp': "Render della sala di vinificazione illuminata da un lucernario",
+      '06.webp': "La tenuta vista dall'alto, tra vigneti e boschi",
+      '07.webp': "Il cantiere della cantina visto dall'alto",
+    },
   },
   {
     slug: 'appartamento-radda',
@@ -118,6 +162,14 @@ export const projects: Project[] = [
     photos: [
       '01.webp', '02.webp', '03.webp', '04.webp', '05.webp', '06.webp',
     ],
+    photoAlts: {
+      '01.webp': "Camera con divisorio a listelli in legno",
+      '02.webp': "Cucina con isola e sgabelli",
+      '03.webp': "Bagno con doccia in vetro e mobile lavabo blu",
+      '04.webp': "Soggiorno con divano e zona pranzo, con la cucina sullo sfondo",
+      '05.webp': "Zona pranzo e soggiorno con mensole a parete",
+      '06.webp': "Camera matrimoniale con carta da parati decorata",
+    },
   },
   {
     slug: 'complesso-radda',
@@ -132,14 +184,18 @@ export const projects: Project[] = [
     paragraphs: [],
     cover: '01.webp',
     photos: [],
+    photoAlts: {
+      '01.webp': "Il complesso immobiliare visto dall'alto, tra boschi e vigneti",
+    },
     comingSoon: true,
   },
 ]
 
 // Foto della hero in Home (dissolvenza in sequenza).
-export const heroPhotos: Array<{ slug: string; file: string }> = [
+// L'alt si prende dalla scheda del progetto; la foto di 'home' non ha scheda e lo indica qui.
+export const heroPhotos: Array<{ slug: string; file: string; alt?: string }> = [
   // Render della Cantina Le Prata (Materiali/Home), sempre per primo
-  { slug: 'home', file: '01.webp' },
+  { slug: 'home', file: '01.webp', alt: "Render della Cantina Le Prata vista dall'alto, tra vigneti e cipressi" },
   { slug: 'palazzo-al-bosco', file: '05.webp' },
   { slug: 'beretuzzo', file: '11.webp' },
   { slug: 'palazzo-al-bosco', file: '07.webp' },
@@ -150,9 +206,16 @@ export function photoSrc(slug: string, file: string): string {
   return `/progetti/${slug}/${file}`
 }
 
-export const heroSlides = heroPhotos.map(photo => ({
-  src: photoSrc(photo.slug, photo.file),
-  alt: '',
-}))
+export function photoAlt(project: Project, file: string): string {
+  return project.photoAlts[file] ?? project.title
+}
+
+export const heroSlides = heroPhotos.map(photo => {
+  const project = projects.find(p => p.slug === photo.slug)
+  return {
+    src: photoSrc(photo.slug, photo.file),
+    alt: photo.alt ?? (project ? photoAlt(project, photo.file) : ''),
+  }
+})
 
 export const featuredProjects = projects.filter(p => p.featured)

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
-import { projects, photoSrc } from '@/data/projects'
+import { projects, photoAlt, photoSrc } from '@/data/projects'
 import type { ProjectStatus } from '@/types'
 import photoSizesJson from '@/data/photo-sizes.json'
 import styles from './page.module.css'
@@ -108,14 +108,10 @@ export default async function ProjectPage({ params }: PageProps) {
     }),
   )
 
-  // Numero progressivo per l'alt, nell'ordine della galleria
-  const altFor = (file: string) =>
-    `${project.title}, foto ${project.photos.indexOf(file) + 1}`
-
   const renderPhoto = (photo: GalleryPhoto, sizes: string) => (
     <Image
       src={photoSrc(project.slug, photo.file)}
-      alt={altFor(photo.file)}
+      alt={photoAlt(project, photo.file)}
       width={photo.width}
       height={photo.height}
       sizes={sizes}
@@ -131,7 +127,7 @@ export default async function ProjectPage({ params }: PageProps) {
       <div className={styles.hero}>
         <Image
           src={photoSrc(project.slug, project.cover)}
-          alt={project.title}
+          alt={photoAlt(project, project.cover)}
           fill
           priority
           sizes="100vw"

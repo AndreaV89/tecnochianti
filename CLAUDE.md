@@ -60,6 +60,8 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 ## Contenuti
 
 - Progetti: `src/data/projects.ts` è l'unica fonte. Testi, dati, copertina e foto si modificano solo lì.
+- Ogni foto usata (copertina, galleria, hero) ha una descrizione in `photoAlts` per l'attributo alt. Quando si aggiunge una foto, va aggiunta anche la sua descrizione.
+- Ogni foto usata (copertina, galleria, hero) ha una descrizione in `photoAlts` per l'attributo alt. Quando si aggiunge una foto, va aggiunta anche la sua descrizione.
 - Contatti ed email: si modificano solo in `src/data/contacts.ts`.
 - Dati legali dei professionisti (P.IVA, albo): si modificano solo in `src/data/legal.ts`.
 - Foto originali, da non modificare mai: `"/Users/andreavannetti/Library/Mobile Documents/com~apple~CloudDocs/Lavoro/02_Clienti/TecnoChianti/tecnochianti.it/Materiali"`, una sottocartella per progetto più `Home/` per le immagini della hero.

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Project } from '@/types'
-import { photoSrc } from '@/data/projects'
+import { photoAlt, photoSrc } from '@/data/projects'
 import styles from './ProjectCard.module.css'
 
 interface Props {
@@ -22,7 +22,7 @@ export default function ProjectCard({ project, sizes, priority = false }: Props)
       <div className={styles.imageWrapper}>
         <Image
           src={photoSrc(project.slug, project.cover)}
-          alt={project.title}
+          alt={photoAlt(project, project.cover)}
           fill
           priority={priority}
           sizes={sizes}
