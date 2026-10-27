@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Logo from '@/components/Logo/Logo'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -13,8 +14,7 @@ export default function InCostruzionePage() {
   return (
     <main className={styles.page}>
       <div className={styles.logo}>
-        <span className={styles.logoName}>TecnoChianti</span>
-        <span className={styles.logoDiscipline}>Studio di Architettura</span>
+        <Logo className={styles.logoMark} />
       </div>
 
       <hr className={styles.divider} />

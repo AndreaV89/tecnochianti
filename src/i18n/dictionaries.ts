@@ -6,9 +6,6 @@ import type { Locale } from './routes'
 // `en` ha lo stesso tipo di `it`: se manca una traduzione, la build si ferma.
 
 const it = {
-  brand: {
-    discipline: 'Studio di Architettura',
-  },
   header: {
     navLabel: 'Navigazione principale',
     studio: 'Studio',
@@ -126,9 +123,6 @@ export type Dictionary = typeof it
 
 // Bozza di traduzione da far approvare al cliente
 const en: Dictionary = {
-  brand: {
-    discipline: 'Architecture Studio',
-  },
   header: {
     navLabel: 'Main navigation',
     studio: 'Studio',

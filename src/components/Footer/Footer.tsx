@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { contacts } from '@/data/contacts'
 import { professionalsLegal } from '@/data/legal'
+import Logo from '@/components/Logo/Logo'
 import CookiePreferencesButton from '@/components/CookieConsent/CookiePreferencesButton'
 import { getDictionary } from '@/i18n/dictionaries'
 import { routePath, type Locale } from '@/i18n/routes'
@@ -23,8 +24,7 @@ export default function Footer({ locale }: Props) {
 
         <div className={styles.top}>
           <div className={styles.brand}>
-            <span className={styles.name}>TecnoChianti</span>
-            <span className={styles.discipline}>{t.brand.discipline}</span>
+            <Logo className={styles.logo} />
             <p className={styles.description}>{t.footer.description}</p>
           </div>
 

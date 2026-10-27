@@ -4,7 +4,7 @@
 
 /* Header pagina: come Studio e Lavori */
 .pageHeader {
-  padding: 7rem 2rem 2.5rem;
+  padding: 8rem 2rem 2.5rem;
   border-bottom: 1px solid var(--color-grigio-chiaro);
 }
 
@@ -68,7 +68,7 @@
 
 @media (max-width: 640px) {
   .pageHeader {
-    padding: 6rem 1.25rem 2rem;
+    padding: 7.5rem 1.25rem 2rem;
   }
 
   .content {

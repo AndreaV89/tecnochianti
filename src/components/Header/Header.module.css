@@ -29,36 +29,21 @@
 }
 
 .logo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.logoName {
-  font-family: var(--font-text);
-  font-weight: var(--weight-medium);
-  font-size: 0.8125rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  display: block;
+  flex-shrink: 0;
   color: var(--color-carta);
   transition: color var(--transition-fast);
 }
 
-.logoDiscipline {
-  font-family: var(--font-text);
-  font-weight: var(--weight-regular);
-  font-size: 0.625rem;
-  letter-spacing: 0.1em;
-  color: rgba(247, 245, 241, 0.55);
-  transition: color var(--transition-fast);
+/* Logo SVG: il colore arriva da `color` del link (bianco sopra la hero, antracite dopo lo scroll) */
+.logoMark {
+  display: block;
+  width: 260px;
+  height: auto;
 }
 
-.header.scrolled .logoName {
+.header.scrolled .logo {
   color: var(--color-antracite);
-}
-
-.header.scrolled .logoDiscipline {
-  color: var(--color-grigio-medio);
 }
 
 .nav {
@@ -115,49 +100,42 @@
   color: var(--color-terracotta);
 }
 
+/* Mobile: su due righe. Sopra il logo (con il selettore lingua a destra), sotto il menu */
 @media (max-width: 640px) {
   .header {
-    padding: 1.25rem 1.25rem;
+    padding: 1rem 1.25rem;
   }
 
-  /* Tre voci di menu accanto al logo: su mobile servono corpo e spaziature più stretti */
   .inner {
-    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .logoMark {
+    width: 170px;
   }
 
   .nav {
-    gap: 1.125rem;
+    gap: 1.5rem;
   }
 
   .navLink {
     font-size: 0.6875rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
   }
 
-  /* Il selettore lingua non entra nella riga del menu: va in alto a destra,
-     all'altezza del nome "TecnoChianti" (il menu è allineato alla riga sotto) */
+  /* Allineato al centro del logo (alto circa 28px) */
   .languageLink {
     position: absolute;
-    top: 1.25rem;
+    top: calc(1rem + 6px);
     right: 1.25rem;
     margin-left: 0;
   }
 }
 
 @media (max-width: 360px) {
-  .logoName {
-    letter-spacing: 0.14em;
-  }
-
-  .logoDiscipline {
-    white-space: nowrap;
-  }
-
   .nav {
-    gap: 0.75rem;
-  }
-
-  .navLink {
-    letter-spacing: 0.06em;
+    gap: 1.125rem;
   }
 }

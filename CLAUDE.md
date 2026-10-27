@@ -40,6 +40,7 @@ Direzione "architettura tipografica": minimal, tipografia protagonista, sfondo c
 - Terracotta `#B8623C`: solo micro-accenti, mai su superfici ampie
 
 **Componenti e interazioni già implementati**
+- Logo in SVG (`src/components/Logo/Logo.tsx`, copia per usi esterni in `public/logo.svg`): TECNO in Saira ExtraLight, CHIANTI in Saira SemiBold, sotto STUDIO DI ARCHITETTURA in Hanken Grotesk spaziato alla stessa larghezza. Lettere convertite in tracciati, colore da `currentColor`. Resta in italiano anche sulle pagine inglesi. Si rigenera con `scripts/make_logo.py` (istruzioni nel file). Header: 260px desktop, 170px mobile; su mobile l'header è su due righe (logo e selettore lingua sopra, menu sotto).
 - Header trasparente con testo bianco sopra l'hero; durante lo scroll diventa backdrop-blur su sfondo carta. Prop `alwaysDark` per le pagine senza hero.
 - Hero della Home: crossfade CSS di 1500 ms, cambio immagine ogni 6000 ms, nessun controllo visibile.
 - Manifesto: `clamp(2.25rem, 5.5vw, 4.75rem)`, mai sotto i 36 px.

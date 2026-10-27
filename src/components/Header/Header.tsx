@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import Logo from '@/components/Logo/Logo'
 import { getDictionary } from '@/i18n/dictionaries'
 import { routePath, translatePath, type Locale } from '@/i18n/routes'
 import styles from './Header.module.css'
@@ -34,8 +35,7 @@ export default function Header({ locale, alwaysDark = false }: HeaderProps) {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
         <Link href={routePath(locale, 'home')} className={styles.logo}>
-          <span className={styles.logoName}>TecnoChianti</span>
-          <span className={styles.logoDiscipline}>{t.brand.discipline}</span>
+          <Logo className={styles.logoMark} />
         </Link>
         <nav className={styles.nav} aria-label={t.header.navLabel}>
           <Link href={routePath(locale, 'studio')} className={styles.navLink}>{t.header.studio}</Link>
