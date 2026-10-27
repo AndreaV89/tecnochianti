@@ -86,8 +86,9 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 - [ ] Eliminare `src/proxy.ts` per riattivare il sito completo
 - [ ] Eliminare la pagina temporanea `/anteprima-foto`
 - [ ] Togliere `picsum.photos` da `remotePatterns` e qualsiasi immagine segnaposto rimasta
-- [ ] Verificare il dominio tecnochianti.it su Resend (record DNS su Register.it, senza toccare gli MX principali; serve il codice di accesso che arriva a Carlo)
-- [ ] Impostare su Vercel `RESEND_API_KEY`, `CONTACT_FROM` e `CONTACT_RECIPIENTS` (vedi `.env.example`) e provare il form
+- [x] Verificare il dominio tecnochianti.it su Resend (record DKIM `resend._domainkey`, CNAME `rsend` e `send`, DMARC `_dmarc` su Register.it; MX e SPF principali non toccati)
+- [x] Impostare su Vercel `RESEND_API_KEY`, `CONTACT_FROM` e `CONTACT_RECIPIENTS` (vedi `.env.example`) e provare il form. In Preview `CONTACT_RECIPIENTS` contiene solo la mia email: i test non arrivano al cliente
+- [ ] Dopo il lancio, provare il form in produzione (deve arrivare a info@ e ai tre professionisti)
 - [x] Impostare `NEXT_PUBLIC_GA_ID` su Vercel (Production e Preview) e verificare il banner cookie
 - [ ] Sostituire i testi segnaposto di privacy e cookie policy
 - [ ] Merge di `develop` in `main`
