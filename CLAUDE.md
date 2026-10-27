@@ -45,7 +45,7 @@ Direzione "architettura tipografica": minimal, tipografia protagonista, sfondo c
 
 ## Struttura
 
-- **Home**: hero, manifesto con breve testo introduttivo (bozza in attesa di approvazione del cliente) e link a Studio, tre lavori in evidenza, invito al contatto ("Hai un progetto? Parliamone" → Contatti).
+- **Home**: hero, manifesto con breve testo introduttivo (bozza in attesa di approvazione del cliente) e link a Studio, tre lavori in evidenza, invito al contatto (etichetta "Contatti", domanda "Vuoi valorizzare un immobile o hai un cantiere da avviare nel Chianti?" e link "Raccontaci la tua idea" → Contatti).
 - **Footer** (tutte le pagine), a due fasce: sopra marchio a sinistra con la frase descrittiva del cliente, indirizzo, telefono e menu a destra; sotto dati legali dei professionisti, © e link Privacy, Cookie policy, Preferenze cookie.
 - **Lavori**: un'unica griglia a due colonne, ordinata per anno dal più recente, con contatore dei progetti. I lavori in corso sono segnalati con "In corso" accanto alla categoria nella card.
 - **Lavori/[slug]**: hero a colori (75svh), blocco dati, descrizione, galleria, link per tornare indietro. Generata con `generateStaticParams`.

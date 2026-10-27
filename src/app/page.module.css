@@ -108,25 +108,30 @@
   border-top: 1px solid var(--color-grigio-chiaro);
 }
 
+/* Etichetta, domanda grande, link sotto: stessa struttura delle altre sezioni */
 .ctaInner {
   max-width: var(--content-width);
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.5rem 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+.ctaText {
   font-family: var(--font-serif);
   font-weight: var(--weight-thin);
   font-size: clamp(2rem, 4vw, 3.25rem);
   line-height: 1.15;
   letter-spacing: -0.02em;
-}
-
-.ctaText {
-  color: var(--color-grigio-medio);
+  color: var(--color-antracite);
+  max-width: 18em;
 }
 
 .ctaLink {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-light);
+  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
   font-style: italic;
   color: var(--color-antracite);
   display: inline-flex;

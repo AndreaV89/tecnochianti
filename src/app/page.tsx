@@ -59,11 +59,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className={styles.cta} aria-label="Contatti">
+      <section className={styles.cta} aria-labelledby="cta-heading">
         <div className={styles.ctaInner}>
-          <p className={styles.ctaText}>Hai un progetto?</p>
+          <span id="cta-heading" className={styles.worksLabel}>
+            Contatti
+          </span>
+          <p className={styles.ctaText}>
+            Vuoi valorizzare un immobile o hai un cantiere da avviare nel Chianti?
+          </p>
           <Link href="/contatti" className={styles.ctaLink}>
-            Parliamone
+            Raccontaci la tua idea
           </Link>
         </div>
       </section>
