@@ -14,8 +14,8 @@
 }
 
 .pageTitle {
-  font-family: var(--font-serif);
-  font-weight: var(--weight-thin);
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
   font-size: clamp(2rem, 4vw, 3.25rem);
   letter-spacing: -0.02em;
   color: var(--color-antracite);
@@ -32,7 +32,7 @@
 
 .notice {
   max-width: 62ch;
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   color: var(--color-terracotta);
@@ -51,7 +51,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.6875rem;
   font-weight: var(--weight-medium);
   letter-spacing: 0.2em;
@@ -60,7 +60,7 @@
 }
 
 .body {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.9375rem;
   line-height: 1.75;
   color: var(--color-antracite);

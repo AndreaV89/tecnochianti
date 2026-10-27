@@ -46,7 +46,7 @@
 }
 
 .category {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.5625rem;
   font-weight: var(--weight-medium);
   letter-spacing: 0.22em;
@@ -55,8 +55,8 @@
 }
 
 .title {
-  font-family: var(--font-serif);
-  font-weight: var(--weight-thin);
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
   font-size: clamp(2rem, 4vw, 3.25rem);
   line-height: 1.05;
   letter-spacing: -0.025em;
@@ -66,11 +66,10 @@
 /* Sottotitolo (abstract) */
 .abstract {
   margin-top: 0.75rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--color-antracite);
-  opacity: 0.75;
+  color: var(--color-grigio-testo);
   max-width: 44ch;
 }
 
@@ -88,7 +87,7 @@
 }
 
 .infoLabel {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.625rem;
   font-weight: var(--weight-medium);
   letter-spacing: 0.18em;
@@ -98,7 +97,7 @@
 }
 
 .infoValue {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.875rem;
   color: var(--color-antracite);
   line-height: 1.4;
@@ -116,15 +115,17 @@
 }
 
 .descriptionText {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 1.0625rem;
   line-height: 1.75;
-  color: var(--color-antracite);
+  color: var(--color-grigio-testo);
   max-width: 62ch;
 }
 
+/* Grassetti del cliente: più scuri del testo, per farli risaltare */
 .descriptionText strong {
-  font-weight: 500;
+  font-weight: var(--weight-medium);
+  color: var(--color-antracite);
 }
 
 .descriptionText + .descriptionText {
@@ -186,7 +187,7 @@
 }
 
 .backLink {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.75rem;
   font-weight: var(--weight-regular);
   letter-spacing: 0.12em;

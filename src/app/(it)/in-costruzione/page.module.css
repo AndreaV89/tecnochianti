@@ -17,14 +17,14 @@
 }
 
 .logoName {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: var(--weight-regular);
   font-size: clamp(1.5rem, 4vw, 2rem);
   letter-spacing: 0.01em;
 }
 
 .logoDiscipline {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-weight: var(--weight-medium);
   font-size: 0.75rem;
   letter-spacing: 0.14em;
@@ -48,21 +48,21 @@
 }
 
 .heading {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: var(--weight-regular);
   font-size: clamp(1.75rem, 5vw, 2.75rem);
   line-height: 1.2;
 }
 
 .text {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--color-antracite);
 }
 
 .legal {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.8125rem;
   color: var(--color-grigio-medio);
 }

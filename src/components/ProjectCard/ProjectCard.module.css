@@ -53,8 +53,8 @@
 }
 
 .overlayTitle {
-  font-family: var(--font-serif);
-  font-weight: var(--weight-thin);
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
   font-size: clamp(1.5rem, 8cqi, 2.75rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -65,7 +65,7 @@
 
 /* Didascalia dei lavori senza scheda */
 .overlayNote {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.6875rem;
   font-weight: var(--weight-medium);
   letter-spacing: 0.22em;
@@ -102,7 +102,7 @@
 }
 
 .category {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.5625rem;
   font-weight: var(--weight-medium);
   letter-spacing: 0.22em;
@@ -115,8 +115,8 @@
 }
 
 .title {
-  font-family: var(--font-serif);
-  font-weight: var(--weight-light);
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
   font-size: 1.25rem;
   line-height: 1.2;
   letter-spacing: -0.01em;

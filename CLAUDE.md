@@ -26,15 +26,17 @@ TecnoChianti nasce nel maggio 2013 come evoluzione di una società professionale
 
 Direzione "architettura tipografica": minimal, tipografia protagonista, sfondo chiaro, pochissimo colore, tono formale e affermato. Riferimenti forniti dal cliente: spaziottantatre.com, studiobenaim.com, agnesemazzei.it.
 
-**Tipografia** (solo due famiglie)
-- Fraunces per titoli, testi display e nomi dei progetti, pesi 200-300. Mai pesi così bassi sotto i 20-24 px.
-- Work Sans per corpo testo e label, pesi 400 e 500.
+**Tipografia** (solo due famiglie, scelte dal cliente sul modello di bottega17.com)
+- Saira per titoli, testi display e nomi dei progetti (`--font-display`). Alternativa gratuita a Klavika.
+- Hanken Grotesk per corpo testo e label (`--font-text`). Alternativa gratuita ad Atlas Grotesk.
+- Solo due pesi: regular 400 (`--weight-regular`) e semibold 600 (`--weight-medium`). Niente pesi sottili né corsivi.
 
 **Palette**
 - Carta `#F7F5F1` (sfondo)
 - Grigio chiaro `#E8E6E0`
 - Grigio medio `#A6A39A` (testi secondari)
-- Antracite `#2B2A27` (testi principali)
+- Antracite `#2B2A27` (titoli, testi brevi, grassetti nei testi lunghi)
+- Grigio testo `#77746C` (testi lunghi: descrizioni dei progetti, Studio, introduzione della Home)
 - Terracotta `#B8623C`: solo micro-accenti, mai su superfici ampie
 
 **Componenti e interazioni già implementati**

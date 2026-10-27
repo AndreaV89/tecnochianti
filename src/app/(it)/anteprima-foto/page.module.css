@@ -11,15 +11,15 @@
 }
 
 .title {
-  font-family: var(--font-serif);
-  font-weight: var(--weight-thin);
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
   font-size: 2.5rem;
   color: var(--color-antracite);
 }
 
 .note {
   margin-top: 0.75rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.875rem;
   color: var(--color-grigio-medio);
 }
@@ -29,7 +29,7 @@
 }
 
 .slug {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-weight: var(--weight-medium);
   font-size: 0.75rem;
   letter-spacing: 0.18em;
@@ -61,7 +61,7 @@
 
 .caption {
   margin-top: 0.5rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.75rem;
   color: var(--color-antracite);
 }

@@ -14,8 +14,8 @@
 }
 
 .pageTitle {
-  font-family: var(--font-serif);
-  font-weight: var(--weight-thin);
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
   font-size: clamp(2rem, 4vw, 3.25rem);
   letter-spacing: -0.02em;
   color: var(--color-antracite);
@@ -47,7 +47,7 @@
 }
 
 .detailLabel {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.625rem;
   font-weight: var(--weight-medium);
   letter-spacing: 0.22em;
@@ -56,7 +56,7 @@
 }
 
 .detailValue {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--color-antracite);
@@ -79,8 +79,8 @@
 
 .formTitle {
   margin-bottom: 2.5rem;
-  font-family: var(--font-serif);
-  font-weight: var(--weight-light);
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   letter-spacing: -0.01em;
   color: var(--color-antracite);

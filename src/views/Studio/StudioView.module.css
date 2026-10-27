@@ -14,8 +14,8 @@
 }
 
 .pageTitle {
-  font-family: var(--font-serif);
-  font-weight: var(--weight-thin);
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
   font-size: clamp(2rem, 4vw, 3.25rem);
   letter-spacing: -0.02em;
   color: var(--color-antracite);
@@ -39,10 +39,10 @@
 }
 
 .body {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 1.0625rem;
   line-height: 1.75;
-  color: var(--color-antracite);
+  color: var(--color-grigio-testo);
 }
 
 /* Sezioni: professionisti e servizi */
@@ -83,7 +83,7 @@
 }
 
 .sectionLabel {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.5625rem;
   font-weight: var(--weight-medium);
   letter-spacing: 0.22em;
@@ -108,7 +108,7 @@
 }
 
 .professionalName {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-weight: var(--weight-medium);
   font-size: 0.8125rem;
   letter-spacing: 0.2em;
@@ -117,7 +117,7 @@
 }
 
 .professionalRole {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-weight: var(--weight-regular);
   font-size: 0.875rem;
   color: var(--color-grigio-medio);
@@ -134,7 +134,7 @@
 }
 
 .service {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 1rem;
   line-height: 1;
   color: var(--color-antracite);

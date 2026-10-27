@@ -17,15 +17,15 @@
 }
 
 .pageTitle {
-  font-family: var(--font-serif);
-  font-weight: var(--weight-thin);
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
   font-size: clamp(2rem, 4vw, 3.25rem);
   letter-spacing: -0.02em;
   color: var(--color-antracite);
 }
 
 .pageCount {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.625rem;
   font-weight: var(--weight-medium);
   letter-spacing: 0.2em;

@@ -1,19 +1,21 @@
 import type { ReactNode } from 'react'
-import { Fraunces, Work_Sans } from 'next/font/google'
+import { Saira, Hanken_Grotesk } from 'next/font/google'
 import CookieConsent from '@/components/CookieConsent/CookieConsent'
 import type { Locale } from '@/i18n/routes'
 import '@/app/globals.css'
 
-const fraunces = Fraunces({
+// Font scelti dal cliente (stile bottega17.com): Saira per titoli e testi display,
+// Hanken Grotesk per il corpo testo. Sono alternative gratuite a Klavika e Atlas Grotesk.
+const saira = Saira({
   subsets: ['latin'],
-  variable: '--font-fraunces',
+  variable: '--font-saira',
   display: 'swap',
 })
 
-const workSans = Work_Sans({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ['latin'],
-  variable: '--font-work-sans',
-  weight: ['400', '500'],
+  variable: '--font-hanken-grotesk',
+  weight: ['400', '600'],
   display: 'swap',
 })
 
@@ -26,7 +28,7 @@ interface Props {
 // Due root layout separati servono ad avere <html lang="it"> o <html lang="en"> già nell'HTML statico.
 export default function SiteDocument({ locale, children }: Props) {
   return (
-    <html lang={locale} className={`${fraunces.variable} ${workSans.variable}`}>
+    <html lang={locale} className={`${saira.variable} ${hankenGrotesk.variable}`}>
       <body>
         {children}
         <CookieConsent locale={locale} />
