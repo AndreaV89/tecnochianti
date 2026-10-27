@@ -4,7 +4,7 @@ import { Resend } from 'resend'
 
 // Configurazione in .env.local (sviluppo) e nelle variabili d'ambiente di Vercel:
 //   RESEND_API_KEY      chiave API di Resend
-//   CONTACT_FROM        mittente, es. "Sito TecnoChianti <sito@tecnochianti.it>"
+//   CONTACT_FROM        mittente, es. "TecnoChianti · Contatti <contatti@tecnochianti.it>"
 //                       (finché il dominio non è verificato: "onboarding@resend.dev")
 //   CONTACT_RECIPIENTS  destinatari separati da virgola
 // I destinatari restano sul server: non compaiono mai nel codice del sito.
