@@ -1,0 +1,124 @@
+/* --p: avanzamento dello scroll (0 = video, 1 = disegno). Senza JavaScript resta 0 */
+.root {
+  --p: 0;
+  position: relative;
+  /* Nella versione statica il video parte sotto l'header fisso */
+  padding-top: 6.25rem;
+}
+
+/* Versione statica (senza JavaScript o con "riduci movimento"): solo il video, come prima */
+.stage {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  max-height: 80svh;
+  width: 100%;
+  background-color: var(--color-grigio-chiaro);
+}
+
+.video,
+.still,
+.wash,
+.drawing {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video,
+.still {
+  display: block;
+  object-fit: cover;
+}
+
+.still {
+  filter: grayscale(1);
+}
+
+.wash {
+  background-color: var(--color-carta);
+  opacity: 0;
+}
+
+.drawing {
+  display: none;
+  overflow: visible;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Versione animata */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  /* Il paesaggio resta fermo a tutto schermo (anche sotto l'header) mentre la presentazione ci scorre sopra */
+  .root {
+    padding-top: 0;
+  }
+
+  .stage {
+    position: sticky;
+    top: 0;
+    aspect-ratio: auto;
+    height: 100svh;
+    max-height: none;
+  }
+
+  .video {
+    opacity: calc(1 - clamp(0, (var(--p) - 0.02) / 0.18, 1));
+  }
+
+  .wash {
+    opacity: clamp(0, (var(--p) - 0.1) / 0.45, 1);
+  }
+
+  /* Alla fine le linee restano sullo sfondo, tenui, per non disturbare la lettura */
+  .drawing {
+    display: block;
+    opacity: calc(1 - 0.75 * clamp(0, (var(--p) - 0.7) / 0.3, 1));
+  }
+
+  /* Spazio per far avvenire la trasformazione prima che arrivino i testi */
+  .content {
+    padding-top: 40svh;
+  }
+}
+
+/* Linee del disegno. --unit (scritto dal JavaScript) è 1 px dello schermo in unità del disegno.
+   Il tratto e l'opacità che animano le linee sono impostati dal JavaScript */
+.drawing {
+  --unit: 1;
+}
+
+.line {
+  fill: none;
+  stroke: var(--color-antracite);
+  stroke-width: calc(1.25 * var(--unit));
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* pathLength = 1: un solo trattino lungo quanto tutta la linea, nascosto all'inizio */
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.fade {
+  opacity: 0;
+  fill: none;
+  stroke: var(--color-antracite);
+  stroke-width: var(--unit);
+}
+
+.thin {
+  stroke-width: calc(0.75 * var(--unit));
+}
+
+.dashed {
+  stroke: var(--color-grigio-medio);
+  stroke-dasharray: calc(4 * var(--unit)) calc(8 * var(--unit));
+}
+
+.accent {
+  stroke: var(--color-terracotta);
+}
