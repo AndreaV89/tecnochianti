@@ -82,8 +82,11 @@
   font-family: var(--font-display);
   font-weight: var(--weight-regular);
   font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.3;
   letter-spacing: -0.01em;
   color: var(--color-antracite);
+  /* Titolo su più righe: righe di lunghezza simile, niente parola isolata in fondo */
+  text-wrap: balance;
 }
 
 @media (max-width: 768px) {

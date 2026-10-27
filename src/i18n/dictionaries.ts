@@ -87,11 +87,11 @@ const it = {
   contact: {
     metaTitle: 'Contatti — TecnoChianti',
     metaDescription: 'Contatta TecnoChianti, studio di architettura a Radda in Chianti (SI).',
-    title: 'Contatti',
+    title: 'Contattaci',
     address: 'Indirizzo',
     phone: 'Telefono',
     email: 'Email',
-    writeUs: 'Scrivici',
+    writeUs: 'Hai un immobile da valorizzare o un progetto in mente? Raccontaci la tua idea',
   },
   form: {
     firstName: 'Nome',
@@ -204,11 +204,11 @@ const en: Dictionary = {
   contact: {
     metaTitle: 'Contact — TecnoChianti',
     metaDescription: 'Contact TecnoChianti, architecture studio in Radda in Chianti (Siena).',
-    title: 'Contact',
+    title: 'Contact us',
     address: 'Address',
     phone: 'Phone',
     email: 'Email',
-    writeUs: 'Write to us',
+    writeUs: 'Do you have a property to enhance or a project in mind? Tell us your idea',
   },
   form: {
     firstName: 'First name',
