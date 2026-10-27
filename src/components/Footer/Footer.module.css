@@ -30,15 +30,6 @@
   color: var(--color-antracite);
 }
 
-.description {
-  margin-top: 0.75rem;
-  max-width: 36ch;
-  font-family: var(--font-text);
-  font-size: 0.8125rem;
-  line-height: 1.6;
-  color: var(--color-grigio-medio);
-}
-
 .info {
   display: flex;
   flex-direction: column;

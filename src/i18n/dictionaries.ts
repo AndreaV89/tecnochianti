@@ -13,8 +13,6 @@ const it = {
     contact: 'Contatti',
   },
   footer: {
-    description:
-      'TecnoChianti si occupa di progettazione di edifici privati, recupero e valorizzazione del patrimonio edilizio esistente.',
     navLabel: 'Navigazione footer',
     home: 'Home',
     legalLabel: 'Note legali',
@@ -68,6 +66,9 @@ const it = {
       'TecnoChianti nasce nel 2013 come raggruppamento di professionisti in grado di assicurare una copertura qualificata alla propria committenza, anche grazie alla collaborazione consolidata con partner esterni. Lo studio può così offrire servizi di progettazione architettonica e strutturale per interventi di ogni livello di complessità, oltre che di progettazione impiantistica, con una particolare attenzione al tema della sostenibilità ambientale e della progettazione di edifici a basso consumo energetico.',
       "Con sede operativa a Radda in Chianti e attivo principalmente tra le province di Siena, Firenze e Arezzo, lo studio estende la propria operatività all'intero territorio regionale e a più ampio raggio.",
     ],
+    // Testo fornito dal cliente
+    statement:
+      'Progettiamo edifici privati e curiamo il recupero e la valorizzazione del patrimonio edilizio esistente in contesti di pregio paesaggistico.',
     videoLabel: 'Il territorio',
     team: 'Il team',
     roles: { architect: 'Architetto', industrialExpert: 'Perito Industriale' },
@@ -130,8 +131,6 @@ const en: Dictionary = {
     contact: 'Contact',
   },
   footer: {
-    description:
-      'TecnoChianti specialises in the design of private buildings and in the restoration and enhancement of existing buildings.',
     navLabel: 'Footer navigation',
     home: 'Home',
     legalLabel: 'Legal notes',
@@ -184,6 +183,8 @@ const en: Dictionary = {
       'TecnoChianti was founded in 2013 as a group of professionals able to provide their clients with qualified support, also thanks to long-standing collaborations with external partners. The studio offers architectural and structural design for projects of every level of complexity, as well as building services design, with particular attention to environmental sustainability and to the design of low-energy buildings.',
       'Based in Radda in Chianti and working mainly across the provinces of Siena, Florence and Arezzo, the studio operates throughout Tuscany and beyond.',
     ],
+    statement:
+      'We design private buildings and take care of the restoration and enhancement of existing buildings in settings of great landscape value.',
     videoLabel: 'The landscape',
     team: 'The team',
     roles: { architect: 'Architect', industrialExpert: 'Industrial Technician' },

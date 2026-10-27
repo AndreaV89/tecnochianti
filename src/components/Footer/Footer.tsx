@@ -25,7 +25,6 @@ export default function Footer({ locale }: Props) {
         <div className={styles.top}>
           <div className={styles.brand}>
             <Logo className={styles.logo} />
-            <p className={styles.description}>{t.footer.description}</p>
           </div>
 
           <div className={styles.info}>

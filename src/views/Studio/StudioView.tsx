@@ -1,6 +1,8 @@
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import StudioVideo from '@/components/StudioVideo/StudioVideo'
+import Reveal from '@/components/Reveal/Reveal'
+import ScrollFillText from '@/components/ScrollFillText/ScrollFillText'
 import { getDictionary } from '@/i18n/dictionaries'
 import type { Locale } from '@/i18n/routes'
 import styles from './StudioView.module.css'
@@ -30,20 +32,28 @@ export default function StudioView({ locale }: Props) {
           </div>
         </div>
 
-        {/* Testo introduttivo */}
-        <section className={styles.intro} aria-label={t.studio.introLabel}>
-          <div className={styles.introInner}>
-            <div className={styles.textColumn}>
-              {t.studio.paragraphs.map((paragraph, i) => (
-                <p key={i} className={styles.body}>{paragraph}</p>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Video del territorio (generato con scripts/optimize-video.mjs) */}
         <section className={styles.video} aria-label={t.studio.videoLabel}>
           <StudioVideo src="/video/studio.mp4" poster="/video/studio-poster.webp" />
+        </section>
+
+        {/* Presentazione: a sinistra il testo sullo studio, a destra la frase sull'attività.
+            Il primo paragrafo si "riempie" di colore scorrendo (ScrollFillText),
+            il resto compare con una dissolvenza (Reveal) */}
+        <section className={styles.intro} aria-label={t.studio.introLabel}>
+          <div className={styles.introInner}>
+            <div className={styles.textColumn}>
+              <ScrollFillText text={t.studio.paragraphs[0]} className={styles.lead} />
+              {t.studio.paragraphs.slice(1).map((paragraph, i) => (
+                <Reveal key={i}>
+                  <p className={styles.body}>{paragraph}</p>
+                </Reveal>
+              ))}
+            </div>
+            <Reveal delay={300}>
+              <p className={styles.statement}>{t.studio.statement}</p>
+            </Reveal>
+          </div>
         </section>
 
         {/* Professionisti */}
