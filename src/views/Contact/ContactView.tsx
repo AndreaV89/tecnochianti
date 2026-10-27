@@ -1,26 +1,27 @@
-import type { Metadata } from 'next'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import ContactForm from '@/components/ContactForm/ContactForm'
 import { contacts } from '@/data/contacts'
-import styles from './page.module.css'
+import { getDictionary } from '@/i18n/dictionaries'
+import type { Locale } from '@/i18n/routes'
+import styles from './ContactView.module.css'
 
-export const metadata: Metadata = {
-  title: 'Contatti — TecnoChianti',
-  description: 'Contatta TecnoChianti, studio di architettura a Radda in Chianti (SI).',
+interface Props {
+  locale: Locale
 }
 
-export default function ContattiPage() {
+export default function ContactView({ locale }: Props) {
+  const t = getDictionary(locale)
   const { street, postalCode, city, province } = contacts.address
 
   return (
     <>
-      <Header alwaysDark />
+      <Header locale={locale} alwaysDark />
       <main className={styles.main}>
 
         <div className={styles.pageHeader}>
           <div className={styles.pageHeaderInner}>
-            <h1 className={styles.pageTitle}>Contatti</h1>
+            <h1 className={styles.pageTitle}>{t.contact.title}</h1>
           </div>
         </div>
 
@@ -29,14 +30,14 @@ export default function ContattiPage() {
 
             <dl className={styles.details}>
               <div className={styles.detail}>
-                <dt className={styles.detailLabel}>Indirizzo</dt>
+                <dt className={styles.detailLabel}>{t.contact.address}</dt>
                 <dd className={styles.detailValue}>
                   {street}<br />
                   {postalCode} {city} ({province})
                 </dd>
               </div>
               <div className={styles.detail}>
-                <dt className={styles.detailLabel}>Telefono</dt>
+                <dt className={styles.detailLabel}>{t.contact.phone}</dt>
                 <dd className={styles.detailValue}>
                   <a href={`tel:${contacts.phone.href}`} className={styles.link}>
                     {contacts.phone.display}
@@ -45,7 +46,7 @@ export default function ContattiPage() {
               </div>
               {contacts.email && (
                 <div className={styles.detail}>
-                  <dt className={styles.detailLabel}>Email</dt>
+                  <dt className={styles.detailLabel}>{t.contact.email}</dt>
                   <dd className={styles.detailValue}>
                     <a href={`mailto:${contacts.email}`} className={styles.link}>
                       {contacts.email}
@@ -56,15 +57,15 @@ export default function ContattiPage() {
             </dl>
 
             <div className={styles.formColumn}>
-              <h2 className={styles.formTitle}>Scrivici</h2>
-              <ContactForm />
+              <h2 className={styles.formTitle}>{t.contact.writeUs}</h2>
+              <ContactForm locale={locale} />
             </div>
 
           </div>
         </section>
 
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </>
   )
 }

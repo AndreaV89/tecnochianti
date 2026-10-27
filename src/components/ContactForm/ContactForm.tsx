@@ -2,12 +2,19 @@
 
 import { useActionState } from 'react'
 import Link from 'next/link'
-import { sendContactMessage, type ContactFormState } from '@/app/contatti/actions'
+import { sendContactMessage, type ContactFormState } from '@/lib/contact-action'
+import { getDictionary } from '@/i18n/dictionaries'
+import { routePath, type Locale } from '@/i18n/routes'
 import styles from './ContactForm.module.css'
 
 const initialState: ContactFormState = { status: 'idle', message: '' }
 
-export default function ContactForm() {
+interface Props {
+  locale: Locale
+}
+
+export default function ContactForm({ locale }: Props) {
+  const t = getDictionary(locale).form
   const [state, formAction, pending] = useActionState(sendContactMessage, initialState)
   const values = state.values
 
@@ -21,9 +28,12 @@ export default function ContactForm() {
 
   return (
     <form action={formAction} className={styles.form}>
+      {/* Lingua della pagina: la Server Action risponde con i messaggi nella stessa lingua */}
+      <input type="hidden" name="locale" value={locale} />
+
       <div className={styles.row}>
         <div className={styles.field}>
-          <label htmlFor="firstName" className={styles.label}>Nome</label>
+          <label htmlFor="firstName" className={styles.label}>{t.firstName}</label>
           <input
             id="firstName"
             name="firstName"
@@ -36,7 +46,7 @@ export default function ContactForm() {
           />
         </div>
         <div className={styles.field}>
-          <label htmlFor="lastName" className={styles.label}>Cognome</label>
+          <label htmlFor="lastName" className={styles.label}>{t.lastName}</label>
           <input
             id="lastName"
             name="lastName"
@@ -51,7 +61,7 @@ export default function ContactForm() {
       </div>
 
       <div className={styles.field}>
-        <label htmlFor="email" className={styles.label}>Email</label>
+        <label htmlFor="email" className={styles.label}>{t.email}</label>
         <input
           id="email"
           name="email"
@@ -64,7 +74,7 @@ export default function ContactForm() {
       </div>
 
       <div className={styles.field}>
-        <label htmlFor="message" className={styles.label}>Messaggio</label>
+        <label htmlFor="message" className={styles.label}>{t.message}</label>
         <textarea
           id="message"
           name="message"
@@ -78,15 +88,16 @@ export default function ContactForm() {
 
       {/* Campo trappola per i bot: nascosto alle persone e ai lettori di schermo */}
       <div className={styles.honeypot} aria-hidden="true">
-        <label htmlFor="website">Sito web</label>
+        <label htmlFor="website">{t.honeypot}</label>
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
       <label className={styles.privacy}>
         <input type="checkbox" name="privacy" required className={styles.checkbox} />
         <span>
-          Ho letto l&apos;<Link href="/privacy" className={styles.privacyLink}>informativa privacy</Link> e
-          acconsento al trattamento dei dati per ricevere una risposta.
+          {t.privacyBefore}
+          <Link href={routePath(locale, 'privacy')} className={styles.privacyLink}>{t.privacyLink}</Link>
+          {t.privacyAfter}
         </span>
       </label>
 
@@ -95,7 +106,7 @@ export default function ContactForm() {
       )}
 
       <button type="submit" className={styles.submit} disabled={pending}>
-        {pending ? 'Invio in corso…' : 'Invia messaggio'}
+        {pending ? t.sending : t.submit}
       </button>
     </form>
   )

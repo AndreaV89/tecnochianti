@@ -12,11 +12,11 @@ interface Props {
   sections: LegalSection[]
 }
 
-// Impaginazione comune per Privacy e Cookie policy
+// Impaginazione comune per Privacy e Cookie policy (solo in italiano per ora)
 export default function LegalPage({ title, sections }: Props) {
   return (
     <>
-      <Header alwaysDark />
+      <Header locale="it" alwaysDark />
       <main className={styles.main}>
         <div className={styles.pageHeader}>
           <div className={styles.pageHeaderInner}>
@@ -41,7 +41,7 @@ export default function LegalPage({ title, sections }: Props) {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer locale="it" />
     </>
   )
 }

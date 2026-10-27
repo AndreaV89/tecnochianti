@@ -10,6 +10,8 @@ import {
   subscribeOpenBanner,
   type ConsentChoice,
 } from '@/lib/consent'
+import { getDictionary } from '@/i18n/dictionaries'
+import { routePath, type Locale } from '@/i18n/routes'
 import styles from './CookieConsent.module.css'
 
 // Se la variabile non è impostata, Google Analytics non viene caricato
@@ -44,7 +46,12 @@ gtag('js', new Date());
 gtag('config', ${JSON.stringify(GA_ID)});
 `
 
-export default function CookieConsent() {
+interface Props {
+  locale: Locale
+}
+
+export default function CookieConsent({ locale }: Props) {
+  const t = getDictionary(locale).cookieBanner
   const consent = useConsent()
   const [reopened, setReopened] = useState(false)
 
@@ -81,18 +88,17 @@ export default function CookieConsent() {
       )}
 
       {showBanner && (
-        <div className={styles.banner} role="dialog" aria-label="Preferenze cookie" aria-live="polite">
+        <div className={styles.banner} role="dialog" aria-label={t.label} aria-live="polite">
           <p className={styles.text}>
-            Usiamo cookie di analisi (Google Analytics) solo con il tuo consenso, per capire
-            come viene usato il sito. Puoi cambiare scelta in ogni momento dal footer.{' '}
-            <Link href="/cookie-policy" className={styles.link}>Cookie policy</Link>
+            {t.text}{' '}
+            <Link href={routePath(locale, 'cookies')} className={styles.link}>{t.policyLink}</Link>
           </p>
           <div className={styles.actions}>
             <button type="button" className={styles.button} onClick={() => choose('denied')}>
-              Rifiuta
+              {t.reject}
             </button>
             <button type="button" className={styles.button} onClick={() => choose('granted')}>
-              Accetta
+              {t.accept}
             </button>
           </div>
         </div>

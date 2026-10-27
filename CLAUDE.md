@@ -50,12 +50,24 @@ Direzione "architettura tipografica": minimal, tipografia protagonista, sfondo c
 - **Lavori**: un'unica griglia a due colonne, ordinata per anno dal più recente, con contatore dei progetti. I lavori in corso sono segnalati con "In corso" accanto alla categoria nella card.
 - **Lavori/[slug]**: hero a colori (75svh), blocco dati, descrizione, galleria, link per tornare indietro. Generata con `generateStaticParams`.
 - **Studio**: testo di presentazione in colonna stretta (58ch), margini asimmetrici, nessuna pull quote, video del territorio a tutta larghezza (muto, in loop, fermo con prefers-reduced-motion), elenco dei tre professionisti (NOME COGNOME in maiuscolo, professione in minuscolo, nessuna foto), lista tipografica dei 5 servizi indicati dal cliente (senza descrizioni).
-- **Contatti**: recapiti a sinistra, form a destra (nome, cognome, email, messaggio, consenso privacy). Invio con Server Action + Resend verso info@ e le email dei tre professionisti, `replyTo` sull'email di chi scrive, campo trappola antispam. Se al cliente non piace la pagina, il form va in fondo alla pagina Studio.
+- **Contatti**: recapiti a sinistra, form a destra (nome, cognome, email, messaggio, consenso privacy). Invio con Server Action (`src/lib/contact-action.ts`) + Resend verso info@ e le email dei tre professionisti, `replyTo` sull'email di chi scrive, campo trappola antispam. Se al cliente non piace la pagina, il form va in fondo alla pagina Studio.
 - **Privacy** e **Cookie policy**.
 
 Il blocco dati della scheda progetto contiene **solo** questi cinque campi, in questo ordine:
 LUOGO · ANNO · STATO · TIPOLOGIA DI INTERVENTO · CATEGORIA.
 Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottotitolo (`abstract`) e testo descrittivo sono quelli forniti dal cliente, senza riscriverli (solo refusi evidenti corretti); i grassetti del cliente si scrivono tra `**...**`.
+
+## Lingue
+
+- Italiano alla radice (`/`, `/studio`, `/lavori`, `/contatti`), inglese sotto `/en` con URL tradotti (`/en`, `/en/studio`, `/en/works`, `/en/contact`). Gli slug dei progetti sono uguali nelle due lingue.
+- Due root layout: `src/app/(it)/layout.tsx` e `src/app/en/layout.tsx` (servono per avere `<html lang>` corretto nell'HTML statico). Passare da una lingua all'altra ricarica la pagina: è normale.
+- Le route sono file brevi che passano `locale` a una vista condivisa in `src/views/` (Home, Studio, Works, Project, Contact). Le modifiche di contenuto e layout si fanno nelle viste, non nelle route.
+- Percorsi delle pagine nelle due lingue, selettore IT/EN e `hreflang`: `src/i18n/routes.ts`.
+- Testi dell'interfaccia: `src/i18n/dictionaries.ts` (`en` ha lo stesso tipo di `it`: se manca una traduzione la build si ferma).
+- Testi dei progetti in inglese: campo `en` di ogni progetto in `src/data/projects.ts`.
+- Privacy e cookie policy esistono solo in italiano: dalla versione inglese i link portano alle pagine italiane. Da tradurre quando ci sono i testi definitivi.
+- Nessun redirect automatico in base alla lingua del browser.
+- L'email del form allo studio è sempre in italiano, con l'indicazione della lingua del sito usata.
 
 ## Contenuti
 
@@ -98,7 +110,8 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 ## In attesa dal cliente
 
 - Anno del Complesso immobiliare a Radda (ora vuoto: la card è ultima nella griglia)
-- Approvazione del testo introduttivo della Home (bozza in `src/app/page.tsx`)
+- Approvazione del testo introduttivo della Home (bozza in `src/i18n/dictionaries.ts`, `home.intro`)
+- Approvazione delle traduzioni inglesi (bozze in `src/i18n/dictionaries.ts` e nel campo `en` di `src/data/projects.ts`)
 
 ## Modo di lavorare
 

@@ -1,6 +1,8 @@
 'use server'
 
 import { Resend } from 'resend'
+import { getDictionary } from '@/i18n/dictionaries'
+import type { Locale } from '@/i18n/routes'
 
 // Configurazione in .env.local (sviluppo) e nelle variabili d'ambiente di Vercel:
 //   RESEND_API_KEY      chiave API di Resend
@@ -37,10 +39,14 @@ export async function sendContactMessage(
   _previousState: ContactFormState,
   formData: FormData,
 ): Promise<ContactFormState> {
+  // Lingua della pagina da cui arriva il messaggio (campo nascosto del form)
+  const locale: Locale = getField(formData, 'locale') === 'en' ? 'en' : 'it'
+  const t = getDictionary(locale).form
+
   // Campo nascosto "website": le persone non lo vedono, i bot lo compilano.
   // Rispondiamo come se fosse andato tutto bene, così il bot non riprova.
   if (getField(formData, 'website')) {
-    return { status: 'success', message: 'Messaggio inviato. Vi risponderemo al più presto.' }
+    return { status: 'success', message: t.success }
   }
 
   const firstName = getField(formData, 'firstName')
@@ -51,19 +57,19 @@ export async function sendContactMessage(
   const values: ContactFormValues = { firstName, lastName, email, message }
 
   if (!firstName || !lastName || !email || !message) {
-    return { status: 'error', message: 'Compila tutti i campi.', values }
+    return { status: 'error', message: t.errorRequired, values }
   }
   if (firstName.length > MAX_NAME_LENGTH || lastName.length > MAX_NAME_LENGTH) {
-    return { status: 'error', message: 'Nome o cognome troppo lunghi.', values }
+    return { status: 'error', message: t.errorNameLength, values }
   }
   if (!EMAIL_PATTERN.test(email)) {
-    return { status: 'error', message: "Controlla l'indirizzo email.", values }
+    return { status: 'error', message: t.errorEmail, values }
   }
   if (message.length > MAX_MESSAGE_LENGTH) {
-    return { status: 'error', message: `Il messaggio può contenere al massimo ${MAX_MESSAGE_LENGTH} caratteri.`, values }
+    return { status: 'error', message: t.errorMessageLength(MAX_MESSAGE_LENGTH), values }
   }
   if (!privacyAccepted) {
-    return { status: 'error', message: "Per inviare il messaggio è necessario accettare l'informativa privacy.", values }
+    return { status: 'error', message: t.errorPrivacy, values }
   }
 
   const apiKey = process.env.RESEND_API_KEY
@@ -77,7 +83,7 @@ export async function sendContactMessage(
   // sia per errori di invio
   const fallbackError: ContactFormState = {
     status: 'error',
-    message: 'Non è stato possibile inviare il messaggio. Riprova più tardi o contattaci per telefono o email.',
+    message: t.errorSend,
   }
 
   if (!apiKey || !from || recipients.length === 0) {
@@ -95,6 +101,8 @@ export async function sendContactMessage(
     text: [
       `Nome: ${firstName} ${lastName}`,
       `Email: ${email}`,
+      // L'email allo studio è sempre in italiano: si indica solo la lingua del sito usata
+      `Lingua del sito: ${locale === 'en' ? 'inglese' : 'italiano'}`,
       '',
       message,
       '',
@@ -108,5 +116,5 @@ export async function sendContactMessage(
     return { ...fallbackError, values }
   }
 
-  return { status: 'success', message: 'Messaggio inviato. Vi risponderemo al più presto.' }
+  return { status: 'success', message: t.success }
 }

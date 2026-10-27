@@ -5,10 +5,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
-import { projects, photoAlt, photoSrc } from '@/data/projects'
-import type { ProjectStatus } from '@/types'
+import { projects, localizeProject, photoAlt, photoSrc } from '@/data/projects'
+import { getDictionary } from '@/i18n/dictionaries'
+import { languageAlternates, projectPath, routePath, type Locale } from '@/i18n/routes'
 import photoSizesJson from '@/data/photo-sizes.json'
-import styles from './page.module.css'
+import styles from './ProjectView.module.css'
 
 // Larghezza e altezza di ogni foto, generate da scripts/optimize-photos.mjs
 // Ogni valore è [larghezza, altezza]
@@ -63,42 +64,47 @@ function renderBold(text: string): ReactNode[] {
   )
 }
 
-const STATUS_LABELS: Record<ProjectStatus, string> = {
-  'concluso': 'Concluso',
-  'in-corso': 'In corso',
+// I lavori "dettagli a breve" non hanno una scheda
+function findProject(slug: string, locale: Locale) {
+  const project = projects.find(p => p.slug === slug && !p.comingSoon)
+  return project ? localizeProject(project, locale) : undefined
 }
 
-interface PageProps {
-  params: Promise<{ slug: string }>
-}
-
-export function generateStaticParams() {
-  // I lavori "dettagli a breve" non hanno una scheda
+// Slug uguali nelle due lingue: le route /lavori/[slug] e /en/works/[slug] usano lo stesso elenco
+export function getProjectStaticParams() {
   return projects.filter(p => !p.comingSoon).map(p => ({ slug: p.slug }))
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params
-  const project = projects.find(p => p.slug === slug && !p.comingSoon)
+export function getProjectMetadata(locale: Locale, slug: string): Metadata {
+  const project = findProject(slug, locale)
   if (!project) return {}
   return {
     title: `${project.title} — TecnoChianti`,
     // Senza abstract resta la description generale del sito
     description: project.abstract || undefined,
+    alternates: languageAlternates(locale, {
+      it: projectPath('it', slug),
+      en: projectPath('en', slug),
+    }),
   }
 }
 
-export default async function ProjectPage({ params }: PageProps) {
-  const { slug } = await params
-  const project = projects.find(p => p.slug === slug && !p.comingSoon)
+interface Props {
+  locale: Locale
+  slug: string
+}
+
+export default function ProjectView({ locale, slug }: Props) {
+  const project = findProject(slug, locale)
   if (!project) notFound()
+  const t = getDictionary(locale)
 
   const infoItems = [
-    { label: 'Luogo', value: project.location },
-    { label: 'Anno', value: project.year },
-    { label: 'Stato', value: STATUS_LABELS[project.status] },
-    { label: 'Tipologia di intervento', value: project.intervention },
-    { label: 'Categoria', value: project.category },
+    { label: t.project.location, value: project.location },
+    { label: t.project.year, value: project.year },
+    { label: t.project.status, value: t.project.statusLabels[project.status] },
+    { label: t.project.intervention, value: project.intervention },
+    { label: t.project.category, value: project.category },
   ]
 
   const galleryRows = buildGalleryRows(
@@ -121,7 +127,7 @@ export default async function ProjectPage({ params }: PageProps) {
 
   return (
     <>
-      <Header />
+      <Header locale={locale} />
 
       {/* Hero a colori, piena larghezza */}
       <div className={styles.hero}>
@@ -170,7 +176,7 @@ export default async function ProjectPage({ params }: PageProps) {
 
         {/* Galleria */}
         {project.photos.length > 0 && (
-          <section className={styles.gallery} aria-label="Galleria immagini">
+          <section className={styles.gallery} aria-label={t.project.galleryLabel}>
             <div className={styles.galleryInner}>
               {galleryRows.map(row => {
                 if (row.kind === 'full') {
@@ -209,15 +215,15 @@ export default async function ProjectPage({ params }: PageProps) {
         {/* Navigazione */}
         <div className={styles.nav}>
           <div className={styles.navInner}>
-            <Link href="/lavori" className={styles.backLink}>
-              ← Tutti i lavori
+            <Link href={routePath(locale, 'works')} className={styles.backLink}>
+              {t.project.back}
             </Link>
           </div>
         </div>
 
       </main>
 
-      <Footer />
+      <Footer locale={locale} />
     </>
   )
 }

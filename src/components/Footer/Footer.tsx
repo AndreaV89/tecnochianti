@@ -2,13 +2,20 @@ import Link from 'next/link'
 import { contacts } from '@/data/contacts'
 import { professionalsLegal } from '@/data/legal'
 import CookiePreferencesButton from '@/components/CookieConsent/CookiePreferencesButton'
+import { getDictionary } from '@/i18n/dictionaries'
+import { routePath, type Locale } from '@/i18n/routes'
 import styles from './Footer.module.css'
 
 const currentYear = new Date().getFullYear()
 
+interface Props {
+  locale: Locale
+}
+
 // Due fasce: sopra marchio + contatti e menu, sotto dati legali e link.
-export default function Footer() {
+export default function Footer({ locale }: Props) {
   const { street, postalCode, city, province } = contacts.address
+  const t = getDictionary(locale)
 
   return (
     <footer className={styles.footer}>
@@ -17,11 +24,8 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.brand}>
             <span className={styles.name}>TecnoChianti</span>
-            <span className={styles.discipline}>Studio di Architettura</span>
-            <p className={styles.description}>
-              TecnoChianti si occupa di progettazione di edifici privati, recupero
-              e valorizzazione del patrimonio edilizio esistente.
-            </p>
+            <span className={styles.discipline}>{t.brand.discipline}</span>
+            <p className={styles.description}>{t.footer.description}</p>
           </div>
 
           <div className={styles.info}>
@@ -36,19 +40,20 @@ export default function Footer() {
                 {contacts.email}
               </a>
             )}
-            <nav className={styles.nav} aria-label="Navigazione footer">
-              <Link href="/" className={styles.link}>Home</Link>
-              <Link href="/lavori" className={styles.link}>Lavori</Link>
-              <Link href="/studio" className={styles.link}>Studio</Link>
-              <Link href="/contatti" className={styles.link}>Contatti</Link>
+            <nav className={styles.nav} aria-label={t.footer.navLabel}>
+              <Link href={routePath(locale, 'home')} className={styles.link}>{t.footer.home}</Link>
+              <Link href={routePath(locale, 'works')} className={styles.link}>{t.header.works}</Link>
+              <Link href={routePath(locale, 'studio')} className={styles.link}>{t.header.studio}</Link>
+              <Link href={routePath(locale, 'contact')} className={styles.link}>{t.header.contact}</Link>
             </nav>
           </div>
         </div>
 
         <div className={styles.bottom}>
+          {/* Dati legali dei professionisti: restano in italiano anche nella versione inglese */}
           <ul className={styles.professionals} role="list">
             {professionalsLegal.map(p => (
-              <li key={p.vatNumber}>
+              <li key={p.vatNumber} lang="it">
                 {p.title} {p.name} · P.IVA {p.vatNumber} · {p.register}
               </li>
             ))}
@@ -56,10 +61,10 @@ export default function Footer() {
 
           <div className={styles.legalRow}>
             <span>© {currentYear} TecnoChianti</span>
-            <nav className={styles.legalLinks} aria-label="Note legali">
-              <Link href="/privacy" className={styles.link}>Privacy</Link>
-              <Link href="/cookie-policy" className={styles.link}>Cookie policy</Link>
-              <CookiePreferencesButton className={styles.link} />
+            <nav className={styles.legalLinks} aria-label={t.footer.legalLabel}>
+              <Link href={routePath(locale, 'privacy')} className={styles.link}>{t.footer.privacy}</Link>
+              <Link href={routePath(locale, 'cookies')} className={styles.link}>{t.footer.cookies}</Link>
+              <CookiePreferencesButton className={styles.link} label={t.footer.cookiePreferences} />
             </nav>
           </div>
         </div>

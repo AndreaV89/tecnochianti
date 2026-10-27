@@ -1,15 +1,23 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { getDictionary } from '@/i18n/dictionaries'
+import { routePath, translatePath, type Locale } from '@/i18n/routes'
 import styles from './Header.module.css'
 
 interface HeaderProps {
+  locale: Locale
   alwaysDark?: boolean
 }
 
-export default function Header({ alwaysDark = false }: HeaderProps) {
+export default function Header({ locale, alwaysDark = false }: HeaderProps) {
   const [scrolled, setScrolled] = useState(alwaysDark)
+  const pathname = usePathname()
+  const t = getDictionary(locale)
+  // Il selettore mostra solo l'altra lingua e porta alla stessa pagina tradotta
+  const otherLocale: Locale = locale === 'it' ? 'en' : 'it'
 
   useEffect(() => {
     if (alwaysDark) return
@@ -25,14 +33,23 @@ export default function Header({ alwaysDark = false }: HeaderProps) {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
-        <Link href="/" className={styles.logo}>
+        <Link href={routePath(locale, 'home')} className={styles.logo}>
           <span className={styles.logoName}>TecnoChianti</span>
-          <span className={styles.logoDiscipline}>Studio di Architettura</span>
+          <span className={styles.logoDiscipline}>{t.brand.discipline}</span>
         </Link>
-        <nav className={styles.nav} aria-label="Navigazione principale">
-          <Link href="/studio" className={styles.navLink}>Studio</Link>
-          <Link href="/lavori" className={styles.navLink}>Lavori</Link>
-          <Link href="/contatti" className={styles.navLink}>Contatti</Link>
+        <nav className={styles.nav} aria-label={t.header.navLabel}>
+          <Link href={routePath(locale, 'studio')} className={styles.navLink}>{t.header.studio}</Link>
+          <Link href={routePath(locale, 'works')} className={styles.navLink}>{t.header.works}</Link>
+          <Link href={routePath(locale, 'contact')} className={styles.navLink}>{t.header.contact}</Link>
+          <Link
+            href={translatePath(pathname, otherLocale)}
+            hrefLang={otherLocale}
+            lang={otherLocale}
+            className={`${styles.navLink} ${styles.languageLink}`}
+            aria-label={otherLocale === 'en' ? 'English' : 'Italiano'}
+          >
+            {otherLocale.toUpperCase()}
+          </Link>
         </nav>
       </div>
     </header>

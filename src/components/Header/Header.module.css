@@ -105,6 +105,11 @@
   color: var(--color-grigio-medio);
 }
 
+/* Selettore lingua: un po' staccato dalle voci di menu */
+.languageLink {
+  margin-left: 0.75rem;
+}
+
 .header.scrolled .navLink:hover,
 .header.scrolled .navLink:focus-visible {
   color: var(--color-terracotta);
@@ -127,6 +132,15 @@
   .navLink {
     font-size: 0.6875rem;
     letter-spacing: 0.1em;
+  }
+
+  /* Il selettore lingua non entra nella riga del menu: va in alto a destra,
+     all'altezza del nome "TecnoChianti" (il menu è allineato alla riga sotto) */
+  .languageLink {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    margin-left: 0;
   }
 }
 
