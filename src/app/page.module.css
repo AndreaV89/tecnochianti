@@ -20,6 +20,24 @@
   max-width: 12em;
 }
 
+/* Testo introduttivo: colonna stretta spostata a destra, sotto il claim */
+.intro {
+  margin-top: 4.5rem;
+  margin-left: auto;
+  max-width: 34rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.introText {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-antracite);
+}
+
 /* Works */
 .works {
   padding: 6.5rem 0 8rem;
@@ -56,7 +74,7 @@
   justify-content: flex-end;
 }
 
-.allWorksLink {
+.arrowLink {
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: var(--weight-regular);
@@ -69,19 +87,68 @@
   transition: color var(--transition-fast);
 }
 
-.allWorksLink::after {
+.arrowLink::after {
   content: '→';
   color: var(--color-terracotta);
   display: inline-block;
   transition: transform var(--transition-fast);
 }
 
-.allWorksLink:hover {
+.arrowLink:hover {
   color: var(--color-terracotta);
 }
 
-.allWorksLink:hover::after {
+.arrowLink:hover::after {
   transform: translateX(5px);
+}
+
+/* Invito al contatto, in fondo alla pagina */
+.cta {
+  padding: 7rem 2rem 8rem;
+  border-top: 1px solid var(--color-grigio-chiaro);
+}
+
+.ctaInner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.5rem;
+  font-family: var(--font-serif);
+  font-weight: var(--weight-thin);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.ctaText {
+  color: var(--color-grigio-medio);
+}
+
+.ctaLink {
+  font-style: italic;
+  color: var(--color-antracite);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
+  transition: color var(--transition-fast);
+}
+
+.ctaLink::after {
+  content: '→';
+  font-style: normal;
+  color: var(--color-terracotta);
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.ctaLink:hover {
+  color: var(--color-terracotta);
+}
+
+.ctaLink:hover::after {
+  transform: translateX(6px);
 }
 
 /* Responsive */
@@ -94,6 +161,14 @@
 
 @media (max-width: 768px) {
   .manifesto {
+    padding: 5rem 1.25rem 6rem;
+  }
+
+  .intro {
+    margin-top: 3rem;
+  }
+
+  .cta {
     padding: 5rem 1.25rem 6rem;
   }
 

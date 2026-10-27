@@ -45,7 +45,7 @@ Direzione "architettura tipografica": minimal, tipografia protagonista, sfondo c
 
 ## Struttura
 
-- **Home**: hero, manifesto, tre lavori in evidenza.
+- **Home**: hero, manifesto con breve testo introduttivo (bozza in attesa di approvazione del cliente) e link a Studio, tre lavori in evidenza, invito al contatto ("Hai un progetto? Parliamone" → Contatti).
 - **Footer** (tutte le pagine), a due fasce: sopra marchio a sinistra con la frase descrittiva del cliente, indirizzo, telefono e menu a destra; sotto dati legali dei professionisti, © e link Privacy, Cookie policy, Preferenze cookie.
 - **Lavori**: un'unica griglia a due colonne, ordinata per anno dal più recente, con contatore dei progetti. I lavori in corso sono segnalati con "In corso" accanto alla categoria nella card.
 - **Lavori/[slug]**: hero a colori (75svh), blocco dati, descrizione, galleria, link per tornare indietro. Generata con `generateStaticParams`.
@@ -96,6 +96,7 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 ## In attesa dal cliente
 
 - Anno del Complesso immobiliare a Radda (ora vuoto: la card è ultima nella griglia)
+- Approvazione del testo introduttivo della Home (bozza in `src/app/page.tsx`)
 
 ## Modo di lavorare
 

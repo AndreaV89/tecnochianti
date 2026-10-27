@@ -24,6 +24,18 @@ export default function HomePage() {
           <p className={styles.manifestoText}>
             Diamo forma al futuro<br />creando architetture custodi dell&apos;anima dei luoghi
           </p>
+          {/* Bozza da far approvare al cliente */}
+          <div className={styles.intro}>
+            <p className={styles.introText}>
+              TecnoChianti è uno studio di architettura con sede a Radda in Chianti.
+              Dal 2013 progettiamo edifici privati e ci occupiamo del recupero e della
+              valorizzazione del patrimonio edilizio esistente, seguendo ogni intervento
+              dal progetto al cantiere.
+            </p>
+            <Link href="/studio" className={styles.arrowLink}>
+              Lo studio
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -40,10 +52,19 @@ export default function HomePage() {
             ))}
           </div>
           <div className={styles.worksFooter}>
-            <Link href="/lavori" className={styles.allWorksLink}>
+            <Link href="/lavori" className={styles.arrowLink}>
               Tutti i lavori
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.cta} aria-label="Contatti">
+        <div className={styles.ctaInner}>
+          <p className={styles.ctaText}>Hai un progetto?</p>
+          <Link href="/contatti" className={styles.ctaLink}>
+            Parliamone
+          </Link>
         </div>
       </section>
 
