@@ -26,10 +26,6 @@ export default function LegalPage({ title, sections }: Props) {
 
         <div className={styles.content}>
           <div className={styles.contentInner}>
-            {/* TODO: togliere quando il testo definitivo è stato verificato */}
-            <p className={styles.notice}>
-              Testo provvisorio, in fase di revisione.
-            </p>
             {sections.map(section => (
               <section key={section.title} className={styles.section}>
                 <h2 className={styles.sectionTitle}>{section.title}</h2>

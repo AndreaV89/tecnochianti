@@ -112,7 +112,7 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 - [x] Impostare su Vercel `RESEND_API_KEY`, `CONTACT_FROM` e `CONTACT_RECIPIENTS` (vedi `.env.example`) e provare il form. In Preview `CONTACT_RECIPIENTS` contiene solo la mia email: i test non arrivano al cliente
 - [ ] Dopo il lancio, provare il form in produzione (deve arrivare a info@ e ai tre professionisti)
 - [x] Impostare `NEXT_PUBLIC_GA_ID` su Vercel (Production e Preview) e verificare il banner cookie
-- [ ] Privacy e cookie policy: far verificare i testi (`src/data/legal-texts.ts`) a un consulente privacy (dubbio aperto: i tre professionisti ricevono le email del form ma il titolare indicato è solo Carlo Matassini), poi togliere l'avviso "Testo provvisorio" in `LegalPage.tsx` e compilare la data di ultimo aggiornamento
+- [x] Privacy e cookie policy verificate da un consulente privacy (Avv. Stefano Iaria) e integrate con le sue proposte; avviso "Testo provvisorio" tolto, ultimo aggiornamento 28/10/2026
 - [ ] Merge di `develop` in `main`
 
 ## In attesa dal cliente

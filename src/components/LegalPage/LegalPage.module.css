@@ -30,15 +30,6 @@
   margin: 0 auto;
 }
 
-.notice {
-  max-width: 62ch;
-  font-family: var(--font-text);
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  color: var(--color-terracotta);
-  margin-bottom: 3rem;
-}
-
 .section {
   max-width: 62ch;
   display: flex;
