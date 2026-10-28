@@ -204,7 +204,7 @@ const en: Dictionary = {
       'Integrated design',
       'Site supervision',
       'Building permits',
-      'Building amnesty applications',
+      'Building regularizations',
       'Administrative procedures',
       'Property surveys and valuations',
       'Technical assistance in property sales and purchases',

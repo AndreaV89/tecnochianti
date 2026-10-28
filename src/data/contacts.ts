@@ -18,6 +18,8 @@ export interface Contacts {
   phone: Phone
   // Email generale dello studio
   email: string
+  // Email del titolare del trattamento, mostrata solo nella privacy policy
+  privacyEmail: string
 }
 
 export const contacts: Contacts = {
@@ -29,4 +31,5 @@ export const contacts: Contacts = {
   },
   phone: { display: '+39 0577 738486', href: '+390577738486' },
   email: 'info@tecnochianti.it',
+  privacyEmail: 'c.matassini@tecnochianti.it',
 }

@@ -37,7 +37,7 @@ Direzione "architettura tipografica": minimal, tipografia protagonista, sfondo c
 - Grigio medio `#A6A39A` (testi secondari)
 - Antracite `#2B2A27` (titoli, testi brevi, grassetti nei testi lunghi)
 - Grigio testo `#77746C` (testi lunghi: descrizioni dei progetti, Studio, introduzione della Home)
-- Terracotta `#B8623C`: solo micro-accenti, mai su superfici ampie. Unica eccezione voluta: lo sfondo dell'invito al contatto (`ContactCta`, in fondo a Home e Lavori), in un tono più scuro e meno acceso, Terracotta scuro `#A0583A` (`--color-terracotta-scuro`), con testo color carta e freccia antracite
+- Terracotta `#B8623C`: solo micro-accenti, mai su superfici ampie. Unica eccezione voluta: lo sfondo dell'invito al contatto (`ContactCta`, in fondo a Home e Lavori), in un tono più scuro e meno acceso, Terracotta scuro `#A0583A` (`--color-terracotta-scuro`), con testo color carta e freccia antracite (approvato dal cliente)
 
 **Componenti e interazioni già implementati**
 - Logo in SVG (`src/components/Logo/Logo.tsx`, copia per usi esterni in `public/logo.svg`): TECNO in Saira ExtraLight, CHIANTI in Saira SemiBold, sotto STUDIO DI ARCHITETTURA in Hanken Grotesk spaziato alla stessa larghezza. Lettere convertite in tracciati, colore da `currentColor`. Resta in italiano anche sulle pagine inglesi. Si rigenera con `scripts/make_logo.py` (istruzioni nel file). Header: 260px desktop, 170px mobile; su mobile l'header è su due righe (logo e selettore lingua sopra, menu sotto).
@@ -93,7 +93,7 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 - Non inventare dati: anni, luoghi, servizi e testi arrivano solo dal cliente. Se un dato manca, nascondi il campo invece di mostrare un segnaposto.
 - Contatti pubblici: solo l'indirizzo (Via Guido Rossa 19, 53017 Radda in Chianti, SI) e il telefono fisso (+39 0577 738486). Niente email personali, cellulari, fax o orari.
 - Footer: per ogni professionista nome, titolo, P.IVA e iscrizione all'albo. Il codice fiscale non va mai pubblicato.
-- Titolare del trattamento: Carlo Matassini.
+- Titolare del trattamento: Carlo Matassini. Nella privacy policy come recapito del titolare si indica c.matassini@tecnochianti.it (`privacyEmail` in `src/data/contacts.ts`), unica eccezione alla regola dell'email pubblica.
 - Google Analytics 4 si carica solo dopo il consenso nel banner cookie (Consent Mode v2). L'ID viene da `NEXT_PUBLIC_GA_ID`; se manca, GA non si carica.
 - Email pubblica: solo info@tecnochianti.it. Niente profili social (il cliente non li vuole).
 
