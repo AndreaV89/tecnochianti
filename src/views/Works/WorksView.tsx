@@ -29,7 +29,7 @@ export default function WorksView({ locale }: Props) {
 
         <div className={styles.pageHeader}>
           <div className={styles.pageHeaderInner}>
-            <span className={styles.pageTitle}>{t.works.title}</span>
+            <h1 className={styles.pageTitle}>{t.works.title}</h1>
             <span className={styles.pageCount}>{t.works.count(projects.length)}</span>
           </div>
         </div>

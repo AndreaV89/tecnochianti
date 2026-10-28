@@ -5,8 +5,9 @@ import ProjectCard from '@/components/ProjectCard/ProjectCard'
 import Footer from '@/components/Footer/Footer'
 import ContactCta from '@/components/ContactCta/ContactCta'
 import { getFeaturedProjects, getHeroSlides } from '@/data/projects'
+import { contacts } from '@/data/contacts'
 import { getDictionary } from '@/i18n/dictionaries'
-import { routePath, type Locale } from '@/i18n/routes'
+import { routePath, SITE_URL, type Locale } from '@/i18n/routes'
 import styles from './HomeView.module.css'
 
 // Stesso calcolo della pagina Lavori (foto 16:9 in card 3:4 → ~2,4× la card).
@@ -17,12 +18,40 @@ interface Props {
   locale: Locale
 }
 
+// Dati strutturati (Schema.org) dello studio per Google: non si vedono nella pagina,
+// servono alla ricerca locale. Contengono solo i contatti pubblici del sito.
+function studioJsonLd(locale: Locale, description: string) {
+  const { street, postalCode, city, province } = contacts.address
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'TecnoChianti — Studio di Architettura',
+    description,
+    url: `${SITE_URL}${routePath(locale, 'home')}`,
+    image: `${SITE_URL}/og-image.jpg`,
+    telephone: contacts.phone.href,
+    email: contacts.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: street,
+      postalCode,
+      addressLocality: city,
+      addressRegion: province,
+      addressCountry: 'IT',
+    },
+  }
+}
+
 export default function HomeView({ locale }: Props) {
   const t = getDictionary(locale)
   const [claimFirstLine, claimSecondLine] = t.home.manifesto
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(studioJsonLd(locale, t.home.metaDescription)) }}
+      />
       <Header locale={locale} />
 
       <section aria-label={t.home.heroLabel}>
@@ -31,9 +60,9 @@ export default function HomeView({ locale }: Props) {
 
       <section className={styles.manifesto} aria-label={t.home.manifestoLabel}>
         <div className={styles.manifestoInner}>
-          <p className={styles.manifestoText}>
+          <h1 className={styles.manifestoText}>
             {claimFirstLine}<br />{claimSecondLine}
-          </p>
+          </h1>
           <div className={styles.intro}>
             <p className={styles.introText}>{t.home.intro}</p>
             <Link href={routePath(locale, 'studio')} className={styles.arrowLink}>
