@@ -28,6 +28,24 @@ export function saveConsent(choice: ConsentChoice): void {
   window.dispatchEvent(new Event(CHANGE_EVENT))
 }
 
+// Revoca del consenso: cancella i cookie di Google Analytics (_ga, _ga_<ID>) già salvati.
+// GA li scrive sul dominio principale (es. .tecnochianti.it), quindi proviamo l'host attuale
+// e tutti i domini "genitori": un cookie si cancella solo indicando lo stesso dominio.
+export function deleteAnalyticsCookies(): void {
+  const names = document.cookie
+    .split(';')
+    .map(cookie => cookie.split('=')[0].trim())
+    .filter(name => name === '_ga' || name.startsWith('_ga_'))
+  const parts = window.location.hostname.split('.')
+  const domains = parts.map((_, i) => parts.slice(i).join('.'))
+  for (const name of names) {
+    document.cookie = `${name}=; Max-Age=0; path=/`
+    for (const domain of domains) {
+      document.cookie = `${name}=; Max-Age=0; path=/; domain=.${domain}`
+    }
+  }
+}
+
 export function subscribeConsent(callback: () => void): () => void {
   window.addEventListener(CHANGE_EVENT, callback)
   window.addEventListener('storage', callback)

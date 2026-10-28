@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Script from 'next/script'
 import { useEffect, useState, useSyncExternalStore } from 'react'
 import {
+  deleteAnalyticsCookies,
   readConsent,
   saveConsent,
   subscribeConsent,
@@ -59,7 +60,11 @@ export default function CookieConsent({ locale }: Props) {
 
   const choose = (choice: ConsentChoice) => {
     // Revoca dopo un consenso già dato: GA è già caricato, si blocca l'uso dei cookie
-    if (choice === 'denied') window.gtag?.('consent', 'update', { analytics_storage: 'denied' })
+    // e si cancellano quelli già salvati
+    if (choice === 'denied') {
+      window.gtag?.('consent', 'update', { analytics_storage: 'denied' })
+      deleteAnalyticsCookies()
+    }
     // Nuovo consenso dopo una revoca nella stessa visita: configScript non riparte
     if (choice === 'granted') window.gtag?.('consent', 'update', { analytics_storage: 'granted' })
     saveConsent(choice)

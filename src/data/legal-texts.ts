@@ -1,8 +1,11 @@
 import type { LegalSection } from '@/components/LegalPage/LegalPage'
 import { contacts } from '@/data/contacts'
 
-// TESTI SEGNAPOSTO: struttura completa ma da far verificare a un consulente privacy
-// prima della pubblicazione definitiva. Le parti tra [quadre] sono da completare.
+// Testi da far verificare a un consulente privacy prima della pubblicazione definitiva.
+// Dati dei fornitori verificati il 28/10/2026 sulle loro informative (Vercel, Resend, Google).
+// Periodi di conservazione decisi con il cliente; quelli di Google Analytics devono coincidere
+// con Amministrazione → Conservazione dei dati in GA (oggi: eventi 2 mesi, utente 14 mesi).
+// "Ultimo aggiornamento" si compila al lancio.
 
 const { street, postalCode, city, province } = contacts.address
 const controller = `Carlo Matassini, ${street}, ${postalCode} ${city} (${province})`
@@ -17,33 +20,33 @@ export const privacySections: LegalSection[] = [
   {
     title: 'Dati raccolti',
     paragraphs: [
-      "Dati di navigazione: i sistemi che fanno funzionare il sito raccolgono, durante il normale utilizzo, alcuni dati tecnici (ad esempio indirizzo IP, tipo di browser, pagine visitate e orario della richiesta). Sono usati solo per garantire il funzionamento e la sicurezza del sito.",
+      "Dati di navigazione: i sistemi che fanno funzionare il sito raccolgono, durante il normale utilizzo, alcuni dati tecnici (ad esempio indirizzo IP, tipo di browser, pagine visitate e orario della richiesta). Sono usati solo per garantire il funzionamento e la sicurezza del sito. Caratteri tipografici, immagini e video sono ospitati direttamente sul sito: la navigazione non comporta richieste a servizi esterni come Google Fonts, mappe o piattaforme video.",
       "Dati statistici: solo con il consenso dell'utente, il sito utilizza Google Analytics per raccogliere informazioni aggregate sull'uso delle pagine. I dettagli sono descritti nella Cookie policy.",
-      "Dati forniti volontariamente: chi contatta lo studio per telefono, email o tramite il modulo della pagina Contatti comunica i propri dati (nome, cognome, indirizzo email) e le informazioni contenute nella richiesta. I messaggi inviati con il modulo sono recapitati agli indirizzi email dello studio e dei suoi professionisti e non vengono conservati sul sito.",
+      "Dati forniti volontariamente: chi contatta lo studio per telefono, email o tramite il modulo della pagina Contatti comunica i propri dati (nome, cognome, indirizzo email) e le informazioni contenute nella richiesta. I messaggi inviati con il modulo sono recapitati agli indirizzi email dello studio e dei suoi professionisti e non vengono conservati sul sito; il servizio di invio ne mantiene una copia tecnica per un periodo limitato.",
     ],
   },
   {
     title: 'Finalità e base giuridica',
     paragraphs: [
-      "I dati di navigazione sono trattati per il legittimo interesse del titolare al corretto funzionamento e alla sicurezza del sito. I dati statistici sono trattati solo sulla base del consenso, revocabile in ogni momento. I dati forniti volontariamente sono trattati per rispondere alle richieste e per eventuali attività precontrattuali e contrattuali. [da verificare]",
+      "I dati di navigazione sono trattati per il legittimo interesse del titolare al corretto funzionamento e alla sicurezza del sito (art. 6, par. 1, lett. f del GDPR). I dati statistici sono trattati solo sulla base del consenso, revocabile in ogni momento (art. 6, par. 1, lett. a). I dati forniti volontariamente sono trattati per rispondere alle richieste e per eventuali attività precontrattuali e contrattuali (art. 6, par. 1, lett. b).",
     ],
   },
   {
     title: 'Modalità e durata del trattamento',
     paragraphs: [
-      "I dati sono trattati con strumenti informatici e con misure adeguate a garantirne la sicurezza. Sono conservati per il tempo necessario alle finalità per cui sono raccolti e comunque non oltre [periodo da definire], salvo obblighi di legge.",
+      "I dati sono trattati con strumenti informatici e con misure adeguate a garantirne la sicurezza. Le richieste ricevute tramite il modulo o per email sono conservate per il tempo necessario a gestirle e comunque non oltre 24 mesi, salvo che diano origine a un incarico o che la legge imponga una conservazione più lunga. Google Analytics conserva i dati dettagliati sulle visite per 2 mesi e quelli associati al singolo utente per 14 mesi; poi restano solo statistiche aggregate.",
     ],
   },
   {
     title: 'Destinatari dei dati',
     paragraphs: [
-      "I dati possono essere trattati da fornitori che svolgono servizi per conto del titolare, nominati responsabili del trattamento: il fornitore di hosting del sito [da completare], Resend [ragione sociale da verificare] per l'invio dei messaggi del modulo contatti e, solo in caso di consenso, Google Ireland Limited per il servizio Google Analytics. I dati non sono diffusi.",
+      "I dati possono essere trattati da fornitori che svolgono servizi per conto del titolare, nominati responsabili del trattamento: Vercel Inc. (Covina, California, USA), che ospita il sito; Plus Five Five, Inc. (Resend, San Francisco, USA), per l'invio dei messaggi del modulo contatti; solo in caso di consenso, Google Ireland Limited per il servizio Google Analytics. I dati non sono diffusi.",
     ],
   },
   {
     title: "Trasferimento fuori dall'Unione Europea",
     paragraphs: [
-      "Alcuni fornitori possono trattare dati anche al di fuori dell'Unione Europea. In questi casi il trasferimento avviene sulla base di decisioni di adeguatezza della Commissione Europea o di clausole contrattuali standard. [da verificare]",
+      "Vercel, Resend e Google possono trattare i dati anche negli Stati Uniti. Il trasferimento avviene sulla base della decisione di adeguatezza della Commissione Europea del 10 luglio 2023 sull'EU-U.S. Data Privacy Framework, a cui queste società aderiscono, e, dove previsto, delle clausole contrattuali standard approvate dalla Commissione.",
     ],
   },
   {
@@ -77,8 +80,8 @@ export const cookieSections: LegalSection[] = [
   {
     title: 'Cookie di analisi',
     paragraphs: [
-      "Solo con il consenso dell'utente, il sito usa Google Analytics 4, fornito da Google Ireland Limited, per raccogliere statistiche aggregate sull'uso delle pagine. Google Analytics imposta i cookie _ga e _ga_<ID>, con durata massima di 2 anni. Il sito usa la modalità di consenso di Google (Consent Mode): senza consenso lo script di Google Analytics non viene caricato.",
-      "Per maggiori informazioni: informativa privacy di Google (policies.google.com/privacy). [da verificare]",
+      "Solo con il consenso dell'utente, il sito usa Google Analytics 4, fornito da Google Ireland Limited, per raccogliere statistiche aggregate sull'uso delle pagine. Google Analytics imposta i cookie _ga e _ga_R40M882CDR, con durata di 2 anni. Google Analytics 4 non registra né conserva gli indirizzi IP. Il sito usa la modalità di consenso di Google (Consent Mode): senza consenso lo script di Google Analytics non viene caricato e non viene salvato alcun cookie di analisi. Se il consenso viene revocato, i cookie di Google Analytics già salvati vengono cancellati.",
+      "Per maggiori informazioni: informativa privacy di Google (policies.google.com/privacy) e modalità di utilizzo dei dati da parte di Google (policies.google.com/technologies/partner-sites).",
     ],
   },
   {
