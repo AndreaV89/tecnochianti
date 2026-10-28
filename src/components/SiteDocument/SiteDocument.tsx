@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { Saira, Hanken_Grotesk } from 'next/font/google'
 import CookieConsent from '@/components/CookieConsent/CookieConsent'
+import PageTransition, { RELOAD_SCRIPT } from '@/components/PageTransition/PageTransition'
 import type { Locale } from '@/i18n/routes'
 import '@/app/globals.css'
 
@@ -34,10 +35,15 @@ export default function SiteDocument({ locale, children }: Props) {
       lang={locale}
       className={`${saira.variable} ${hankenGrotesk.variable}`}
       data-scroll-behavior="smooth"
+      // Lo script qui sotto può aggiungere data-page-transition prima che React parta
+      suppressHydrationWarning
     >
       <body>
+        {/* Primo elemento del body: gira prima che la pagina venga disegnata (vedi PageTransition) */}
+        <script dangerouslySetInnerHTML={{ __html: RELOAD_SCRIPT }} />
         {children}
         <CookieConsent locale={locale} />
+        <PageTransition />
       </body>
     </html>
   )

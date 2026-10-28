@@ -1,0 +1,74 @@
+/* Pannello a tutto schermo, sopra anche header e banner cookie.
+   A riposo è sotto lo schermo e invisibile; le durate coincidono con COVER_MS e REVEAL_MS */
+.panel {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-antracite);
+  color: var(--color-carta);
+  transform: translateY(100%);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Pagina ricaricata dopo un cambio lingua: coperta già prima che il JavaScript parta */
+:global(html[data-page-transition='covered']) .panel {
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.panel[data-phase='covering'],
+.panel[data-phase='covered'] {
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: transform 550ms cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.panel[data-phase='revealing'] {
+  visibility: visible;
+  transform: translateY(-100%);
+  transition: transform 650ms cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+:global(html[data-page-transition='covered']) .mark,
+.panel[data-phase='covering'] .mark,
+.panel[data-phase='covered'] .mark {
+  opacity: 1;
+  transition-delay: 250ms;
+}
+
+.logo {
+  display: block;
+  width: min(240px, 60vw);
+  height: auto;
+}
+
+/* Trattino terracotta che si allunga mentre la pagina è coperta */
+.dash {
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background-color: var(--color-terracotta);
+  transform: scaleX(0);
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:global(html[data-page-transition='covered']) .dash,
+.panel[data-phase='covering'] .dash,
+.panel[data-phase='covered'] .dash {
+  transform: scaleX(1);
+  transition-delay: 300ms;
+}
