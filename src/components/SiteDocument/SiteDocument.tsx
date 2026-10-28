@@ -28,7 +28,13 @@ interface Props {
 // Due root layout separati servono ad avere <html lang="it"> o <html lang="en"> già nell'HTML statico.
 export default function SiteDocument({ locale, children }: Props) {
   return (
-    <html lang={locale} className={`${saira.variable} ${hankenGrotesk.variable}`}>
+    // data-scroll-behavior: Next disattiva lo scroll fluido durante i cambi pagina,
+    // così la nuova pagina compare già in cima invece di scorrere
+    <html
+      lang={locale}
+      className={`${saira.variable} ${hankenGrotesk.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <body>
         {children}
         <CookieConsent locale={locale} />
