@@ -37,17 +37,18 @@
   border: none;
   border-bottom: 1px solid var(--color-grigio-medio);
   border-radius: 0;
-  transition: border-color var(--transition-fast);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
-.input:focus {
+/* Campo attivo: niente riquadro, la linea sotto diventa antracite e più spessa
+   (l'ombra aggiunge 1px senza spostare il layout). Basta anche per chi usa la tastiera */
+.input:focus,
+.input:focus-visible {
   outline: none;
   border-bottom-color: var(--color-antracite);
-}
-
-.input:focus-visible {
-  outline: 1px solid var(--color-antracite);
-  outline-offset: 4px;
+  box-shadow: 0 1px 0 0 var(--color-antracite);
 }
 
 .textarea {
