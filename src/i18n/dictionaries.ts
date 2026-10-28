@@ -23,7 +23,7 @@ const it = {
   home: {
     metaTitle: 'TecnoChianti — Studio di Architettura',
     metaDescription:
-      'Studio di architettura a Radda in Chianti, Toscana. Progettazione, direzione lavori, computi metrici, pratiche edilizie.',
+      'Studio di architettura a Radda in Chianti, Toscana. Progettazione integrata, direzione lavori, pratiche edilizie, perizie e stime immobiliari.',
     heroLabel: 'Immagini dei lavori',
     manifestoLabel: 'Manifesto',
     manifesto: ['Diamo forma al futuro', "creando architetture custodi dell'anima dei luoghi"],
@@ -152,7 +152,7 @@ const en: Dictionary = {
   home: {
     metaTitle: 'TecnoChianti — Architecture Studio',
     metaDescription:
-      'Architecture studio in Radda in Chianti, Tuscany. Architectural design, site supervision and building permits.',
+      'Architecture studio in Radda in Chianti, Tuscany. Integrated design, site supervision, building permits, property surveys and valuations.',
     heroLabel: 'Images of our works',
     manifestoLabel: 'Manifesto',
     manifesto: ['Shaping the future', 'with architecture that guards the spirit of place'],
