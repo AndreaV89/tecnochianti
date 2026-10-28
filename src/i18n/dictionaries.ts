@@ -93,6 +93,15 @@ const it = {
     email: 'Email',
     writeUs: 'Hai un immobile da valorizzare o un progetto in mente? Raccontaci la tua idea',
   },
+  notFound: {
+    metaTitle: 'Pagina non trovata — TecnoChianti',
+    title: 'Pagina non trovata',
+    text: "L'indirizzo che hai cercato non esiste o è stato spostato.",
+    home: 'Torna alla home',
+    works: 'Guarda i lavori',
+    // Scritta nell'altra lingua (qui in inglese): compare solo nel 404 globale, che non conosce la lingua
+    otherLanguage: 'Page not found — Back to home',
+  },
   form: {
     firstName: 'Nome',
     lastName: 'Cognome',
@@ -209,6 +218,14 @@ const en: Dictionary = {
     phone: 'Phone',
     email: 'Email',
     writeUs: 'Do you have a property to enhance or a project in mind? Tell us your idea',
+  },
+  notFound: {
+    metaTitle: 'Page not found — TecnoChianti',
+    title: 'Page not found',
+    text: 'The address you are looking for does not exist or has been moved.',
+    home: 'Back to home',
+    works: 'See our works',
+    otherLanguage: 'Pagina non trovata — Torna alla home',
   },
   form: {
     firstName: 'First name',
