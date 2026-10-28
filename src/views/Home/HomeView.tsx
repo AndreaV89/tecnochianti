@@ -3,6 +3,7 @@ import Header from '@/components/Header/Header'
 import HeroSlideshow from '@/components/HeroSlideshow/HeroSlideshow'
 import ProjectCard from '@/components/ProjectCard/ProjectCard'
 import Footer from '@/components/Footer/Footer'
+import ContactCta from '@/components/ContactCta/ContactCta'
 import { getFeaturedProjects, getHeroSlides } from '@/data/projects'
 import { getDictionary } from '@/i18n/dictionaries'
 import { routePath, type Locale } from '@/i18n/routes'
@@ -68,17 +69,7 @@ export default function HomeView({ locale }: Props) {
         </div>
       </section>
 
-      <section className={styles.cta} aria-labelledby="cta-heading">
-        <div className={styles.ctaInner}>
-          <span id="cta-heading" className={styles.worksLabel}>
-            {t.home.ctaLabel}
-          </span>
-          <p className={styles.ctaText}>{t.home.ctaQuestion}</p>
-          <Link href={routePath(locale, 'contact')} className={styles.ctaLink}>
-            {t.home.ctaLink}
-          </Link>
-        </div>
-      </section>
+      <ContactCta locale={locale} />
 
       <Footer locale={locale} />
     </main>

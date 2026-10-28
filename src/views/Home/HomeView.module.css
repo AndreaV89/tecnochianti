@@ -101,69 +101,6 @@
   transform: translateX(5px);
 }
 
-/* Invito al contatto, in fondo alla pagina: unica superficie terracotta del sito (tono scuro),
-   testo color carta e freccia antracite */
-.cta {
-  padding: 7rem 2rem 8rem;
-  background-color: var(--color-terracotta-scuro);
-  color: var(--color-carta);
-}
-
-.cta .worksLabel {
-  color: var(--color-carta);
-}
-
-/* Etichetta, domanda grande, link sotto: stessa struttura delle altre sezioni */
-.ctaInner {
-  max-width: var(--content-width);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2.5rem;
-}
-
-.ctaText {
-  font-family: var(--font-display);
-  font-weight: var(--weight-regular);
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--color-carta);
-  max-width: 18em;
-}
-
-.ctaLink {
-  font-family: var(--font-display);
-  font-weight: var(--weight-regular);
-  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
-  color: var(--color-carta);
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.4em;
-  transition: color var(--transition-fast);
-}
-
-.ctaLink::after {
-  content: '→';
-  color: var(--color-antracite);
-  display: inline-block;
-  transition: transform var(--transition-fast);
-}
-
-.ctaLink:hover {
-  color: var(--color-antracite);
-}
-
-.ctaLink:focus-visible {
-  outline: 1px solid var(--color-carta);
-  outline-offset: 4px;
-}
-
-.ctaLink:hover::after {
-  transform: translateX(6px);
-}
-
 /* Responsive */
 @media (max-width: 1024px) {
   .worksGrid {
@@ -179,10 +116,6 @@
 
   .intro {
     margin-top: 3rem;
-  }
-
-  .cta {
-    padding: 5rem 1.25rem 6rem;
   }
 
   .works {

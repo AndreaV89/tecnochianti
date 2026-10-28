@@ -1,0 +1,74 @@
+/* Invito al contatto in fondo a Home e Lavori: unica superficie terracotta del sito (tono scuro),
+   testo color carta e freccia antracite */
+.cta {
+  padding: 7rem 2rem 8rem;
+  background-color: var(--color-terracotta-scuro);
+  color: var(--color-carta);
+}
+
+/* Stessa etichetta delle sezioni della Home, ma color carta */
+.label {
+  font-family: var(--font-text);
+  font-size: 0.625rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-carta);
+}
+
+/* Etichetta, domanda grande, link sotto: stessa struttura delle altre sezioni */
+.inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+.text {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-carta);
+  max-width: 18em;
+}
+
+.link {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+  color: var(--color-carta);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
+  transition: color var(--transition-fast);
+}
+
+.link::after {
+  content: '→';
+  color: var(--color-antracite);
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-antracite);
+}
+
+.link:focus-visible {
+  outline: 1px solid var(--color-carta);
+  outline-offset: 4px;
+}
+
+.link:hover::after {
+  transform: translateX(6px);
+}
+
+@media (max-width: 768px) {
+  .cta {
+    padding: 5rem 1.25rem 6rem;
+  }
+}

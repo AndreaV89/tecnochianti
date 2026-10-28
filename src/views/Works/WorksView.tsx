@@ -1,6 +1,7 @@
 import Header from '@/components/Header/Header'
 import ProjectCard from '@/components/ProjectCard/ProjectCard'
 import Footer from '@/components/Footer/Footer'
+import ContactCta from '@/components/ContactCta/ContactCta'
 import { getProjects } from '@/data/projects'
 import { getDictionary } from '@/i18n/dictionaries'
 import type { Locale } from '@/i18n/routes'
@@ -46,6 +47,8 @@ export default function WorksView({ locale }: Props) {
             ))}
           </div>
         </div>
+
+        <ContactCta locale={locale} />
       </main>
       <Footer locale={locale} />
     </>
