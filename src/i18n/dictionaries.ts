@@ -19,6 +19,7 @@ const it = {
     privacy: 'Privacy',
     cookies: 'Cookie policy',
     cookiePreferences: 'Preferenze cookie',
+    credit: 'Sito di Andrea Vannetti',
   },
   home: {
     metaTitle: 'TecnoChianti — Studio di Architettura',
@@ -148,6 +149,7 @@ const en: Dictionary = {
     privacy: 'Privacy',
     cookies: 'Cookie policy',
     cookiePreferences: 'Cookie preferences',
+    credit: 'Website by Andrea Vannetti',
   },
   home: {
     metaTitle: 'TecnoChianti — Architecture Studio',

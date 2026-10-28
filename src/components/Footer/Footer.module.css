@@ -103,6 +103,20 @@
   gap: 0.5rem 1.75rem;
 }
 
+/* Firma dello sviluppatore: marchio piccolo accanto al testo */
+.credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+}
+
+.creditIcon {
+  width: 1.6em;
+  height: auto;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
 @media (max-width: 640px) {
   .footer {
     padding: 3.5rem 1.25rem 2.5rem;
