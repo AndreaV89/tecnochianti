@@ -11,6 +11,8 @@
   /* Testi lunghi (descrizioni, Studio): più leggibile del grigio medio, meno pesante dell'antracite */
   --color-grigio-testo: #77746C;
   --color-terracotta: #B8623C;
+  /* Terracotta più scuro e meno acceso, solo per la fascia dell'invito al contatto in Home */
+  --color-terracotta-scuro: #A0583A;
 
   /* Font families (variabili CSS iniettate da next/font, vedi SiteDocument.tsx) */
   --font-display: var(--font-saira), system-ui, -apple-system, sans-serif;
