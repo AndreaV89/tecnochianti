@@ -13,11 +13,18 @@
   cursor: pointer;
 }
 
+/* Card senza scheda di dettaglio: non cliccabile */
+.cardStatic:hover {
+  cursor: default;
+}
+
 .imageWrapper {
   position: relative;
   aspect-ratio: 3 / 4;
   overflow: hidden;
   background-color: var(--color-grigio-chiaro);
+  /* Permette al nome in hover di scalare con la larghezza della card (unità cqi) */
+  container-type: inline-size;
   filter: grayscale(1);
   transition: filter var(--transition-card);
 }
@@ -26,21 +33,65 @@
   filter: grayscale(0);
 }
 
-.badge {
+/* Nome sopra la foto, visibile in hover (solo dispositivi con mouse) */
+.overlay {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 10;
-  font-family: var(--font-sans);
-  font-size: 0.5625rem;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(1.25rem, 6cqi, 2rem);
+  background: linear-gradient(
+    to top,
+    rgba(43, 42, 39, 0.55) 0%,
+    rgba(43, 42, 39, 0.15) 40%,
+    rgba(43, 42, 39, 0) 65%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-card);
+  pointer-events: none;
+}
+
+.overlayTitle {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: clamp(1.5rem, 8cqi, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-carta);
+  transform: translateY(0.5rem);
+  transition: transform var(--transition-card);
+}
+
+/* Didascalia dei lavori senza scheda */
+.overlayNote {
+  font-family: var(--font-text);
+  font-size: 0.6875rem;
   font-weight: var(--weight-medium);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-carta);
-  background: rgba(43, 42, 39, 0.55);
-  padding: 0.35rem 0.65rem;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  transform: translateY(0.5rem);
+  transition: transform var(--transition-card);
+}
+
+@media (hover: hover) {
+  .card:hover .overlay {
+    opacity: 1;
+  }
+
+  .card:hover .overlayTitle,
+  .card:hover .overlayNote {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .overlayTitle,
+  .overlayNote {
+    transition: none;
+  }
 }
 
 .meta {
@@ -51,7 +102,7 @@
 }
 
 .category {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
   font-size: 0.5625rem;
   font-weight: var(--weight-medium);
   letter-spacing: 0.22em;
@@ -59,19 +110,15 @@
   color: var(--color-grigio-medio);
 }
 
+.status {
+  color: var(--color-antracite);
+}
+
 .title {
-  font-family: var(--font-serif);
-  font-weight: var(--weight-light);
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
   font-size: 1.25rem;
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: var(--color-antracite);
-}
-
-.year {
-  font-family: var(--font-sans);
-  font-size: 0.625rem;
-  letter-spacing: 0.08em;
-  color: var(--color-grigio-medio);
-  margin-top: 0.125rem;
 }

@@ -1,0 +1,140 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-family: var(--font-text);
+  font-size: 0.625rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-grigio-medio);
+}
+
+/* Solo linea inferiore, in linea con lo stile tipografico del sito */
+.input {
+  width: 100%;
+  padding: 0.5rem 0;
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-antracite);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-grigio-medio);
+  border-radius: 0;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+/* Campo attivo: niente riquadro, la linea sotto diventa antracite e più spessa
+   (l'ombra aggiunge 1px senza spostare il layout). Basta anche per chi usa la tastiera */
+.input:focus,
+.input:focus-visible {
+  outline: none;
+  border-bottom-color: var(--color-antracite);
+  box-shadow: 0 1px 0 0 var(--color-antracite);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+/* Fuori dallo schermo invece di display: none, che alcuni bot riconoscono */
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.privacy {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-family: var(--font-text);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--color-antracite);
+  cursor: pointer;
+}
+
+.checkbox {
+  margin-top: 0.3rem;
+  flex-shrink: 0;
+  accent-color: var(--color-antracite);
+}
+
+.privacyLink {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.error {
+  font-family: var(--font-text);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-terracotta);
+}
+
+.success {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.3;
+  color: var(--color-antracite);
+}
+
+.submit {
+  align-self: flex-start;
+  padding: 0.9rem 2rem;
+  font-family: var(--font-text);
+  font-size: 0.6875rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-carta);
+  background-color: var(--color-antracite);
+  border: 1px solid var(--color-antracite);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.submit:hover:not(:disabled) {
+  color: var(--color-antracite);
+  background-color: transparent;
+}
+
+.submit:focus-visible {
+  outline: 1px solid var(--color-antracite);
+  outline-offset: 4px;
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

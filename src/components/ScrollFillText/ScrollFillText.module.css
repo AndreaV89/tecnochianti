@@ -1,0 +1,17 @@
+/* --filled: quante parole sono già piene (decimale: l'ultima si riempie gradualmente).
+   Valore alto di default: senza JavaScript il testo è tutto pieno */
+.text {
+  --filled: 9999;
+}
+
+/* Con JavaScript attivo si parte da vuoto già nell'HTML, così non c'è sfarfallio */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .text {
+    --filled: 0;
+  }
+}
+
+/* Ogni parola va da opacità 0.18 a 1 mentre --filled passa da i a i+1 */
+.word {
+  opacity: calc(0.18 + 0.82 * clamp(0, var(--filled) - var(--i), 1));
+}
