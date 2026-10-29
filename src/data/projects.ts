@@ -4,7 +4,7 @@ import type { Locale } from '@/i18n/routes'
 // Testi forniti dal cliente (PDF "Didascalie sito ok"). I grassetti si scrivono tra **...**
 // Dati della scheda: luogo, anno, stato, tipologia di intervento, categoria (confermati dal cliente).
 // L'ordine nella pagina Lavori è per anno, dal più recente: l'ordine qui sotto non conta.
-// Copertina, foto e hero: si cambiano modificando il nome file (vedi /anteprima-foto).
+// Copertina, foto e hero: si cambiano modificando il nome file.
 // L'ordine di `photos` è l'ordine della galleria; le foto escluse restano in public/ ma non compaiono.
 
 export const projects: Project[] = [

@@ -99,21 +99,21 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 
 ## Stato attuale
 
-- www.tecnochianti.it è online ma mostra la pagina "in costruzione": `src/proxy.ts` riscrive ogni richiesta verso `src/app/in-costruzione/page.tsx`.
-- Il lavoro si verifica con le preview di Vercel.
+- Sito online su www.tecnochianti.it dal 29/10/2026 (merge di `develop` in `main`).
+- Il lavoro si verifica con le preview di Vercel di `develop`; la produzione si aggiorna con il merge in `main`.
 
 ## Prima del lancio
 
 - [ ] Ricevere dal cliente i contenuti mancanti (vedi sotto)
-- [ ] Eliminare `src/proxy.ts` per riattivare il sito completo
-- [ ] Eliminare la pagina temporanea `/anteprima-foto`
-- [ ] Togliere `picsum.photos` da `remotePatterns` e qualsiasi immagine segnaposto rimasta
+- [x] Eliminare `src/proxy.ts` per riattivare il sito completo
+- [x] Eliminare la pagina temporanea `/anteprima-foto`
+- [x] Togliere `picsum.photos` da `remotePatterns` e qualsiasi immagine segnaposto rimasta
 - [x] Verificare il dominio tecnochianti.it su Resend (record DKIM `resend._domainkey`, CNAME `rsend` e `send`, DMARC `_dmarc` su Register.it; MX e SPF principali non toccati)
 - [x] Impostare su Vercel `RESEND_API_KEY`, `CONTACT_FROM` e `CONTACT_RECIPIENTS` (vedi `.env.example`) e provare il form. In Preview `CONTACT_RECIPIENTS` contiene solo la mia email: i test non arrivano al cliente
 - [ ] Dopo il lancio, provare il form in produzione (deve arrivare a info@ e ai tre professionisti)
 - [x] Impostare `NEXT_PUBLIC_GA_ID` su Vercel (Production e Preview) e verificare il banner cookie
 - [x] Privacy e cookie policy verificate da un consulente privacy (Avv. Stefano Iaria) e integrate con le sue proposte; avviso "Testo provvisorio" tolto, ultimo aggiornamento 28/10/2026
-- [ ] Merge di `develop` in `main`
+- [x] Merge di `develop` in `main`
 
 ## In attesa dal cliente
 
