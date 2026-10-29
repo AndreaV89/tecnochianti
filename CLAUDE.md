@@ -127,3 +127,4 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 - Commit separati per ogni blocco di modifiche.
 - Se qualcosa non è chiaro, chiedi prima di assumere.
 - Quando una decisione o lo stato del lavoro cambiano, aggiorna questo file.
+- Aggiorna anche la scheda del progetto fuori dal repo, `~/Library/Mobile Documents/com~apple~CloudDocs/Lavoro/02_Clienti/TecnoChianti/tecnochianti.it/Progetto.md` (stato, manutenzione, dati tecnici, cose da fare), ogni volta che cambia qualcosa che la riguarda.
