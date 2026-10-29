@@ -52,7 +52,7 @@ Direzione "architettura tipografica": minimal, tipografia protagonista, sfondo c
 
 ## Struttura
 
-- **Home**: hero, manifesto con breve testo introduttivo (bozza in attesa di approvazione del cliente) e link a Studio, tre lavori in evidenza, invito al contatto (etichetta "Contatti", domanda "Vuoi valorizzare un immobile o hai un cantiere da avviare nel Chianti?" e link "Raccontaci la tua idea" → Contatti).
+- **Home**: hero, manifesto con breve testo introduttivo (approvato dal cliente) e link a Studio, tre lavori in evidenza, invito al contatto (etichetta "Contatti", domanda "Vuoi valorizzare un immobile o hai un cantiere da avviare nel Chianti?" e link "Raccontaci la tua idea" → Contatti).
 - **Footer** (tutte le pagine), a due fasce: sopra logo a sinistra, indirizzo, telefono, email e menu a destra; sotto dati legali dei professionisti, © e link Privacy, Cookie policy, Preferenze cookie. Nessuna frase descrittiva (spostata nella pagina Studio).
 - **Lavori**: un'unica griglia a due colonne, ordinata per anno dal più recente, con contatore dei progetti. I lavori in corso sono segnalati con "In corso" accanto alla categoria nella card. In fondo lo stesso invito al contatto della Home (`ContactCta`). Nelle schede dei singoli progetti per ora no (forse più avanti).
 - **Lavori/[slug]**: hero a colori (75svh), blocco dati, descrizione, galleria, link per tornare indietro. Generata con `generateStaticParams`.
@@ -101,6 +101,9 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 
 - Sito online su www.tecnochianti.it dal 29/10/2026 (merge di `develop` in `main`).
 - Il lavoro si verifica con le preview di Vercel di `develop`; la produzione si aggiorna con il merge in `main`.
+- Complesso immobiliare a Radda: per ora resta la card non cliccabile "Dettagli a breve", senza anno e senza pagina dedicata (decisione mia).
+- Google Search Console: proprietà Dominio `tecnochianti.it`, verificata con un record TXT `google-site-verification=…` nel DNS su Register.it. Non cancellarlo, altrimenti si perde la proprietà. Sitemap inviata: `https://www.tecnochianti.it/sitemap.xml`.
+- Manutenzione dopo il lancio: a progetto, 60 € per ogni nuovo progetto inserito; altre modifiche quotate di volta in volta.
 
 ## Prima del lancio
 
@@ -117,9 +120,7 @@ Niente superfici, impianti, vincoli o altri dati tecnici nel blocco dati. Sottot
 
 ## In attesa dal cliente
 
-- Anno del Complesso immobiliare a Radda (ora vuoto: la card è ultima nella griglia)
-- Approvazione del testo introduttivo della Home (bozza in `src/i18n/dictionaries.ts`, `home.intro`)
-- Approvazione delle traduzioni inglesi (bozze in `src/i18n/dictionaries.ts` e nel campo `en` di `src/data/projects.ts`)
+- Niente in sospeso.
 
 ## Modo di lavorare
 

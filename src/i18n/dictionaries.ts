@@ -28,7 +28,6 @@ const it = {
     heroLabel: 'Immagini dei lavori',
     manifestoLabel: 'Manifesto',
     manifesto: ['Diamo forma al futuro', "creando architetture custodi dell'anima dei luoghi"],
-    // Bozza da far approvare al cliente
     intro:
       "TecnoChianti è uno studio di architettura con sede a Radda in Chianti. Dal 2013 progettiamo edifici privati e ci occupiamo del recupero e della valorizzazione del patrimonio edilizio esistente, seguendo ogni intervento dal progetto al cantiere.",
     studioLink: 'Lo studio',
@@ -134,7 +133,7 @@ const it = {
 
 export type Dictionary = typeof it
 
-// Bozza di traduzione da far approvare al cliente
+// Traduzione inglese
 const en: Dictionary = {
   header: {
     navLabel: 'Main navigation',
