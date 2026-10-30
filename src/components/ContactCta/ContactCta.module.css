@@ -36,6 +36,20 @@
   max-width: 18em;
 }
 
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.subtext {
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-carta);
+  max-width: 38rem;
+}
+
 .link {
   font-family: var(--font-display);
   font-weight: var(--weight-regular);

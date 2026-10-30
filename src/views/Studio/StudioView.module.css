@@ -158,17 +158,40 @@
   flex-direction: column;
   gap: 0;
   padding-bottom: 6rem;
-  max-width: 44ch;
+  max-width: 48rem;
 }
 
+/* Nome del servizio a sinistra, descrizione a destra (una sotto l'altra su mobile) */
 .service {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 0.5rem 2.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-grigio-chiaro);
+}
+
+.serviceName {
   font-family: var(--font-text);
   font-size: 1rem;
-  line-height: 1;
+  line-height: 1.4;
   color: var(--color-antracite);
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--color-grigio-chiaro);
-  transition: color var(--transition-fast);
+}
+
+.serviceDescription {
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-grigio-testo);
+}
+
+/* Frase introduttiva sopra l'elenco dei professionisti */
+.sectionIntro {
+  max-width: 34rem;
+  margin-bottom: 3rem;
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-grigio-testo);
 }
 
 .service:first-child {
@@ -177,6 +200,10 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .service {
+    grid-template-columns: 1fr;
+  }
+
   .intro {
     padding: 4rem 1.25rem;
   }

@@ -43,7 +43,7 @@ export const projects: Project[] = [
       '14.webp': "Soggiorno con cucina a vista e solaio in legno chiaro",
       '15.webp': "Il cantiere visto dall'alto, con la nuova copertura in posa",
     },
-    // Traduzione inglese (bozza da far approvare al cliente)
+    // Traduzione inglese
     en: {
       intervention: "Demolition and reconstruction",
       category: "Residential",
@@ -104,7 +104,7 @@ export const projects: Project[] = [
       '07.webp': "Salone affrescato della Villa con porta finestra ad arco",
       '08.webp': "Scalone con balaustra visto dall'alto",
     },
-    // Traduzione inglese (bozza da far approvare al cliente)
+    // Traduzione inglese
     en: {
       intervention: "Restoration",
       category: "Residential",
@@ -163,9 +163,9 @@ export const projects: Project[] = [
       '09.webp': "Copertura della Villa in rifacimento, con le statue del tetto sullo sfondo",
       '10.webp': "Scala in pietra in corso di restauro tra i ponteggi",
     },
-    // Traduzione inglese (bozza da far approvare al cliente)
+    // Traduzione inglese
     en: {
-      title: "Property complex in Gaiole in Chianti",
+      title: "Residential Complex in Gaiole in Chianti",
       intervention: "Restoration",
       category: "Residential",
       abstract: "Restoration of the estate and landscaping of the outdoor spaces",
@@ -219,10 +219,11 @@ export const projects: Project[] = [
       '06.webp': "La tenuta vista dall'alto, tra vigneti e boschi",
       '07.webp': "Il cantiere della cantina visto dall'alto",
     },
-    // Traduzione inglese (bozza da far approvare al cliente)
+    // Traduzione inglese
     en: {
+      title: "Le Prata Winery",
       intervention: "New construction",
-      category: "Winery",
+      category: "Wine Estate & Corporate",
       abstract: "An underground winery that disappears beneath a garden roof",
       paragraphs: [
         "The site lies in the extraordinary vine-covered hills of Montalcino, in the heart of the Val d'Orcia.",
@@ -268,9 +269,9 @@ export const projects: Project[] = [
       '05.webp': "Zona pranzo e soggiorno con mensole a parete",
       '06.webp': "Camera matrimoniale con carta da parati decorata",
     },
-    // Traduzione inglese (bozza da far approvare al cliente)
+    // Traduzione inglese
     en: {
-      title: "Apartment in Radda",
+      title: "Apartment in Radda in Chianti",
       intervention: "Renovation",
       category: "Residential",
       abstract: "The renovation of an apartment to make it more functional and contemporary",
@@ -304,9 +305,9 @@ export const projects: Project[] = [
     photoAlts: {
       '01.webp': "Il complesso immobiliare visto dall'alto, tra boschi e vigneti",
     },
-    // Traduzione inglese (bozza da far approvare al cliente)
+    // Traduzione inglese
     en: {
-      title: "Property complex in Radda in Chianti",
+      title: "Residential Complex in Radda in Chianti",
       intervention: "",
       category: "Residential",
       abstract: "",

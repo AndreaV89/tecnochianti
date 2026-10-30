@@ -56,6 +56,7 @@ export default function StudioView({ locale }: Props) {
             <div className={styles.divider}>
               <span className={styles.sectionLabel}>{t.studio.team}</span>
             </div>
+            <p className={styles.sectionIntro}>{t.studio.teamIntro}</p>
             <ul className={styles.professionals} role="list">
               {professionals.map(p => (
                 <li key={p.name} className={styles.professional}>
@@ -75,7 +76,10 @@ export default function StudioView({ locale }: Props) {
             </div>
             <ul className={styles.services} role="list">
               {t.studio.serviceList.map(s => (
-                <li key={s} className={styles.service}>{s}</li>
+                <li key={s.name} className={styles.service}>
+                  <span className={styles.serviceName}>{s.name}</span>
+                  <span className={styles.serviceDescription}>{s.description}</span>
+                </li>
               ))}
             </ul>
           </div>

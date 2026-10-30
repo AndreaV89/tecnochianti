@@ -22,6 +22,7 @@ export default function ContactView({ locale }: Props) {
         <div className={styles.pageHeader}>
           <div className={styles.pageHeaderInner}>
             <h1 className={styles.pageTitle}>{t.contact.title}</h1>
+            <p className={styles.pageIntro}>{t.contact.intro}</p>
           </div>
         </div>
 
@@ -34,6 +35,7 @@ export default function ContactView({ locale }: Props) {
                 <dd className={styles.detailValue}>
                   {street}<br />
                   {postalCode} {city} ({province})
+                  {t.contact.country && <><br />{t.contact.country}</>}
                 </dd>
               </div>
               <div className={styles.detail}>
