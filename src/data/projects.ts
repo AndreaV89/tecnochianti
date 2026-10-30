@@ -165,7 +165,7 @@ export const projects: Project[] = [
     },
     // Traduzione inglese
     en: {
-      title: "Property complex in Gaiole in Chianti",
+      title: "Residential Complex in Gaiole in Chianti",
       intervention: "Restoration",
       category: "Residential",
       abstract: "Restoration of the estate and landscaping of the outdoor spaces",
@@ -221,8 +221,9 @@ export const projects: Project[] = [
     },
     // Traduzione inglese
     en: {
+      title: "Le Prata Winery",
       intervention: "New construction",
-      category: "Winery",
+      category: "Wine Estate & Corporate",
       abstract: "An underground winery that disappears beneath a garden roof",
       paragraphs: [
         "The site lies in the extraordinary vine-covered hills of Montalcino, in the heart of the Val d'Orcia.",
@@ -270,7 +271,7 @@ export const projects: Project[] = [
     },
     // Traduzione inglese
     en: {
-      title: "Apartment in Radda",
+      title: "Apartment in Radda in Chianti",
       intervention: "Renovation",
       category: "Residential",
       abstract: "The renovation of an apartment to make it more functional and contemporary",
@@ -306,7 +307,7 @@ export const projects: Project[] = [
     },
     // Traduzione inglese
     en: {
-      title: "Property complex in Radda in Chianti",
+      title: "Residential Complex in Radda in Chianti",
       intervention: "",
       category: "Residential",
       abstract: "",

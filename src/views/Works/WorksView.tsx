@@ -31,6 +31,10 @@ export default function WorksView({ locale }: Props) {
           <div className={styles.pageHeaderInner}>
             <h1 className={styles.pageTitle}>{t.works.title}</h1>
             <span className={styles.pageCount}>{t.works.count(projects.length)}</span>
+            <div className={styles.pageIntro}>
+              <p className={styles.pageIntroLead}>{t.works.introLead}</p>
+              <p className={styles.pageIntroText}>{t.works.introText}</p>
+            </div>
           </div>
         </div>
 
@@ -48,7 +52,7 @@ export default function WorksView({ locale }: Props) {
           </div>
         </div>
 
-        <ContactCta locale={locale} />
+        <ContactCta locale={locale} variant="works" />
       </main>
       <Footer locale={locale} />
     </>

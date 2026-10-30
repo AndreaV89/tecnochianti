@@ -52,11 +52,11 @@ export default function Footer({ locale }: Props) {
         </div>
 
         <div className={styles.bottom}>
-          {/* Dati legali dei professionisti: restano in italiano anche nella versione inglese */}
+          {/* Dati legali dei professionisti (i titoli Arch. e P.I. restano in italiano) */}
           <ul className={styles.professionals} role="list">
             {professionalsLegal.map(p => (
-              <li key={p.vatNumber} lang="it">
-                {p.title} {p.name} · P.IVA {p.vatNumber} · {p.register}
+              <li key={p.vatNumber}>
+                {p.title} {p.name} · {t.footer.vat} {p.vatNumber} · {p.register[locale]}
               </li>
             ))}
           </ul>

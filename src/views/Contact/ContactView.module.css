@@ -21,6 +21,16 @@
   color: var(--color-antracite);
 }
 
+/* Breve testo sotto il titolo */
+.pageIntro {
+  margin-top: 1.5rem;
+  max-width: 40rem;
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-grigio-testo);
+}
+
 /* Due colonne: recapiti a sinistra, form a destra */
 .content {
   padding: 6rem 2rem 8rem;

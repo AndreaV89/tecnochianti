@@ -63,6 +63,7 @@ export default function HomeView({ locale }: Props) {
           <h1 className={styles.manifestoText}>
             {claimFirstLine}<br />{claimSecondLine}
           </h1>
+          <p className={styles.manifestoSub}>{t.home.manifestoSub}</p>
           <div className={styles.intro}>
             <p className={styles.introText}>{t.home.intro}</p>
             <Link href={routePath(locale, 'studio')} className={styles.arrowLink}>
@@ -98,7 +99,7 @@ export default function HomeView({ locale }: Props) {
         </div>
       </section>
 
-      <ContactCta locale={locale} />
+      <ContactCta locale={locale} variant="home" />
 
       <Footer locale={locale} />
     </main>
