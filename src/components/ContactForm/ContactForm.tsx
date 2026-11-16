@@ -1,6 +1,6 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useActionState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { unstable_isUnrecognizedActionError } from 'next/navigation'
 import {
@@ -53,6 +53,17 @@ export default function ContactForm({ locale }: Props) {
   const [state, formAction, pending] = useActionState(submit, initialState)
   const values = state.values
 
+  // Momento in cui il form è comparso, per il filtro antispam sul tempo di compilazione.
+  // Si imposta nel browser e non al render: la pagina è statica e conterrebbe l'ora della build.
+  // Il valore si scrive direttamente nel campo nascosto: in un campo hidden resta anche
+  // quando React svuota il form dopo un invio con errore.
+  const startedAtRef = useRef<HTMLInputElement>(null)
+  useEffect(() => {
+    if (startedAtRef.current) {
+      startedAtRef.current.value = String(Date.now())
+    }
+  }, [])
+
   if (state.status === 'success') {
     return (
       <p className={styles.success} role="status">
@@ -65,6 +76,7 @@ export default function ContactForm({ locale }: Props) {
     <form action={formAction} className={styles.form}>
       {/* Lingua della pagina: la Server Action risponde con i messaggi nella stessa lingua */}
       <input type="hidden" name="locale" value={locale} />
+      <input type="hidden" name="startedAt" ref={startedAtRef} />
 
       <div className={styles.row}>
         <div className={styles.field}>

@@ -28,6 +28,7 @@ export interface ContactFormState {
 
 const MAX_NAME_LENGTH = 100
 const MAX_MESSAGE_LENGTH = 5000
+const MIN_FILL_TIME_MS = 3000
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 function getField(formData: FormData, name: string): string {
@@ -46,6 +47,14 @@ export async function sendContactMessage(
   // Campo nascosto "website": le persone non lo vedono, i bot lo compilano.
   // Rispondiamo come se fosse andato tutto bene, così il bot non riprova.
   if (getField(formData, 'website')) {
+    return { status: 'success', message: t.success }
+  }
+
+  // Filtro sul tempo: una persona impiega qualche secondo a compilare il form, un bot no.
+  // "startedAt" lo imposta il browser quando il form compare: se manca (JavaScript
+  // non attivo, bot che invia l'HTML) o l'invio è troppo rapido, stessa risposta finta.
+  const startedAt = Number(getField(formData, 'startedAt'))
+  if (!startedAt || Date.now() - startedAt < MIN_FILL_TIME_MS) {
     return { status: 'success', message: t.success }
   }
 
