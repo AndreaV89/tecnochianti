@@ -2,7 +2,12 @@
 
 import { useActionState } from 'react'
 import Link from 'next/link'
-import { sendContactMessage, type ContactFormState } from '@/lib/contact-action'
+import { unstable_isUnrecognizedActionError } from 'next/navigation'
+import {
+  sendContactMessage,
+  type ContactFormState,
+  type ContactFormValues,
+} from '@/lib/contact-action'
 import { getDictionary } from '@/i18n/dictionaries'
 import { routePath, type Locale } from '@/i18n/routes'
 import styles from './ContactForm.module.css'
@@ -13,9 +18,39 @@ interface Props {
   locale: Locale
 }
 
+function readValues(formData: FormData): ContactFormValues {
+  const read = (name: string): string => {
+    const value = formData.get(name)
+    return typeof value === 'string' ? value : ''
+  }
+  return {
+    firstName: read('firstName'),
+    lastName: read('lastName'),
+    email: read('email'),
+    message: read('message'),
+  }
+}
+
 export default function ContactForm({ locale }: Props) {
   const t = getDictionary(locale).form
-  const [state, formAction, pending] = useActionState(sendContactMessage, initialState)
+
+  // Errori imprevisti (sito aggiornato mentre la pagina era aperta, connessione caduta):
+  // senza questo try/catch la pagina andrebbe in crash e il testo scritto si perderebbe.
+  // Così invece compare il solito messaggio di errore e i campi restano compilati.
+  async function submit(previousState: ContactFormState, formData: FormData): Promise<ContactFormState> {
+    try {
+      return await sendContactMessage(previousState, formData)
+    } catch (error) {
+      console.error('Form contatti: errore imprevisto', error)
+      return {
+        status: 'error',
+        message: unstable_isUnrecognizedActionError(error) ? t.errorOutdated : t.errorSend,
+        values: readValues(formData),
+      }
+    }
+  }
+
+  const [state, formAction, pending] = useActionState(submit, initialState)
   const values = state.values
 
   if (state.status === 'success') {
