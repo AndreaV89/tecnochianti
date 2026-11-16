@@ -1,8 +1,13 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useActionState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { sendContactMessage, type ContactFormState } from '@/lib/contact-action'
+import { unstable_isUnrecognizedActionError } from 'next/navigation'
+import {
+  sendContactMessage,
+  type ContactFormState,
+  type ContactFormValues,
+} from '@/lib/contact-action'
 import { getDictionary } from '@/i18n/dictionaries'
 import { routePath, type Locale } from '@/i18n/routes'
 import styles from './ContactForm.module.css'
@@ -13,10 +18,51 @@ interface Props {
   locale: Locale
 }
 
+function readValues(formData: FormData): ContactFormValues {
+  const read = (name: string): string => {
+    const value = formData.get(name)
+    return typeof value === 'string' ? value : ''
+  }
+  return {
+    firstName: read('firstName'),
+    lastName: read('lastName'),
+    email: read('email'),
+    message: read('message'),
+  }
+}
+
 export default function ContactForm({ locale }: Props) {
   const t = getDictionary(locale).form
-  const [state, formAction, pending] = useActionState(sendContactMessage, initialState)
+
+  // Errori imprevisti (sito aggiornato mentre la pagina era aperta, connessione caduta):
+  // senza questo try/catch la pagina andrebbe in crash e il testo scritto si perderebbe.
+  // Così invece compare il solito messaggio di errore e i campi restano compilati.
+  async function submit(previousState: ContactFormState, formData: FormData): Promise<ContactFormState> {
+    try {
+      return await sendContactMessage(previousState, formData)
+    } catch (error) {
+      console.error('Form contatti: errore imprevisto', error)
+      return {
+        status: 'error',
+        message: unstable_isUnrecognizedActionError(error) ? t.errorOutdated : t.errorSend,
+        values: readValues(formData),
+      }
+    }
+  }
+
+  const [state, formAction, pending] = useActionState(submit, initialState)
   const values = state.values
+
+  // Momento in cui il form è comparso, per il filtro antispam sul tempo di compilazione.
+  // Si imposta nel browser e non al render: la pagina è statica e conterrebbe l'ora della build.
+  // Il valore si scrive direttamente nel campo nascosto: in un campo hidden resta anche
+  // quando React svuota il form dopo un invio con errore.
+  const startedAtRef = useRef<HTMLInputElement>(null)
+  useEffect(() => {
+    if (startedAtRef.current) {
+      startedAtRef.current.value = String(Date.now())
+    }
+  }, [])
 
   if (state.status === 'success') {
     return (
@@ -30,6 +76,7 @@ export default function ContactForm({ locale }: Props) {
     <form action={formAction} className={styles.form}>
       {/* Lingua della pagina: la Server Action risponde con i messaggi nella stessa lingua */}
       <input type="hidden" name="locale" value={locale} />
+      <input type="hidden" name="startedAt" ref={startedAtRef} />
 
       <div className={styles.row}>
         <div className={styles.field}>

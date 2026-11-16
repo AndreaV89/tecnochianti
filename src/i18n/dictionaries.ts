@@ -167,6 +167,14 @@ const it = {
     errorPrivacy: "Per inviare il messaggio è necessario accettare l'informativa privacy.",
     errorSend:
       'Non è stato possibile inviare il messaggio. Riprova più tardi o contattaci per telefono o email.',
+    errorOutdated:
+      'Il sito è stato aggiornato mentre la pagina era aperta. Copia il messaggio, ricarica la pagina e invialo di nuovo, oppure contattaci per telefono.',
+  },
+  errorPage: {
+    title: 'Si è verificato un errore',
+    text: 'Qualcosa non ha funzionato nel caricamento della pagina. Riprova o, se il problema continua, contattaci per telefono.',
+    retry: 'Riprova',
+    home: 'Torna alla home',
   },
   cookieBanner: {
     label: 'Preferenze cookie',
@@ -337,6 +345,14 @@ const en: Dictionary = {
     errorPrivacy: 'To send the message you need to accept the privacy policy.',
     errorSend:
       'The message could not be sent. Please try again later or contact us by phone or email.',
+    errorOutdated:
+      'The site was updated while this page was open. Please copy your message, reload the page and send it again, or contact us by phone.',
+  },
+  errorPage: {
+    title: 'Something went wrong',
+    text: 'Something went wrong while loading the page. Please try again or, if the problem persists, contact us by phone.',
+    retry: 'Try again',
+    home: 'Back to home',
   },
   cookieBanner: {
     label: 'Cookie preferences',
